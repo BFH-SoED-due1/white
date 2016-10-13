@@ -1,0 +1,10 @@
+@startuml
+Admin -->ALL
+
+Benutzer "1"   <--> "0..*" Reservation : macht >
+Reservation "0..*" --> "1" Saision
+Reservation "0..*" <--> "0..*" Equipment 
+Reservation "0..*" <--> "1" Raum 
+Raum "*" <--> "1"  Gebäude
+Gebäude "1" <--> "0..*" Equipment
+@enduml
