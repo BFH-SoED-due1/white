@@ -7,15 +7,30 @@
 Glossary for the Smart Reservation System
 
 	This is the Glossary for the project Smart Reservation System. Here, the
-most important terms are captured and briefly described. It is maintained
-by the development team.
+    most important terms are captured and briefly described. It is maintained
+    by the development team.
 	
 	
-	[Product owner]		The product owner has all rights about the project.
+	[Product owner]
+	The product owner has all rights about the project.
 
-	[SRS]			Smart Reservation System - A software system enabling
-					associations and enterprises to book and share rooms.
-	
-	[...]			...
-	
+	[SRS]
+	Smart Reservation System - A software system enabling associations and enterprises to book and share rooms.
+
+	[Scrum]
+	is an iterative and incremental framework for managing product development.
+
+	[Development Team]
+	is responsible for delivering potentially shippable increments (PSIs) of product at the end of each Sprint (the\
+	Sprint goal).
+
+	[Scrum Master]
+	Scrum is facilitated by a Scrum Master, who is accountable for removing impediments to the ability of the team to\
+	deliver the product goals and deliverables.
+
+	[Sprint]
+	is a get-together of people involved in a project to further a focused development of the project. Sprints typically\
+	last from one week up to three weeks. Sprints have become popular events in some open-source projects.
+
+
 

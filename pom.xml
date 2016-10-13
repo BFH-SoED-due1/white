@@ -26,7 +26,55 @@
 		<dependency.locations.enabled>false</dependency.locations.enabled>
 	</properties>
 
-	<repositories>
+	<developers>
+		<developer>
+			<id>arauc1</id>
+			<name>Carlos Arauz</name>
+			<email>arauc1@bfh.ch</email>
+			<organization>Berner Fachhochschule / TI</organization>
+			<organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
+			<roles>
+				<role>Scrum Master</role>
+				<role>Software Developer</role>
+			</roles>
+			<timezone>+2</timezone>
+		</developer>
+		<developer>
+			<id>campa1</id>
+			<name>Angelo Campanile</name>
+			<email>campa1@bfh.ch</email>
+			<organization>Berner Fachhochschule / TI</organization>
+			<organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
+			<roles>
+				<role>Software Developer</role>
+			</roles>
+			<timezone>+2</timezone>
+		</developer>
+		<developer>
+			<id>hyamj1</id>
+			<name>Jonathan Hyams</name>
+			<email>hyamj1@bfh.ch</email>
+			<organization>Berner Fachhochschule / TI</organization>
+			<organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
+			<roles>
+				<role>Software Developer</role>
+			</roles>
+			<timezone>+2</timezone>
+		</developer>
+		<developer>
+			<id>schmp6</id>
+			<name>Pascal Schmalz</name>
+			<email>schmp6@bfh.ch</email>
+			<organization>Berner Fachhochschule / TI</organization>
+			<organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
+			<roles>
+				<role>Software Developer</role>
+			</roles>
+			<timezone>+2</timezone>
+		</developer>
+	</developers>
+
+<repositories>
 		<repository>
 			<id>vaadin-addons</id>
 			<url>http://maven.vaadin.com/vaadin-addons</url>

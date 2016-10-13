@@ -7,18 +7,18 @@
 
 Domain Model
 
-  This document describes the domain model ("Fachmodell") of the Smart Reservation
-System (SRS). It introduces the most important entities ("Fachklassen") and the
-associations among them. It also introduces the respective multiplicities.
+    This document describes the domain model ("Fachmodell") of the Smart Reservation
+    System (SRS). It introduces the most important entities ("Fachklassen") and the
+    associations among them. It also introduces the respective multiplicities.
 
-  Note that only a few attributes are showed in the diagram, but no operations.
+    Note that only a few attributes are showed in the diagram, but no operations.
 
 * 1. Domain Model
 
-  The model that was developed so far...
+    The model that was developed so far...
 
-  Add the image of the domain model here.
+[images/DomainModel.png]
 
 * 2. Open Issues
 
-  Add here any open issues, if any.
+    The Domain Model must be translated to english and there are still some adjustments to be done.
