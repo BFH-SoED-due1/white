@@ -12,7 +12,7 @@ roles users have when using the Smart Reservation System (SRS).
 
 * 1. Roles
 
-  <<Admin:>> The administrator manages Buildings, reservations, equipment, users, etc.
+  <<Admin:>> The administrator manages Buildings, reservations, equipment, users, etc...
 
   <<User:>> Can reserve certain rooms. A user can have different rights,
   for example a professor has a bigger pool of possible reservations than a student
