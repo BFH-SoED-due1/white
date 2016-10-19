@@ -10,4 +10,5 @@ public class Room {
     private String name;
     private int quantityOfSeats;
     private Set<Reservation> reservations;
+    //Set<EquipmentCategory> equipment;
 }
