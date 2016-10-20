@@ -9,22 +9,22 @@ import java.util.Set;
 @SuppressWarnings("unused")
 public class Building {
 
-    private string name;
-    private string address;
+    private String name;
+    private String address;
 
-    public string getName() {
+    public String getName() {
         return name;
     }
 
-    public string getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(string address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public void setName(string name) {
+    public void setName(String name) {
         this.name = name;
     }
 }

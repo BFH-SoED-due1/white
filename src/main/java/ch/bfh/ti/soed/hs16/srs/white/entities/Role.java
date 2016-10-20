@@ -1,18 +1,20 @@
-package main.java.ch.bfh.ti.soed.hs16.srs.white.entities;
+package ch.bfh.ti.soed.hs16.srs.white.entities;
+
+import java.util.Set;
 
 /**
  * Created by angelo on 10/20/16.
  */
 public class Role {
 
-    private stirng name;
+    private String name;
     Set<Rights> rights;
 
-    public stirng getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(stirng name) {
+    public void setName(String name) {
         this.name = name;
     }
 

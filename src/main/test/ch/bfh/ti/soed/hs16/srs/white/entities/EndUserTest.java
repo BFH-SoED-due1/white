@@ -11,8 +11,14 @@ public class EndUserTest {
     @Test
     public void testGettersAndSetters(){
         EndUser user = new EndUser();
-        user.setName("UserName");
-        assertEquals("UserName", user.getName());
+        user.setFirstName("UserName");
+        assertEquals("UserName", user.getFirstName());
+
+        user.setId(42);
+        assertEquals(42, user.getId());
+
+        user.setMail("xyz@bfh.ch");
+        assertEquals("xyz@bfh.ch", user.getMail());
 
 
     }
