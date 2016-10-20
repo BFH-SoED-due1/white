@@ -10,4 +10,33 @@ public class Reservation {
     private EndUser owner;
     private Date time; //TODO find a better type for time so it can be established if a reservation overlaps another one.
     private Room reservedRoom;
+
+    //TODO create constructor so Reservations always need a Time
+
+    public void setUser(EndUser endUser) {
+    }
+
+    public EndUser getOwner() {
+        return owner;
+    }
+
+    public void setOwner(EndUser owner) {
+        this.owner = owner;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public Room getReservedRoom() {
+        return reservedRoom;
+    }
+
+    public void setReservedRoom(Room reservedRoom) {
+        this.reservedRoom = reservedRoom;
+    }
 }

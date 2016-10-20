@@ -11,17 +11,38 @@ public class EndUserTest {
     @Test
     public void testGettersAndSetters(){
         EndUser user = new EndUser();
-        user.setFirstName("UserName");
-        assertEquals("UserName", user.getFirstName());
+        user.setFirstName("FirstName");
+        assertEquals("FirstName", user.getFirstName());
+
+        user.setLastName("LastName");
+        assertEquals("LastName", user.getLastName());
 
         user.setId(42);
         assertEquals(42, user.getId());
 
-        user.setMail("xyz@bfh.ch");
-        assertEquals("xyz@bfh.ch", user.getMail());
-
+        user.setMail("white@mailinator.com");
+        assertEquals("white@mailinator.com", user.getMail());
 
     }
+
+    @Test
+    public void testAddReservations(){
+        EndUser user = new EndUser();
+        Reservation res = new Reservation();
+        user.addReservations(res);
+        assertTrue(user.getReservations().contains(res));
+
+    }
+
+    @Test
+    public void testRemoveReservations(){
+        EndUser user = new EndUser();
+        Reservation res = new Reservation();
+        user.removeReservation(res);
+        assertTrue(user.getReservations().isEmpty());
+
+    }
+
 
 
 }
