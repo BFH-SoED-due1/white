@@ -1,3 +1,5 @@
 /target/
 srs-white.iml
+*.swo
+*.swp
 .idea/

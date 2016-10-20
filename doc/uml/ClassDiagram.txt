@@ -1,0 +1,58 @@
+@startuml
+Abstract Class EquipmentCategory{
+	-name
+	-id
+	showPropertys()
+}
+Class Beamer{
+	-name
+	-resulution
+}
+
+Class Flipchart{
+	-hasWheels
+}
+
+class EndUser{
+	-name
+	-id
+}
+
+Class Role{
+	-name
+	-rights
+}
+Class Reservation{
+	-time
+	-room
+}
+Class Room{
+	-quantitiOfSeats
+	-name
+	-building
+	-reservations
+	-equipment
+}
+Class Building{
+	-name
+	-adress
+	-rooms
+}
+
+Role "1" --" *" EndUser
+EndUser"1" *--o "*" Reservation
+Reservation "*" o--* "1" Room 
+Room "*" o--* "1" Building
+Room "*" --> "*" EquipmentCategory 
+Beamer "1" --|> EquipmentCategory 
+Flipchart "1" --|> EquipmentCategory 
+
+
+
+
+
+
+
+
+
+@enduml
