@@ -11,6 +11,12 @@ public class BuildingTest {
 
     @Test
     public void testGettersAndSetters(){
+        Building rolex = new Building();
+        rolex.setName("Rolex");
+        AssertEquals("Rolex", rolex.getName);
+
+        rolex.setAddress("Quellgasse");
+        AssertEquals("Quellgasse",rolex.getAddress);
 
 
     }
