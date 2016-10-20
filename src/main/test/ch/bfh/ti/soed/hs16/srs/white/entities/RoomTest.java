@@ -11,7 +11,26 @@ public class RoomTest {
 
     @Test
     public void testGettersAndSetters(){
+        Room room = new Room();
+
+
 
     }
+
+    @Test
+    public void testDeletedRoom(){
+        //TODO delete room, what happens to reservations in it?
+        Reservation reservation = new Reservation();
+        Building building = new Building();
+        Room room = new Room();
+        building.addRoom(room);
+        reservation.setReservedRoom(room);
+        building.removeRoom(room);
+        assertNull(reservation);
+
+
+    }
+
+
 
 }

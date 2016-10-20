@@ -13,9 +13,6 @@ public class Reservation {
 
     //TODO create constructor so Reservations always need a Time
 
-    public void setUser(EndUser endUser) {
-    }
-
     public EndUser getOwner() {
         return owner;
     }

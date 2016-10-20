@@ -13,12 +13,51 @@ public class BuildingTest {
     public void testGettersAndSetters(){
         Building rolex = new Building();
         rolex.setName("Rolex");
-        AssertEquals("Rolex", rolex.getName);
+        assertEquals("Rolex", rolex.getName());
 
         rolex.setAddress("Quellgasse");
-        AssertEquals("Quellgasse",rolex.getAddress);
+        assertEquals("Quellgasse",rolex.getAddress());
+
+    }
+
+    @Test
+    public void testRemoveBuilding(){
+        Building building = new Building();
+        Room room = new Room();
+        building.addRoom(room);
+        building.removeRoom(room);
+        assertTrue(building.getRooms().isEmpty());
+
+    }
+
+    @Test
+    public void testRemoveCertainReservations(){
+        Building building = new Building();
+        Room room1 = new Room();
+        Room room2 = new Room();
+        building.addRoom(room1);
+        building.addRoom(room2);
+        building.removeRoom(room2);
+        assertTrue(!building.getRooms().contains(room2));
+        assertTrue(building.getRooms().contains(room1));
 
 
     }
+
+    @Test
+    public void deleteBuildingDeletesRooms(){
+        Organization organization = new Organization();
+        Building building = new Building();
+        Room room = new Room();
+        organization.addBuilding(building);
+        building.addRoom(room);
+        organization.removeBuilding(building);
+        assertNull(room);
+
+
+        //building.delete();
+    }
+
+
 
 }
