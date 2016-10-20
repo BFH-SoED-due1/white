@@ -12,6 +12,7 @@ public class BuildingTest {
     @Test
     public void testGettersAndSetters(){
 
+
     }
 
 }

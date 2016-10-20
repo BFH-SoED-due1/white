@@ -38,9 +38,22 @@ public class EndUserTest {
     public void testRemoveReservations(){
         EndUser user = new EndUser();
         Reservation res = new Reservation();
+        user.addReservations(res);
         user.removeReservation(res);
         assertTrue(user.getReservations().isEmpty());
 
+    }
+
+    @Test
+    public void testRemoveCertainReservations(){
+        EndUser user = new EndUser();
+        Reservation res1 = new Reservation();
+        Reservation res2 = new Reservation();
+        user.addReservations(res1);
+        user.addReservations(res2);
+        user.removeReservation(res2);
+        assertTrue(!user.getReservations().contains(res2));
+        assertTrue(user.getReservations().contains(res1));
     }
 
 
