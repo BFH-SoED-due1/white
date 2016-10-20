@@ -3,12 +3,31 @@ The Maven Site of the Smart Reservation System
 	This is the Smart Reservation System (SRS) project of team green. To generate
 	this site, go to the root directory of the project, and then type:
 
-+-----+
++-----+§
 
 mvn clean package site
 
-Angelo Campanile, Kürzel:campa1, Github: Rambo5
-Jonathan Hyams, Kürzel: hyamj1, Github: hyamsj
-Carlos Arauz, Kürzel: arauc1, Github: arauzca
-
 +-----+
+
+=======================================================================
+
+* Project Owner
+
+    Erick Dubuis ({{{mailto:eric.dubuis@bfh.ch}due1}})\
+    Github: {{{https://github.com/due1}due1}}
+
+=======================================================================
+
+* Developer Team
+
+    Angelo Campanile ({{{mailto:campa1@bfh.ch}campa1}})\
+    Github: {{{https://github.com/Rambo5}Rambo5}}
+
+    Jonathan Hyams ({{{mailto:hyamj1@bfh.ch}hyamj1}})\
+    Github: {{{https://github.com/hyamsj}hyamsj}}
+
+    Carlos Arauz ({{{mailto:arauc1@bfh.ch}arauc1}})\
+    Github: {{{https://github.com/arauzca}arauzca}}
+
+    Pascal Schmalz ({{{mailto:schmp6@bfh.ch}schmp6}})\
+    Github: {{{https://github.com/WetWareCode}WetWareCode}}
