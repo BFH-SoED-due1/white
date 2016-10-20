@@ -11,7 +11,12 @@ public class RoleTest {
 
     @Test
     public void testGettersAndSetters(){
+        Role role = new Role();
+        role.setName("Admin");
+        assertEquals("Admin", role.getName());
 
+        //role.setRights(Rights.CREATE);
+        //assertEquals(Rights.CREATE, role.getRole());
     }
 
 }

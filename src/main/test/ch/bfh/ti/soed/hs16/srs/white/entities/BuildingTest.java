@@ -44,18 +44,20 @@ public class BuildingTest {
 
     }
 
+
+
     @Test
-    public void deleteBuildingDeletesRooms(){
-        Organization organization = new Organization();
+    public void testDeletedRoom(){
+        //TODO delete room, what happens to reservations in it?
+        Reservation reservation = new Reservation();
         Building building = new Building();
         Room room = new Room();
-        organization.addBuilding(building);
         building.addRoom(room);
-        organization.removeBuilding(building);
-        assertNull(room);
+        reservation.setReservedRoom(room);
+        building.removeRoom(room);
+        assertNull(reservation);
 
 
-        //building.delete();
     }
 
 

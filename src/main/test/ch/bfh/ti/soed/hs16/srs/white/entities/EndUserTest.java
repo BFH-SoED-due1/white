@@ -56,6 +56,16 @@ public class EndUserTest {
         assertTrue(user.getReservations().contains(res1));
     }
 
+    @Test
+    public void testRemoveEndUserRemovesReservations(){
+        Organization organization = new Organization();
+        EndUser user = new EndUser();
+        Reservation res = new Reservation();
+
+        organization.removeEndUser(user);
+        assertEquals(0, user.getReservations().size());
+    }
+
 
 
 
