@@ -1,10 +1,8 @@
 @startuml
-Admin -->ALL
-
-Benutzer "1"   <--> "0..*" Reservation : macht >
-Reservation "0..*" --> "1" Saision
-Reservation "0..*" <--> "0..*" Equipment 
-Reservation "0..*" <--> "1" Raum 
-Raum "*" <--> "1"  Gebäude
-Gebäude "1" <--> "0..*" Equipment
+Benutzer "1"   -- "*" Reservation : tätigt >
+Reservation "*" -- "1" Saison
+Reservation "*" -- "*" Equipment 
+Reservation "*" -- "1" Raum 
+Raum "*" -- "1"  Gebäude
+Gebäude "1" -- "*" Equipment
 @enduml
