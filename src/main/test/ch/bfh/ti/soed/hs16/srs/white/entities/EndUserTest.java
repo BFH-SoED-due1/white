@@ -1,5 +1,6 @@
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -68,6 +69,25 @@ public class EndUserTest {
 
 
 
+    @Test
+    public void testEndUserModel() {
+        EndUserModel endUserModel = new EndUserModel();
+
+        EndUser e = endUserModel.getEndUserById(1);
+        assertEquals(e.getFirstName(), "Carlos");
+        assertEquals(e.getLastName(), "Arauz");
+        assertEquals(e.getMail(), "abc@xyz.com");
+
+        EndUser e2 = new EndUser();
+        e2.setId(2);
+
+        endUserModel.createEndUser(e2);
+        assertEquals(e2, endUserModel.getEndUserById(2));
+
+        endUserModel.deleteEndUserById(1);
+        assertNull(endUserModel.getEndUserById(1));
+
+    }
 
 
 }

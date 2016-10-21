@@ -15,10 +15,14 @@ Domain Model
 
 * 1. Domain Model
 
-    The model that was developed so far...
+    The model that was developed so far:
 
-[images/DomainModel.png]
+[images/domain_model.svg]
 
-* 2. Open Issues
+* 2. Class diagram
+
+[images/ClassDiagram.png]
+
+* 3. Open Issues
 
     The Domain Model must be translated to english and there are still some adjustments to be done.

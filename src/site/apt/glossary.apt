@@ -11,28 +11,48 @@ Glossary for the Smart Reservation System
     by the development team.
 	
 	
-	[Product owner]
+	[PRODUCT OWNER]
 	The product owner has all rights about the project.
+
+	[]
 
 	[SRS]
 	Smart Reservation System - A software system enabling associations and enterprises to book and share rooms.
 
-	[Scrum]
+	[]
+
+	[SCRUM]
 	is an iterative and incremental framework for managing product development.
 
-	[Development Team]
+	[]
+
+	[DEVELOPMENT TEAM]
 	is responsible for delivering potentially shippable increments (PSIs) of product at the end of each Sprint (the\
 	Sprint goal).
 
-	[Scrum Master]
+	[]
+
+	[SCRUM MASTER]
 	Scrum is facilitated by a Scrum Master, who is accountable for removing impediments to the ability of the team to\
 	deliver the product goals and deliverables.
 
-	[Sprint]
+	[]
+
+	[SPRINT]
 	is a get-together of people involved in a project to further a focused development of the project. Sprints typically\
 	last from one week up to three weeks. Sprints have become popular events in some open-source projects.
 
-    []
+	[]
+
+    [PROJECT TESTER]
+    is responsible of testing the software, look for possible bugs and make a report.
+
+	[]
+
+    [CUSTOMER/USER]
+    Person who will use the final version of the product once it's launched.
+
+	[]
 
 Sources
 
