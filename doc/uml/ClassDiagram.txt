@@ -32,6 +32,11 @@ Class Reservation{
 	-time
 	-room
 }
+note left 
+	reservation needs a user and room to exist.The instant one of 
+	those to are removed, the reservation is removed aswell
+end note
+
 Class Room{
 	-quantitiOfSeats
 	-name
@@ -46,10 +51,10 @@ Class Building{
 }
 
 Role "1" --" *" EndUser
-EndUser"1" o--* "*" Reservation
-Reservation "*" *--o "1" Room 
-Room "*" *--o "1" Building
-Room "*" --> "*" Equipment
+EndUser"1" --o "*" Reservation
+Reservation "*" o-- "1" Room 
+Room "*" --* "1" Building
+Room "*" o-- "*" Equipment
 Beamer "1" --|> Equipment
 Flipchart "1" --|> Equipment
 Organisation  "1" -- "*" EndUser
