@@ -3,6 +3,7 @@ Class Organisation{
 	-users
 	-buildings
 }
+note top: This Class is only present to organize users and buildings.
 
 Abstract Class Equipment{
 	-name
