@@ -1,4 +1,9 @@
 @startuml
+Class Organisation{
+	-users
+	-buildings
+}
+
 Abstract Class EquipmentCategory{
 	-name
 	-id
@@ -40,12 +45,14 @@ Class Building{
 }
 
 Role "1" --" *" EndUser
-EndUser"1" *--o "*" Reservation
-Reservation "*" o--* "1" Room 
-Room "*" o--* "1" Building
+EndUser"1" o--* "*" Reservation
+Reservation "*" *--o "1" Room 
+Room "*" *--o "1" Building
 Room "*" --> "*" EquipmentCategory 
 Beamer "1" --|> EquipmentCategory 
 Flipchart "1" --|> EquipmentCategory 
+Organisation  "1" -- "*" EndUser
+Organisation  "1" -- "*" Building 
 
 
 
@@ -56,3 +63,4 @@ Flipchart "1" --|> EquipmentCategory
 
 
 @enduml
+
