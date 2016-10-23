@@ -4,14 +4,14 @@ Class Organisation{
 	-buildings
 }
 
-Abstract Class EquipmentCategory{
+Abstract Class Equipment{
 	-name
 	-id
 	showPropertys()
 }
 Class Beamer{
 	-name
-	-resulution
+	-resolution
 }
 
 Class Flipchart{
@@ -48,9 +48,9 @@ Role "1" --" *" EndUser
 EndUser"1" o--* "*" Reservation
 Reservation "*" *--o "1" Room 
 Room "*" *--o "1" Building
-Room "*" --> "*" EquipmentCategory 
-Beamer "1" --|> EquipmentCategory 
-Flipchart "1" --|> EquipmentCategory 
+Room "*" --> "*" Equipment
+Beamer "1" --|> Equipment
+Flipchart "1" --|> Equipment
 Organisation  "1" -- "*" EndUser
 Organisation  "1" -- "*" Building 
 
