@@ -1,5 +1,7 @@
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -8,10 +10,10 @@ import java.util.Set;
 
 public class EndUser {
     private int id;
-    private String mail;
     private String firstName;
     private String lastName;
-    private Set<Reservation> reservations;
+    private String mail;
+    private Set<Reservation> reservations = new HashSet<>();
 
 
     public int getId() {
@@ -20,15 +22,6 @@ public class EndUser {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
     }
 
     public String getFirstName() {
@@ -47,12 +40,26 @@ public class EndUser {
         this.lastName = lastName;
     }
 
-    public Set<Reservation> getReservations() {
-        return reservations;
+    public String getMail() {
+        return mail;
     }
 
-    public void setReservations(Set<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+
+    public Set<Reservation> getReservations() {
+        Set<Reservation> readOnlyReservations = Collections.unmodifiableSet(this.reservations);
+        return readOnlyReservations;
+    }
+
+    public void removeReservation(Reservation reservation){
+        reservations.remove(reservation);
+    }
+
+    public void addReservations(Reservation reservation) {
+        this.reservations.add(reservation);
     }
 
 

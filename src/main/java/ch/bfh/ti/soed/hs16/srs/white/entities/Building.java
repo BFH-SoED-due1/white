@@ -1,5 +1,7 @@
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -11,6 +13,7 @@ public class Building {
 
     private String name;
     private String address;
+    private Set<Room> rooms = new HashSet();
 
     public String getName() {
         return name;
@@ -26,5 +29,28 @@ public class Building {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Room> getRooms() {
+        Set<Room> readOnlyRooms = Collections.unmodifiableSet(this.rooms);
+        return readOnlyRooms;
+    }
+
+    public void removeRoom(Room room){
+        rooms.remove(room);
+        //TODO remove reservations
+    }
+
+    public void addRoom(Room room) {
+        this.rooms.add(room);
+    }
+
+
+    // TODO doesn't have desired effect
+    public void destroy() {
+
+        for (Room roomToDelete:this.rooms){
+              this.removeRoom(roomToDelete);
+        }
     }
 }

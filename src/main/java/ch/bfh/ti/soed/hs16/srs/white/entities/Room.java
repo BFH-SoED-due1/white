@@ -1,5 +1,7 @@
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -9,6 +11,35 @@ import java.util.Set;
 public class Room {
     private String name;
     private int quantityOfSeats;
-    private Set<Reservation> reservations;
-    //Set<EquipmentCategory> equipment;
+    private Set<Reservation> reservations = new HashSet<>();
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getQuantityOfSeats() {
+        return quantityOfSeats;
+    }
+
+    public void setQuantityOfSeats(int quantityOfSeats) {
+        this.quantityOfSeats = quantityOfSeats;
+    }
+
+    public Set<Reservation> getReservations() {
+        Set<Reservation> readOnlyReservations = Collections.unmodifiableSet(this.reservations);
+        return readOnlyReservations;
+    }
+
+    public void removeReservation(Reservation reservation){
+        reservations.remove(reservation);
+
+    }
+
+    public void addReservation(Reservation reservation) {
+        this.reservations.add(reservation);
+    }
 }
