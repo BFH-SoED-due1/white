@@ -1,0 +1,72 @@
+@startuml
+Class Organisation{
+	-users
+	-buildings
+}
+note top: This Class is only present to organize users and buildings.
+
+Abstract Class Equipment{
+	-name
+	-id
+	showPropertys()
+}
+Class Beamer{
+	-name
+	-resolution
+}
+
+Class Flipchart{
+	-hasWheels
+}
+
+class EndUser{
+	-name
+	-id
+}
+
+Class Role{
+	-name
+	-rights
+}
+Class Reservation{
+	-time
+	-room
+}
+note left 
+	reservation needs a user and room to exist.The instant one of 
+	those to are removed, the reservation is removed aswell
+end note
+
+Class Room{
+	-quantitiOfSeats
+	-name
+	-building
+	-reservations
+	-equipment
+}
+Class Building{
+	-name
+	-adress
+	-rooms
+}
+
+Role "1" --" *" EndUser
+EndUser"1" --o "*" Reservation
+Reservation "*" o-- "1" Room 
+Room "*" --* "1" Building
+Room "*" o-- "*" Equipment
+Beamer "1" --|> Equipment
+Flipchart "1" --|> Equipment
+Organisation  "1" -- "*" EndUser
+Organisation  "1" -- "*" Building 
+
+
+
+
+
+
+
+
+
+@enduml
+

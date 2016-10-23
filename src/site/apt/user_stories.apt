@@ -1,55 +1,91 @@
     ----------
     User Stories
     ----------
-    Author: To be provided
+    Author: Jonathan Eric Hyams
     ----------
-    October 03, 2016
+    October 13, 2016
 
 User Stories
 
-  This document describes the (initial) set of user stories as well as the
+  This document describes the set of user stories as well as the
 roles users have when using the Smart Reservation System (SRS).
 
 * 1. Roles
 
-  Describe the roles you have identified. I recommend to use a definition
-list:
+  <<Admin:>> The administrator manages buildings, reservations, equipment, users, etc. He is responsible for the
+  integrity of the system.
 
-  [...] This is the ...
+  <<User:>> Can reserve rooms depending on the rights the user has. A user can have different rights,
+  for instance a professor has a bigger pool of options than a student may have.
 
-  [Room Manager] Person who enters the rooms that can be booked.
-
-  [...] An ordinary user of the system.
-
-  [...] And so on ...
+  <<Non-registered User:>> Can view reservations, with limitations though. He can also register a new account but has to
+  wait for the admin's approval. He may also view the reservation prices.
 
 
 * 2. User Stories
 
-  Describe the user stories you have identified so far. Provide a table,
-and number the stories. Provide a short text for each user story by using
-the format as presented in the script. In the last column, provide one
-or more criteria which can be used to validate whether the user story is
-correctly implemented.
 
+** Role: Admin
 
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>  | <<Description>>                                                            | <<Success>>  | <<Failed>>  |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 00       | As an administrator I want to manage Buildings (CRUD) so that\             | ...          | ...         |
+|          | reservation objects have a structure.                                      |              |             |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 01       | As an administrator I want to manage reservation objects (CRUD).           | ...          | ...         |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 02       | As an administrator I want to have a list of the reservation objects,\     | ...          | ...         |
+|          | so that I can manage them easily.                                          |              |             |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 03       | As an administrator I want to see reservations of the Users.               | ...          | ...         |
+*---------+-----------------------------------------------------------------------------+--------------+-------------:
+| 04       | As an administrator I want to manage users (CRUD).                         | ...          | ...         |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 05       | As an administrator I want to manage the rights of the User.               | ...          | ...         |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 06       | As an administrator I want to manage the registrations of new Users and\   | ...          | ...         |
+|          | assign the rights accordingly.                                             |              |             |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 07       | As an administrator I want to manage seasons to that we can adapt rent\    | ...          | ...         |
+|          | prices accordingly.                                                        |              |             |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+~~*--+---------------------------------------------------------+-----------+-----------+
+~~|07|As an administrator I want to manage additional equipment|...|...|
+~~*--+---------------------------------------------------------+-----------+-----------+
+~~|08|As an administrator I want to manage additional equipment for reservations|...|...|
 
-*------+---------------+--------------+-------+
-|<<No>>|<<Description>>|<<Success>>|<<Failed>>|
-*------+---------------+--------------+-------+
-|01|...|...|...|
-*--+---------------------------------------------------------+-----------+-----------+
-|..|As <Room Manager> I want to be to add add new room to the system, so that users can reserve this room.|The room is added and the users are able to book it.|A message box appears and shows the reason of an error.|
-*--+---------------------------------------------------------+-----------+-----------+
-|..|...|...|...|
-*--+---------------------------------------------------------+-----------+-----------+
-|..|As <User> I want to be able to add a new reservation, so that a resource is reserved till the reservation ends.|The object is reserved for the entered time.|A message box appears with the errors.|
-*--+---------------------------------------------------------+-----------+-----------+
-|..|...|...|...|
-*--+---------------------------------------------------------+-----------+-----------+
+** Role: User
 
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>  | <<Description>>                                                            | <<Success>>  | <<Failed>>  |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 08      | As a user I want to reserve rooms in a specific time frame.                 | ...          | ...         |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 09      | As a user I want to cancel reservations.                                    | ...          | ...         |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 10      | As a user I want to see what is where and to what availability.             | ...          | ...         |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 11      | As a user I want to see information of the different reservation objects.   | ...          | ...         |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 12      | As a user I want to see by whom a room was reserved, so that I can ask\     | ...          | ...         |
+|         | for possible changes.                                                       |              |             |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 13      | As a user I want to see reservation prices (to rent rooms).                 | ...          | ...         |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+~~*--+---------------------------------------------------------+-----------+-----------+
+~~|14|As a user I want to reserve additional equipment.|...|...|
 
+** Role: Non-registered User
+
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>  | <<Description>>                                                            | <<Success>>  | <<Failed>>  |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 14      | As a non registered user i want to be able to register a new account.       | ...          | ...         |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
+| 15      | As a non registered user I want to see reservation prices (to rent rooms).  | ...          | ...         |
+*----------+----------------------------------------------------------------------------+--------------+-------------:
 
 * 3. Open Issues
 
-	Add here any open issues, if any.
+	There are no open issues at the moment.
