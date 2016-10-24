@@ -38,7 +38,7 @@ public class Building {
 
     public void removeRoom(Room room){
         rooms.remove(room);
-//        room.removeAllReservations();
+        room.removeAllReservations();
     }
 
     public void addRoom(Room room) {
