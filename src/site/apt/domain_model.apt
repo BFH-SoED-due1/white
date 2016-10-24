@@ -11,6 +11,11 @@ Domain Model
     System (SRS). It introduces the most important entities ("Fachklassen") and the
     associations among them. It also introduces the respective multiplicities.
 
+    This is the domain model of our room reservation-system project.
+    It describes that we can book a room on a given day and time.
+    The rooms are located in a building and contain selected equipment.
+    We have different roles which are used to either maintain the system or use it.
+
     Note that only a few attributes are showed in the diagram, but no operations.
 
 * 1. Domain Model
@@ -23,6 +28,4 @@ Domain Model
 
 [images/ClassDiagram.png]
 
-* 3. Open Issues
 
-    The Domain Model must be translated to english and there are still some adjustments to be done.

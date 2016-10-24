@@ -1,12 +1,18 @@
 @startuml
-Abstract Class EquipmentCategory{
+Class Organisation{
+	-users
+	-buildings
+}
+note top: This Class is only present to organize users and buildings.
+
+Abstract Class Equipment{
 	-name
 	-id
 	showPropertys()
 }
 Class Beamer{
 	-name
-	-resulution
+	-resolution
 }
 
 Class Flipchart{
@@ -26,6 +32,11 @@ Class Reservation{
 	-time
 	-room
 }
+note left 
+	reservation needs a user and room to exist.The instant one of 
+	those to are removed, the reservation is removed aswell
+end note
+
 Class Room{
 	-quantitiOfSeats
 	-name
@@ -40,12 +51,14 @@ Class Building{
 }
 
 Role "1" --" *" EndUser
-EndUser"1" *--o "*" Reservation
-Reservation "*" o--* "1" Room 
-Room "*" o--* "1" Building
-Room "*" --> "*" EquipmentCategory 
-Beamer "1" --|> EquipmentCategory 
-Flipchart "1" --|> EquipmentCategory 
+EndUser"1" --o "*" Reservation
+Reservation "*" o-- "1" Room 
+Room "*" --* "1" Building
+Room "*" o-- "*" Equipment
+Beamer "1" --|> Equipment
+Flipchart "1" --|> Equipment
+Organisation  "1" -- "*" EndUser
+Organisation  "1" -- "*" Building 
 
 
 
@@ -56,3 +69,4 @@ Flipchart "1" --|> EquipmentCategory
 
 
 @enduml
+
