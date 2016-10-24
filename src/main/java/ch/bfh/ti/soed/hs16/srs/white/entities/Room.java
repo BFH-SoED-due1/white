@@ -36,10 +36,14 @@ public class Room {
 
     public void removeReservation(Reservation reservation){
         reservations.remove(reservation);
-
     }
+
 
     public void addReservation(Reservation reservation) {
         this.reservations.add(reservation);
+    }
+
+    public void removeAllReservations(){
+        reservations.clear();
     }
 }

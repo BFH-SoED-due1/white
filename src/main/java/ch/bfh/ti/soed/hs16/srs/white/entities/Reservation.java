@@ -36,4 +36,8 @@ public class Reservation {
     public void setReservedRoom(Room reservedRoom) {
         this.reservedRoom = reservedRoom;
     }
+
+
+
+
 }

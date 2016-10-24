@@ -1,5 +1,7 @@
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -8,7 +10,7 @@ import java.util.Set;
 public class Role {
 
     private String name;
-    Set<Rights> rights;
+    Set<Rights> rights = new HashSet<>();
 
     public String getName() {
         return name;
@@ -18,11 +20,16 @@ public class Role {
         this.name = name;
     }
 
-    public Set<Rights> getRights() {
-        return rights;
+    public Set<Rights> getRole() {
+        Set<Rights> readOnlyRights = Collections.unmodifiableSet(this.rights);
+        return readOnlyRights;
     }
 
-    public void setRights(Set<Rights> rights) {
-        this.rights = rights;
+    public void removeRights(Rights rights){
+        this.rights.remove(rights);
+    }
+
+    public void setRights(Rights rights) {
+        this.rights.add(rights);
     }
 }

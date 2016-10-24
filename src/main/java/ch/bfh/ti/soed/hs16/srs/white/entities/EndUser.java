@@ -62,5 +62,8 @@ public class EndUser {
         this.reservations.add(reservation);
     }
 
+    public void destroy() {
+        reservations.clear();
 
+    }
 }
