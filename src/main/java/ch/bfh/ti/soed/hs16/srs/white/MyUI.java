@@ -7,17 +7,14 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white;
 
-import javax.servlet.annotation.WebServlet;
-
+import ch.bfh.ti.soed.hs16.srs.white.controller.MyUIController;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
+
+import javax.servlet.annotation.WebServlet;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window
@@ -32,22 +29,8 @@ public class MyUI extends UI {
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
-		final VerticalLayout layout = new VerticalLayout();
-
-		final TextField name = new TextField();
-		name.setCaption("Type your name here:");
-
-		Button button1 = new Button("Click Me");
-		button1.addClickListener( e -> {
-			layout.addComponent(new Label("Thanks " + name.getValue()
-			+ ", it works! "));
-		});
-
-		layout.addComponents(name, button1);
-		layout.setMargin(true);
-		layout.setSpacing(true);
-
-		setContent(layout);
+		MyUIController controller = new MyUIController(this);
+		controller.initSystem();
 	}
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
