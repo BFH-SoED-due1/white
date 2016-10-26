@@ -38,7 +38,7 @@ public class Building {
 
     public void removeRoom(Room room){
         rooms.remove(room);
-        //TODO remove reservations
+        room.removeAllReservations();
     }
 
     public void addRoom(Room room) {
@@ -46,11 +46,8 @@ public class Building {
     }
 
 
-    // TODO doesn't have desired effect
     public void destroy() {
-
-        for (Room roomToDelete:this.rooms){
-              this.removeRoom(roomToDelete);
-        }
+        rooms.forEach((room)->room.removeAllReservations());
+        rooms.clear();
     }
 }

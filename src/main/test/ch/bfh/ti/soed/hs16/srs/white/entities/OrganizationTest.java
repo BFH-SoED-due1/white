@@ -16,6 +16,7 @@ public class OrganizationTest {
         organization.addEndUser(userRemain);
         organization.addEndUser(userRemove);
         organization.removeEndUser(userRemove);
+
         assertEquals(1, organization.getEndUsers().size());
         assertFalse(organization.getEndUsers().contains(userRemove));
 
@@ -46,8 +47,7 @@ public class OrganizationTest {
         building.addRoom(room);
         reservation.setReservedRoom(room);
         organization.removeBuilding(building);
-        assertNull(reservation);
-
+        assertEquals(0, room.getReservations().size());
     }
 
 
@@ -62,7 +62,7 @@ public class OrganizationTest {
         organization.removeBuilding(building);
         //assertNull(room);
         assertEquals(0, building.getRooms().size());
-        System.out.println(building.getRooms().size());
+
 
         //building.delete();
     }
@@ -77,6 +77,25 @@ public class OrganizationTest {
         organization.removeEndUser(endUser);
         assertEquals(0, endUser.getReservations().size());
         assertFalse(endUser.getReservations().contains(reservation));
+    }
+
+    @Test
+    public void testRemoveOneRoomDoesntRemoveAnotherOne(){
+        Building building1 = new Building();
+        Room room1 = new Room();
+        Reservation reservation1 = new Reservation();
+        building1.addRoom(room1);
+        room1.addReservation(reservation1);
+        assertEquals(1, room1.getReservations().size());
+        building1.removeRoom(room1);
+        assertEquals(0, room1.getReservations().size());
+
+        Building building2 = new Building();
+        Room room2 = new Room();
+        Reservation reservation2 = new Reservation();
+        building1.addRoom(room2);
+        room1.addReservation(reservation2);
+        assertEquals(1, room1.getReservations().size());
     }
 
 }

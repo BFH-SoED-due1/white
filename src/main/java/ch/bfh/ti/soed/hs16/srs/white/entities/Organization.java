@@ -18,6 +18,7 @@ public class Organization {
 
     public void removeEndUser(EndUser endUser){
         this.endUsers.remove(endUser);
+        endUser.destroy(); //not sure
         //TODO remove all endUsers reservations
     }
 
@@ -32,7 +33,7 @@ public class Organization {
 
     public void removeBuilding(Building building){
         this.buildings.remove(building);
-        //building.destroy();
+        building.destroy();
     }
 
     public void addBuilding(Building building){

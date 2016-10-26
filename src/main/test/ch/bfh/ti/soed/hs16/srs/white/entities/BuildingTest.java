@@ -55,9 +55,25 @@ public class BuildingTest {
         building.addRoom(room);
         reservation.setReservedRoom(room);
         building.removeRoom(room);
-        assertNull(reservation);
+        assertEquals(0, room.getReservations().size());
+        assertEquals(0, building.getRooms().size());
 
 
+    }
+
+    @Test
+    public void testRemoveBuildingRemovesReservations(){
+        Building building = new Building();
+        Room room = new Room();
+        Reservation reservation = new Reservation();
+
+        building.addRoom(room);
+        room.addReservation(reservation);
+
+        building.destroy();
+
+        assertEquals(0, building.getRooms().size());
+        assertEquals(0, room.getReservations().size());
     }
 
 
