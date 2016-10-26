@@ -11,3 +11,47 @@ Context View
 System (SRS). It introduces the system and its environment.
 
 [images/context_model.svg]
+
+Use Cases
+
+    [Manage Equipment]
+    The Admin creates, modifies or deletes the equipment available in a room.
+
+    []
+
+    [Manage Buildings]
+    The Admin manages buildings, which in which the rooms available for reservation are.
+
+    []
+
+    [Manage Reservations]
+    The Admin can see, which reservation have been made and is able to manage them, in a way he finds appropriate.
+
+    []
+
+    [Manage Users]
+    The Admin not only creates, modifies or delete users, but also has to accept new registrations for new users.
+
+    []
+
+    [Reserve Room]
+    Users are able to reserve rooms, according to the rights they have. For instance a room which is available for reservation
+    for a Professor, could not be available for a Student.
+
+    []
+
+    [View Reservations]
+    Every user is able to see the reservations he/she has made.
+
+    []
+
+    [View Rooms]
+    Both Registered Users and Non-Registered Users (Guests) are able to see the rooms, which they could potentially reserve.
+
+    []
+
+    [Register]
+    Guest can also register to be able to manage themselves their reservations. The registration must be reviewed and
+    accepted by an Admin though.
+
+    []

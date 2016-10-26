@@ -6,7 +6,7 @@
 	<groupId>ch.bfh.ti.soed.hs16</groupId>
 	<artifactId>srs-white</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.1-SNAPSHOT</version>
 	<name>srs-white</name>
     <organization>
         <name>BFH</name>
@@ -38,19 +38,53 @@
         <tag>HEAD</tag>
     </scm>
 
-    <developers>
-        <developer>
-            <id>xyzow1</id><!-- provide BFH Kürzel -->
-            <name>... ...</name><!-- provide first and last name -->
-            <email>...@students.bfh.ch</email><!-- provide e-mail address (optional) -->
-            <organization>Berner Fachhochschule / TI</organization>
-            <organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
-            <roles>
-                <role>software developer</role>
-            </roles>
-        </developer>
-        <!-- add other developers, too -->
-    </developers>
+	<developers>
+		<developer>
+			<id>arauc1</id>
+			<name>Carlos Arauz</name>
+			<email>arauc1@bfh.ch</email>
+			<organization>Berner Fachhochschule / TI</organization>
+			<organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
+			<roles>
+				<role>Scrum Master</role>
+				<role>Software Developer</role>
+			</roles>
+			<timezone>+2</timezone>
+		</developer>
+		<developer>
+			<id>campa1</id>
+			<name>Angelo Campanile</name>
+			<email>campa1@bfh.ch</email>
+			<organization>Berner Fachhochschule / TI</organization>
+			<organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
+			<roles>
+				<role>Software Developer</role>
+			</roles>
+			<timezone>+2</timezone>
+		</developer>
+		<developer>
+			<id>hyamj1</id>
+			<name>Jonathan Hyams</name>
+			<email>hyamj1@bfh.ch</email>
+			<organization>Berner Fachhochschule / TI</organization>
+			<organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
+			<roles>
+				<role>Software Developer</role>
+			</roles>
+			<timezone>+2</timezone>
+		</developer>
+		<developer>
+			<id>WetWareCode</id>
+			<name>Patrick Schmutz</name>
+			<email>schmp6@bfh.ch</email>
+			<organization>Berner Fachhochschule / TI</organization>
+			<organizationUrl>http://www.ti.bfh.ch/</organizationUrl>
+			<roles>
+				<role>Software Developer</role>
+			</roles>
+			<timezone>+2</timezone>
+		</developer>
+	</developers>
 
 	<repositories>
 		<repository>
