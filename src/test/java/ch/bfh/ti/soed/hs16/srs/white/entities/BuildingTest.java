@@ -48,7 +48,7 @@ public class BuildingTest {
 
     @Test
     public void testDeletedRoom(){
-        //TODO delete room, what happens to reservations in it?
+        // TODO delete room, what happens to reservations in it?
         Reservation reservation = new Reservation();
         Building building = new Building();
         Room room = new Room();

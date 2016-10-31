@@ -1,0 +1,50 @@
+    ----------
+    Back Log
+    ----------
+    Author: Jonathan Hyams
+    ----------
+    October 27, 2016
+
+Backlog
+
+* 1. Roles
+
+    As an administrator I want to manage reservationobjects (CRUD)\
+    As an administrator I want to manage reservationobjects (CRUD)\
+    As an administrator I want to manage users (CRUD)\
+    As an administrator I want to manage the rights of the User\
+    As an administrator I want to manage the registrations of new Users and assign the rights accordingly\
+    As an administrator I want to manage additional equipment\
+    As an administrator I want to manage seasons to that we can adapt rent prices accordingly
+
+* 2. Interface
+
+    As an administrator I want to have a list of the reservationobjects, to manage them\
+    As an administrator I want to see reservations of the Users\
+    As a user I want to see what is where and to what availability\
+    As a user I want to see information of the different reservationobjects\
+    As a user I want to see who reserved what, to ask for changes\
+    As a user I want to see reservation prices (to rent rooms)\
+    As a non registered user I want to see reservation prices (to rent rooms)\
+    Main Starting page (for admin, for user, for unregistered user)
+
+* 3. Reservation
+
+    As an administrator I want to manage seasons to that we can adapt rent prices accordingly\
+    As a user I want to reserve rooms in a specific time frame\
+    As a user I want to cancel reservations\
+    As a non registered user i want to be able to register a new account
+
+* 4. Home Page
+
+    As a non-registered User I'd like to see the list of upcoming events\
+    As a non-registered User I want to be able to register\
+    As a registered User I want to be able to login\
+    As an administrator I want to CRUD Users, Reservations, Buildings and Rooms\
+    As a User I want to CRUD my reservations and upcoming events\
+    As a non-registered User I want to search for events
+
+* 5. Profile
+
+    As a registered-user I want to change my Password, email, phone etc
+
