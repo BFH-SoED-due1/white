@@ -9,86 +9,121 @@ Backlog
 
 * Back-End
 
-    As an administrator I want to login with my account and directly see all upcoming reservations.\
-    I want to be able to see, who reserved what room, when the reservation is and who is invited.\
-    If necessary, I want to be able to change/delete the reservation.
-
-    As an administrator I want to be able to see User registrations and either approve or deny them. If I approve the registration,\
-    the user should be informed that the reservation was accepted. I can assign rights to the new user.\
-    If the User is no longer part of the organization I can delete his account.
-
-    As an administrator I want to add rooms that can be reserved. The rooms should be in a building that I can also manage.\
-    I want to create new buildings if need be. I also want to be able to add additional equipment to a room.
-
-    As an administrator I want to manage the room prices. I want to manage seasons so that room prices can be adjusted.
-
-    As a registered user I want to reserve a room and invite people. I want to notify them via email.
-
-    As a registered user I want to login with my account and directly see all my upcoming reservations.\
-    I want to be able to edit them (change the time, title, change the room, delete).
-
-    As a registered user I want to be able to edit my account to change my email, home address, settings etc.
-
-    As a registered user I can be invited to an event that someone else created.\
-    I want to get an email notification where I can rsvp.
-
-    As a registered user I want to be notified via email if a reservation changes that I have been invited to.\
-    I want to notify people that are invited to my reservation, if something changes.
-
-    As a non registered user I can request an account by filling out a registrations form.
-
-    As a non registered user I want to see what rooms are available.
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>      | <<Description>>                                                          | <<Priority>> | <<Time>>    |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|01.           | As an administrator I want to login with my account and directly         |7             |             |
+|              | see all upcoming reservations. I want to be able to see, who reserved    |              |             |
+|              | what room, when the reservation is and who is invited. If necessary,     |              |             |
+|              | I want to be able to change/delete the reservation.                      |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|02.           | As an administrator I want to be able to see User registrations and      |7             |             |
+|              | either approve or deny them. If I approve the registration, the user     |              |             |
+|              | should be informed that the reservation was accepted. I can assign       |              |             |
+|              | rights to the new user.\If the User is no longer part of the             |              |             |
+|              |  organization I can delete his account.                                  |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|03.           | As an administrator I want to add rooms that can be reserved. The rooms  |8             |             |
+|              | should be in a building that I can also manage. I want to create new     |              |             |
+|              | buildings if need be. I also want to be able to add additional equipment |              |             |
+|              | to a room.                                                               |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|04.           | As an administrator I want to manage the room prices. I want to manage   |2             |             |
+|              | seasons so that room prices can be adjusted.                             |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|05.           | As a registered user I want to reserve a room and invite people.         |4             |             |
+|              | I want to notify them via email.                                         |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|06.           | As a registered user I want to login with my account.                    |4             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|07.           | As a registered user I want to be able to edit Reservations (change the  |7             |             |
+|              | time, title, change the room, delete).                                   |              |             |                                      |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|08.           | As a registered user I can be invited to an event that someone           |5             |             |
+|              | else created.                                                            |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|09.           | I want to get an email notification where I can rsvp.                    |2             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|10.           | As a registered user I want to be notified via email if a reservation    |2             |             |
+|              | changes that I have been invited to. I want to notify people that are    |              |             |
+|              | invited to my reservation, if something changes.                         |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|11.           | As a non registered user I can request an account by filling out         |7             |             |
+|              | a registrations form.                                                    |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|12.           | As a non registered user I want to see what rooms are available.         |4             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
 
 
 * Front-End
 
-    ** <<Home Page>>
+** <<Home Page>>
 
-    As an administrator I want to see a tabbed view, where there is a tab for Users, Buildings, Rooms and reservations.\
-    I want to be able to sort and filter them by desire.
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>      | <<Description>>                                                          | <<Priority>> | <<Time>>    |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|13.           | As an administrator I want to see a tabbed view, where there is a tab    |3             |             |
+|              | for Users, Buildings, Rooms and reservations. I want to be able to sort  |              |             |
+|              | and filter them by desire.                                               |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|14.           | As an administrator I want to create and remove Users, Buildings, Rooms  |4             |             |
+|              | and reservations.                                                        |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|15.           | As a User I want to see my reservations and upcoming events              |4             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|16.           | If I am a registered User, but not logged in, I want to see a login page.|2             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|17.           | As a non-registered User I'd like to see the list of upcoming events.    |3             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|18.           | As a non-registered User I want to be able to register.                  |5             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|19.           | As a non-registered User I want to search for events                     |1             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
 
-    As an administrator I want to create and remove Users, Buildings, Rooms and reservations.
+** <<Reservations>>
 
-    As a User I want to see my reservations and upcoming events
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>      | <<Description>>                                                          | <<Priority>> | <<Time>>    |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|20.           | As a registered user I want a dropdown menu with all my reservations.    |2             |             |
+|              | I want to see who I have invited and\ I want to edit the reservation     |              |             |
+|              | if needed.                                                               |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|21.           | As an administrator I want to manage seasons to that we can adapt rent   |1             |             |
+|              | prices accordingly.                                                      |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|22.           | As a user I want to reserve rooms in a specific time frame and get an    |4             |             |
+|              | error if there is an overlap with another reservations.                  |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|23.           | As a user I want to be able to cancel reservations.                      |3             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|24.           | As an administrator I want to have a list of all reservations, Users,    |7             |             |
+|              | Rooms, Buildings, so I can edit them quickly easily.                     |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|25.           | As an administrator I want an option to see all reservations of a        |3             |             |
+|              | specific User.                                                           |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|26.           | As a user I want to see what Room/Building is where and to what          |2             |             |
+|              |availability.                                                             |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|27.           | As a user I want to see information/description of reservations.         |2             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|28.           | As a user I want to see who reserved what, to ask for changes.           |1             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|29.           | As a user I want to see reservation prices (to rent rooms)               |2             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|30            | As a non registered user I want to see reservation prices (to rent rooms)|1             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
 
-    If I am a registered User, but not logged in, I want to to a login page.
+** <<Profile>>
 
-    As a non-registered User I'd like to see the list of upcoming events.
-
-    As a non-registered User I want to be able to register.
-
-    As a non-registered User I want to search for events
-
-    ** <<Reservations>>
-
-    As a registered user I want a dropdown menu with all my reservations. I want to see who I have invited and\
-    I want to edit the reservation if needed.
-
-    As an administrator I want to manage seasons to that we can adapt rent prices accordingly.
-
-    As a user I want to reserve rooms in a specific time frame and get an error if there is an overlap with\
-    another reservations.
-
-    As a user I want to be able to cancel reservations.
-
-    As an administrator I want to have a list of all reservations, Users, Rooms, Buildings, so I can edit them quickly easily.
-
-    As an administrator I want an option to see all reservations of a specific User.
-
-    As a user I want to see what Room/Building is where and to what availability.
-
-    As a user I want to see information/description of reservations.
-
-    As a user I want to see who reserved what, to ask for changes.
-
-    As a user I want to see reservation prices (to rent rooms)
-
-    As a non registered user I want to see reservation prices (to rent rooms)
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>      | <<Description>>                                                          | <<Priority>> | <<Time>>    |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|31.           | As a registered-user I want to change my Password, email, phone etc      |1             |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
 
 
-    ** <<Profile>>
-
-    As a registered-user I want to change my Password, email, phone etc
 
 
 
