@@ -7,44 +7,90 @@
 
 Backlog
 
-* 1. Roles
+* Back-End
 
-    As an administrator I want to manage reservationobjects (CRUD)\
-    As an administrator I want to manage reservationobjects (CRUD)\
-    As an administrator I want to manage users (CRUD)\
-    As an administrator I want to manage the rights of the User\
-    As an administrator I want to manage the registrations of new Users and assign the rights accordingly\
-    As an administrator I want to manage additional equipment\
-    As an administrator I want to manage seasons to that we can adapt rent prices accordingly
+    As an administrator I want to login with my account and directly see all upcoming reservations.\
+    I want to be able to see, who reserved what room, when the reservation is and who is invited.\
+    If necessary, I want to be able to change/delete the reservation.
 
-* 2. Interface
+    As an administrator I want to be able to see User registrations and either approve or deny them. If I approve the registration,\
+    the user should be informed that the reservation was accepted. I can assign rights to the new user.\
+    If the User is no longer part of the organization I can delete his account.
 
-    As an administrator I want to have a list of the reservationobjects, to manage them\
-    As an administrator I want to see reservations of the Users\
-    As a user I want to see what is where and to what availability\
-    As a user I want to see information of the different reservationobjects\
-    As a user I want to see who reserved what, to ask for changes\
-    As a user I want to see reservation prices (to rent rooms)\
-    As a non registered user I want to see reservation prices (to rent rooms)\
-    Main Starting page (for admin, for user, for unregistered user)
+    As an administrator I want to add rooms that can be reserved. The rooms should be in a building that I can also manage.\
+    I want to create new buildings if need be. I also want to be able to add additional equipment to a room.
 
-* 3. Reservation
+    As an administrator I want to manage the room prices. I want to manage seasons so that room prices can be adjusted.
 
-    As an administrator I want to manage seasons to that we can adapt rent prices accordingly\
-    As a user I want to reserve rooms in a specific time frame\
-    As a user I want to cancel reservations\
-    As a non registered user i want to be able to register a new account
+    As a registered user I want to reserve a room and invite people. I want to notify them via email.
 
-* 4. Home Page
+    As a registered user I want to login with my account and directly see all my upcoming reservations.\
+    I want to be able to edit them (change the time, title, change the room, delete).
 
-    As a non-registered User I'd like to see the list of upcoming events\
-    As a non-registered User I want to be able to register\
-    As a registered User I want to be able to login\
-    As an administrator I want to CRUD Users, Reservations, Buildings and Rooms\
-    As a User I want to CRUD my reservations and upcoming events\
+    As a registered user I want to be able to edit my account to change my email, home address, settings etc.
+
+    As a registered user I can be invited to an event that someone else created.\
+    I want to get an email notification where I can rsvp.
+
+    As a registered user I want to be notified via email if a reservation changes that I have been invited to.\
+    I want to notify people that are invited to my reservation, if something changes.
+
+    As a non registered user I can request an account by filling out a registrations form.
+
+    As a non registered user I want to see what rooms are available.
+
+
+* Front-End
+
+    ** <<Home Page>>
+
+    As an administrator I want to see a tabbed view, where there is a tab for Users, Buildings, Rooms and reservations.\
+    I want to be able to sort and filter them by desire.
+
+    As an administrator I want to create and remove Users, Buildings, Rooms and reservations.
+
+    As a User I want to see my reservations and upcoming events
+
+    If I am a registered User, but not logged in, I want to to a login page.
+
+    As a non-registered User I'd like to see the list of upcoming events.
+
+    As a non-registered User I want to be able to register.
+
     As a non-registered User I want to search for events
 
-* 5. Profile
+    ** <<Reservations>>
+
+    As a registered user I want a dropdown menu with all my reservations. I want to see who I have invited and\
+    I want to edit the reservation if needed.
+
+    As an administrator I want to manage seasons to that we can adapt rent prices accordingly.
+
+    As a user I want to reserve rooms in a specific time frame and get an error if there is an overlap with\
+    another reservations.
+
+    As a user I want to be able to cancel reservations.
+
+    As an administrator I want to have a list of all reservations, Users, Rooms, Buildings, so I can edit them quickly easily.
+
+    As an administrator I want an option to see all reservations of a specific User.
+
+    As a user I want to see what Room/Building is where and to what availability.
+
+    As a user I want to see information/description of reservations.
+
+    As a user I want to see who reserved what, to ask for changes.
+
+    As a user I want to see reservation prices (to rent rooms)
+
+    As a non registered user I want to see reservation prices (to rent rooms)
+
+
+    ** <<Profile>>
 
     As a registered-user I want to change my Password, email, phone etc
+
+
+
+
 

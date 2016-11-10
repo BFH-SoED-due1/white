@@ -26,7 +26,7 @@ public class Role {
         this.name = name;
     }
 
-    public Set<Rights> getRole() {
+    public Set<Rights> getRights() {
         Set<Rights> readOnlyRights = Collections.unmodifiableSet(this.rights);
         return readOnlyRights;
     }

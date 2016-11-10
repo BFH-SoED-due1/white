@@ -20,7 +20,15 @@ public class EndUser {
     private String lastName;
     private String mail;
     private Set<Reservation> reservations = new HashSet<>();
+    private Role role;
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public int getId() {
         return id;

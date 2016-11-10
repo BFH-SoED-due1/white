@@ -25,4 +25,20 @@ public class RoleTest {
         //assertEquals(Rights.CREATE, role.getRole());
     }
 
+    @Test
+    public void testAddingRemovingRights(){
+        EndUser user = new EndUser();
+        Role role = new Role();
+        role.setName("Admin");
+        role.setRights(Rights.CREATE);
+        user.setRole(role);
+
+        role.setRights(Rights.CREATE);
+        assertEquals("Admin", user.getRole().getName());
+        user.getRole().getRights().forEach(e -> {
+            assertEquals(Rights.CREATE, ((Rights)e).CREATE);
+        });
+
+    }
+
 }

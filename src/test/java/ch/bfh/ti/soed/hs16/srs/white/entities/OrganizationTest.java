@@ -25,7 +25,6 @@ public class OrganizationTest {
 
         assertEquals(1, organization.getEndUsers().size());
         assertFalse(organization.getEndUsers().contains(userRemove));
-
     }
 
     @Test
@@ -68,8 +67,6 @@ public class OrganizationTest {
         organization.removeBuilding(building);
         //assertNull(room);
         assertEquals(0, building.getRooms().size());
-
-
         //building.delete();
     }
 
@@ -96,7 +93,6 @@ public class OrganizationTest {
         building1.removeRoom(room1);
         assertEquals(0, room1.getReservations().size());
 
-        Building building2 = new Building();
         Room room2 = new Room();
         Reservation reservation2 = new Reservation();
         building1.addRoom(room2);
