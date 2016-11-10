@@ -10,7 +10,7 @@ Backlog
 * Back-End
 
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
-| <<No.>>      | <<Description>>                                                          | <<Priority>> | <<Time>>    |
+| <<No.>>      |  <<Description>>                                                         | <<Priority>> | <<Time>>    |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
 |01.           | As an administrator I want to login with my account and directly         |7             |             |
 |              | see all upcoming reservations. I want to be able to see, who reserved    |              |             |
