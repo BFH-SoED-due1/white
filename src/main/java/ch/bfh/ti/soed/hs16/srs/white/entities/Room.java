@@ -18,6 +18,7 @@ public class Room {
     private String name;
     private int quantityOfSeats;
     private Set<Reservation> reservations = new HashSet<>();
+    private Set<Equipment> equipments = new HashSet<>();
 
     public String getName() {
         return name;
@@ -51,5 +52,14 @@ public class Room {
 
     public void removeAllReservations(){
         reservations.clear();
+    }
+
+    public void addEquipments(Equipment c){
+        this.equipments.add(c);
+    }
+
+    public Set<Equipment> getEquipments(){
+        Set<Equipment> readOnlyEquipment = Collections.unmodifiableSet(this.equipments);
+        return readOnlyEquipment;
     }
 }

@@ -25,12 +25,19 @@ public class LogInView {
         final TextField name = new TextField();
         name.setCaption("Type your name here:");
 
+        final TextField mail = new TextField();
+        mail.setCaption("Type your mail here:");
+
+        final PasswordField password = new PasswordField();
+        password.setCaption("Type your password here:");
+
         Button button1 = new Button("Click Me");
         button1.addClickListener( e -> {
-            controller.ClickMe(layout, name);
+            controller.clickMe(layout, name);
+            controller.getLogin(mail, password);
         });
 
-        layout.addComponents(name, button1);
+        layout.addComponents(name, mail, password, button1);
         layout.setMargin(true);
         layout.setSpacing(true);
 

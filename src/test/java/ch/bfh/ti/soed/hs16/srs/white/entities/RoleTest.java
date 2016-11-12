@@ -39,6 +39,10 @@ public class RoleTest {
             assertEquals(Rights.CREATE, ((Rights)e).CREATE);
         });
 
+        role.removeRights(Rights.CREATE);
+        user.getRole().getRights().forEach(e -> {
+            assertNotEquals(Rights.CREATE, ((Rights)e).CREATE);
+        });
     }
 
 }
