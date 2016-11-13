@@ -1,9 +1,10 @@
-/**
- * Copyright (c) 2017 Team White, Berner Fachhochschule, Switzerland.
- * Project smart Reservations System.
- * Distributable under GPL license. See terms of license at gnu.org
+/*
+ * Copyright (c) 2017 Berner Fachhochschule, Switzerland.
+ *
+ * Project Smart Reservation System.
+ *
+ * Distributable under GPL license. See terms of license at gnu.org.
  */
-
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
 import java.util.Collections;
@@ -16,7 +17,7 @@ import java.util.Set;
 public class Role {
 
     private String name;
-    Set<Rights> rights = new HashSet<>();
+    private Set<Rights> rights = new HashSet<>();
 
     public String getName() {
         return name;

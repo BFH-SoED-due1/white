@@ -1,19 +1,24 @@
-/**
- * Copyright (c) 2017 Team White, Berner Fachhochschule, Switzerland.
- * Project smart Reservations System.
- * Distributable under GPL license. See terms of license at gnu.org
+/*
+ * Copyright (c) 2017 Berner Fachhochschule, Switzerland.
+ *
+ * Project Smart Reservation System.
+ *
+ * Distributable under GPL license. See terms of license at gnu.org.
  */
-
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
-import com.vaadin.ui.*;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Button;
 
 /**
  * Created by arauzca on 25.10.16.
  */
 public class LogInView {
-    LogInController controller;
+    private LogInController controller;
 
     public LogInView(LogInController controller) {
         this.controller = controller;

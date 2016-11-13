@@ -1,13 +1,13 @@
-/**
- * Copyright (c) 2017 Team White, Berner Fachhochschule, Switzerland.
- * Project smart Reservations System.
- * Distributable under GPL license. See terms of license at gnu.org
+/*
+ * Copyright (c) 2017 Berner Fachhochschule, Switzerland.
+ *
+ * Project Smart Reservation System.
+ *
+ * Distributable under GPL license. See terms of license at gnu.org.
  */
-
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
 import ch.bfh.ti.soed.hs16.srs.white.entities.EndUser;
-
 import java.util.HashMap;
 
 /**
@@ -32,7 +32,7 @@ public class EndUserModel {
         e.setLastName("Arauz");
         e.setMail("abc@xyz.com");
 
-        endUsers.put(new Integer(e.getId()), e);
+        endUsers.put(e.getId(), e);
     }
 
     // TODO this needs more specifications
