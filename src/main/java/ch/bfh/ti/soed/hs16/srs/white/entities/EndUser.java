@@ -23,6 +23,17 @@ public class EndUser {
     private Set<Reservation> reservations = new HashSet<>();
     private Role role;
 
+    public EndUser() {
+        this((int)(Math.random() * 10000),null,null,null);
+    }
+
+    public EndUser(int id, String firstName, String lastName, String mail) {
+        this.id         = id;
+        this.firstName  = firstName;
+        this.lastName   = lastName;
+        this.mail       = mail;
+    }
+
     public Role getRole() {
         return role;
     }
@@ -80,5 +91,60 @@ public class EndUser {
     public void destroy() {
         reservations.clear();
 
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (!EndUser.class.isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+
+        final EndUser other = (EndUser) obj;
+
+        if (this.id != other.getId()) {
+            return false;
+        }
+
+        if ( this.firstName == null ? !(other.getFirstName() == null) : !this.firstName.equals(other.getFirstName()) ) {
+            return false;
+        }
+
+        if ( this.lastName == null ? !(other.getLastName() == null) : !this.lastName.equals(other.getLastName()) ) {
+            return false;
+        }
+
+        if ( this.mail == null ? !(other.getMail() == null) : !this.mail.equals(other.getMail()) ) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + this.id;
+        hash = 53 * hash + (this.firstName != null ? this.firstName.hashCode() : 0);
+        hash = 53 * hash + (this.lastName != null ? this.lastName.hashCode() : 0);
+        hash = 53 * hash + (this.mail != null ? this.mail.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public EndUser clone() {
+        EndUser clonedEndUser = new EndUser(this.id, this.firstName, this.lastName, this.mail);
+        clonedEndUser.setRole( this.getRole() );
+
+        if ( this.reservations.size() > 0) {
+            this.reservations.forEach(e -> {
+                clonedEndUser.addReservations(e);
+            });
+        }
+
+        return clonedEndUser;
     }
 }

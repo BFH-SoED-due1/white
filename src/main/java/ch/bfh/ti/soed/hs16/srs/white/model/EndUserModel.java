@@ -8,6 +8,7 @@
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
 import ch.bfh.ti.soed.hs16.srs.white.entities.EndUser;
+
 import java.util.HashMap;
 
 /**
@@ -15,7 +16,6 @@ import java.util.HashMap;
  */
 public class EndUserModel {
     private HashMap<Integer, EndUser> endUsers;
-    //private Hash<EndUser> endUsers;
 
     public EndUserModel() {
         this.endUsers = new HashMap<>();
@@ -26,12 +26,7 @@ public class EndUserModel {
      * This function loads the users from the Database
      */
     private void loadEndUsers() {
-        EndUser e = new EndUser();
-        e.setId(1);
-        e.setFirstName("Carlos");
-        e.setLastName("Arauz");
-        e.setMail("abc@xyz.com");
-
+        EndUser e = new EndUser(1, "Carlos", "Arauz", "abc@xyz.com");
         endUsers.put(e.getId(), e);
     }
 

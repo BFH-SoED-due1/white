@@ -21,8 +21,9 @@ public class RoleTest {
         role.setName("Admin");
         assertEquals("Admin", role.getName());
 
-        //role.setRights(Rights.CREATE);
-        //assertEquals(Rights.CREATE, role.getRole());
+        Rights[] rights = Rights.values();
+        assertEquals(4, rights.length);
+        assertEquals(Rights.valueOf("CREATE"), Rights.CREATE);
     }
 
     @Test

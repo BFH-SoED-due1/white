@@ -15,10 +15,19 @@ import java.util.Date;
 @SuppressWarnings("unused")
 public class Reservation {
     private EndUser owner;
-    private Date time; //TODO find a better type for time so it can be established if a reservation overlaps another one.
     private Room reservedRoom;
+    private Date time; //TODO find a better type for time so it can be established if a reservation overlaps another one.
 
     //TODO create constructor so Reservations always need a Time
+    public Reservation() {
+        this(null, null, null);
+    }
+
+    public Reservation(EndUser owner, Room room, Date time) {
+        this.owner = owner;
+        this.reservedRoom = room;
+        this.time = time;
+    }
 
     public EndUser getOwner() {
         return owner;
@@ -26,14 +35,6 @@ public class Reservation {
 
     public void setOwner(EndUser owner) {
         this.owner = owner;
-    }
-
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
     }
 
     public Room getReservedRoom() {
