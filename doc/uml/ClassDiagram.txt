@@ -55,8 +55,8 @@ EndUser"1" --o "*" Reservation
 Reservation "*" o-- "1" Room 
 Room "*" --* "1" Building
 Room "*" o-- "*" Equipment
-Beamer "1" --|> Equipment
-Flipchart "1" --|> Equipment
+Beamer "1" ..|> Equipment
+Flipchart "1"  ...|> Equipment
 Organisation  "1" -- "*" EndUser
 Organisation  "1" -- "*" Building 
 
