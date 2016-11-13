@@ -8,8 +8,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by arauzca on 13.11.16.
@@ -37,7 +35,10 @@ public class ModelsTest {
         rm.makeReservation(e1, r1, d1);                                             // User e1 make some reservations
         rm.makeReservation(e1, r1, d2);
 
-        Set<Reservation> reservations = ReservationModel.getReservationsFromUser(e1);   // get all reservations made from user e1
+        assertEquals(r1.getReservations().size(), e1.getReservations().size());     // checks if the room and the user has the same amount of reservations
+        assertTrue(e1.getReservations().containsAll(r1.getReservations()));         // checks if the user and the room has the same reservations, that is because the user has reserved 2 times the same room
+
+        Set<Reservation> reservationsFromUser = ReservationModel.getReservationsFromUser(e1);   // get all reservations made from user e1
 
         Set<Equipment> equipmentSet = new HashSet<>();                              // Set of equipments for test
         equipmentSet.add(t1);
@@ -45,13 +46,27 @@ public class ModelsTest {
 
         assertTrue(r1.getEquipments().containsAll(equipmentSet));                   // testig if the room has the added equipment
 
-        assertEquals(2, reservations.size());                                       // test if the user has made 2 reservations
+        assertEquals(2, reservationsFromUser.size());                                       // test if the user has made 2 reservations
+
+        /* Cancel all reservations */
+        Set<Reservation> reservationsFromRoom = ReservationModel.getReservationsFromRoom(r1);
+        assertEquals(2, reservationsFromRoom.size());
+
+        Object[] ro = reservationsFromUser.toArray();
+
 
         EndUser endUser             = new EndUser(1, "Carlos", "Arauz", "abc@xyz.com"); // from now on these are method tests to: clone, hash and equals for most of their branches
-        EndUser clonedEndUser       = endUser.clone();
+        EndUser clonedEndUser       = e1.clone();
 
-        EndUser e = um.getEndUserById(1);
-        assertTrue( endUser.equals(e) );
+        for (int i = 0; i < ro.length; i++) {
+            Reservation res = (Reservation) ro[i];
+            rm.cancelReservation(res);
+        }
+
+        assertEquals(0, e1.getReservations().size());                               // check if the 2 reservations were deleted from both the user and the room
+        assertEquals(0, r1.getReservations().size());
+
+        assertTrue( endUser.equals(e1) );
         assertTrue( endUser.equals(clonedEndUser) );
         assertEquals(endUser.hashCode(), clonedEndUser.hashCode());
 

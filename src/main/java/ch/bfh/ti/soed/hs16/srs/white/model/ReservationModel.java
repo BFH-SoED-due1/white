@@ -42,4 +42,10 @@ public class ReservationModel {
         return user.getReservations();
     }
 
+    public static Set<Reservation> getReservationsFromRoom(Room room) {
+        return room.getReservations();
+    }
+
+
+
 }
