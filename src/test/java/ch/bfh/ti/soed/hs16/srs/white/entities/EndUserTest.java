@@ -1,9 +1,15 @@
+/**
+ * Copyright (c) 2017 Team White, Berner Fachhochschule, Switzerland.
+ * Project smart Reservations System.
+ * Distributable under GPL license. See terms of license at gnu.org
+ */
+
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
-import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by joni on 20.10.2016.
@@ -66,28 +72,5 @@ public class EndUserTest {
         organization.removeEndUser(user);
         assertEquals(0, user.getReservations().size());
     }
-
-
-
-    @Test
-    public void testEndUserModel() {
-        EndUserModel endUserModel = new EndUserModel();
-
-        EndUser e = endUserModel.getEndUserById(1);
-        assertEquals(e.getFirstName(), "Carlos");
-        assertEquals(e.getLastName(), "Arauz");
-        assertEquals(e.getMail(), "abc@xyz.com");
-
-        EndUser e2 = new EndUser();
-        e2.setId(2);
-
-        endUserModel.createEndUser(e2);
-        assertEquals(e2, endUserModel.getEndUserById(2));
-
-        endUserModel.deleteEndUserById(1);
-        assertNull(endUserModel.getEndUserById(1));
-
-    }
-
 
 }

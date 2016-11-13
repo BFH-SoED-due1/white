@@ -1,0 +1,168 @@
+    ----------
+    Back Log
+    ----------
+    Author: Jonathan Hyams
+    ----------
+    October 27, 2016
+
+Backlog
+
+* Back-End
+
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>      |  <<Description>>                                                         | <<Priority>> | <<Time(h)>> |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|01.           | As an administrator I want to be able to see, who reserved\              |7             |10\          |
+|              | what room, when the reservation is and who is invited. If necessary,     |              |             |
+|              | I want to be able to change/delete the reservation.                      |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|01.01\        | I can see who reserved what room\                                        |              |2\           |
+|01.02\        | I can see when the reservation is\                                       |              |2\           |
+|01.03\        | I can see who is invited\                                                |              |2\           |
+|01.04\        | I can edit the reservation\                                              |              |2\           |
+|01.05\        | I can delete the reservation\                                            |              |2\           |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|02.           | As an administrator I want to be able to see User registrations and      |7             |15           |
+|              | either approve or deny them. If I approve the registration, the user     |              |             |
+|              | should be informed that the registration was accepted. I can assign      |              |             |
+|              | rights to the new user. If the User is no longer part of the             |              |             |
+|              | organization I can delete his account.                                   |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|02.01\        | I can see user registration requests\                                    |              |4\           |
+|02.02\        | I can approve or deny requests\                                          |              |6\           |
+|02.03\        | User gets Informed if request was approved or denied\                    |              |1\           |
+|02.04\        | I can assign rights to a User\                                           |              |1\           |
+|02.05\        | I can delete a User\                                                     |              |3\           |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|03.           | As an administrator I want to add rooms that can be reserved. The rooms  |8             |10           |
+|              | should be in a building that I can also manage. I want to create new     |              |             |
+|              | buildings if need be. I also want to be able to add/remove additional    |              |             |
+|              | equipment to a room.                                                     |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|03.01\        | I can add rooms\                                                         |              |1\           |
+|03.02\        | I can delete rooms\                                                      |              |2\           |
+|03.03\        | I can edit rooms\                                                        |              |1\           |
+|03.04\        | I can add buildings\                                                     |              |1\           |
+|03.05\        | I can delete buildings\                                                  |              |2\           |
+|03.06\        | I can edit buildings\                                                    |              |1\           |
+|03.07\        | I can add equipment to rooms\                                            |              |1\           |
+|03.08\        | I can remove equipment to rooms\                                         |              |1\           |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|04.           | As an administrator I want to manage the room prices. I want to manage   |2             |5            |
+|              | seasons so that room prices can be adjusted.                             |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|05.           | As a registered user I want to reserve a room and invite people.         |4             |4            |
+|              | I want to notify them via email.                                         |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|06.           | As a registered user I want to login with my account.                    |4             |2            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|07.           | As a registered user I want to be able to edit Reservations (change the  |7             |5            |
+|              | time, title, change the room, delete).                                   |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|08.           | As a registered user I can be invited to an event that someone           |5             |3            |
+|              | else created.                                                            |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|09.           | I want to get an email notification where I can rsvp.                    |2             |2            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|10.           | As a registered user I want to be notified via email if a reservation    |2             |2            |
+|              | changes that I have been invited to. I want to notify people that are    |              |             |
+|              | invited to my reservation, if something changes.                         |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|11.           | As a non registered user I can request an account by filling out         |7             |2            |
+|              | a registrations form.                                                    |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|12.           | As a non registered user I want to see what rooms are available.         |4             |8            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+
+
+* Front-End
+
+** <<Home Page>>
+
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>      | <<Description>>                                                          | <<Priority>> | <<Time>>    |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|13.           | As an administrator I want to see a tabbed view, where there is a tab    |3             |7            |
+|              | for users, buildings, rooms and reservations. I want to be able to sort  |              |             |
+|              | and filter them by desire.                                               |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|13.01\        | I want to see a tab for user, buildings and reservations                 |              |4\           |
+|13.02\        | I want to sort and filter                                                |              |3\           |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|14.           | As an administrator I want to create and remove Users, Buildings, Rooms  |4             |7            |
+|              | and reservations.                                                        |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|15.           | As a User I want to see my reservations and upcoming events              |4             |8            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|16.           | If I am a registered User, but not logged in, I want to see a login page.|2             |2            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|17.           | As an administrator I want to login with my account and directly see     |2             |4            |
+|              | all upcoming reservations.                                               |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|18.           | As a non-registered User I want to be able to register.                  |5             |2            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+
+
+
+** <<Reservations>>
+
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>      | <<Description>>                                                          | <<Priority>> | <<Time>>    |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|19.           | As a registered user I want a dropdown menu with all my reservations.    |2             |8            |
+|              | I want to see who I have invited and I want to edit the reservation      |              |             |
+|              | if needed.                                                               |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|20.           | As an administrator I want to manage seasons so that we can adapt rent   |1             |4            |
+|              | prices accordingly.                                                      |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|21.           | As a user I want to reserve rooms in a specific time frame and get an    |4             |5            |
+|              | error if there is an overlap with another reservations.                  |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|22.           | As a user I want to be able to cancel reservations.                      |3             |3            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|23.           | As an administrator I want to have a list of all reservations, Users,    |7             |6            |
+|              | Rooms, Buildings, so I can edit them quickly easily.                     |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|24.           | As an administrator I want an option to see all reservations of a        |3             |5            |
+|              | specific User.                                                           |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|25.           | As a user I want to see what Room/Building is where and to what          |2             |3            |
+|              |availability.                                                             |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|26.           | As a user I want to see information/description of reservations.         |2             |2            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|27.           | As a user I want to see who reserved what, to ask for changes.           |1             |2            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|28.           | As a user I want to see reservation prices (to rent rooms)               |2             |2            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|29.           | As a non registered user I want to see reservation prices (to rent rooms)|1             |2            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+
+** <<Profile>>
+
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>      | <<Description>>                                                          | <<Priority>> | <<Time>>    |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|30.           | As a registered-user I want to change my Password, email, phone etc      |1             |2            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+
+Sprint 2: Tasks
+
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>      | <<Description>>                                                          |  << Plan>>   | << Actual>> |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|01.01\        | I can see who reserved what room\                                        |2\            |1.5\         |
+|01.04\        | I can edit the reservation\                                              |2\            |2\           |
+|01.05\        | I can delete the reservation\                                            |2\            |4\           |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|02.04\        | I can assign rights to a User\                                           |1\            |0.5\         |
+|02.05\        | I can delete a User\                                                     |3\            |4\           |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|03.01\        | I can add rooms\                                                         |1\            |1\           |
+|03.02\        | I can delete rooms\                                                      |2\            |3\           |
+|03.03\        | I can edit rooms\                                                        |1\            |1\           |
+|03.04\        | I can add buildings\                                                     |1\            |2\           |
+|03.05\        | I can delete buildings\                                                  |2\            |4.5\         |
+|03.06\        | I can edit buildings\                                                    |1\            |1\           |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:

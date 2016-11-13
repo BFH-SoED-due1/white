@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2017 Berner Fachhochschule, Switzerland.
+ *
+ * Project Smart Reservation System.
+ *
+ * Distributable under GPL license. See terms of license at gnu.org.
+ */
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
 import java.util.Collections;
@@ -12,6 +19,7 @@ public class Room {
     private String name;
     private int quantityOfSeats;
     private Set<Reservation> reservations = new HashSet<>();
+    private Set<Equipment> equipments = new HashSet<>();
 
     public String getName() {
         return name;
@@ -45,5 +53,14 @@ public class Room {
 
     public void removeAllReservations(){
         reservations.clear();
+    }
+
+    public void addEquipments(Equipment c){
+        this.equipments.add(c);
+    }
+
+    public Set<Equipment> getEquipments(){
+        Set<Equipment> readOnlyEquipment = Collections.unmodifiableSet(this.equipments);
+        return readOnlyEquipment;
     }
 }
