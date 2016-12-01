@@ -7,6 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Building;
+import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +19,7 @@ import java.util.Set;
  */
 public class Organization {
     private Set<EndUser> endUsers = new HashSet<>();
-    private Set<Building> buildings = new HashSet<>();
+    private Set<Building> building = new HashSet<>();
 
     public Set<EndUser> getEndUsers() {
         Set<EndUser> readOnlyEndUsers = Collections.unmodifiableSet(this.endUsers);
@@ -34,17 +37,17 @@ public class Organization {
     }
 
     public Set<Building> getBuildings() {
-        Set<Building> readOnlyBuildings = Collections.unmodifiableSet(this.buildings);
-        return readOnlyBuildings;
+        Set<Building> readOnlyBuilding = Collections.unmodifiableSet(this.building);
+        return readOnlyBuilding;
     }
 
     public void removeBuilding(Building building){
-        this.buildings.remove(building);
+        this.building.remove(building);
         building.destroy();
     }
 
     public void addBuilding(Building building){
-        this.buildings.add(building);
+        this.building.add(building);
     }
 
 

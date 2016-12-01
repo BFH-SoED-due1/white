@@ -7,7 +7,7 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
-import ch.bfh.ti.soed.hs16.srs.white.entities.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.entities.EndUserImpl;
 
 import java.util.HashMap;
 
@@ -15,7 +15,7 @@ import java.util.HashMap;
  * Created by arauzca on 21.10.16.
  */
 public class EndUserModel {
-    private HashMap<Integer, EndUser> endUsers;
+    private HashMap<Integer, EndUserImpl> endUsers;
 
     public EndUserModel() {
         this.endUsers = new HashMap<>();
@@ -26,12 +26,12 @@ public class EndUserModel {
      * This function loads the users from the Database
      */
     private void loadEndUsers() {
-        EndUser e = new EndUser(1, "Carlos", "Arauz", "abc@xyz.com");
+        EndUserImpl e = new EndUserImpl(1, "Carlos", "Arauz", "abc@xyz.com");
         endUsers.put(e.getId(), e);
     }
 
     // TODO this needs more specifications
-    public void createEndUser(EndUser e) {
+    public void createEndUser(EndUserImpl e) {
         endUsers.put(e.getId(), e);
     }
 
@@ -39,8 +39,8 @@ public class EndUserModel {
         endUsers.remove(id);
     }
 
-    public EndUser getEndUserById(Integer id) {
-        EndUser e = endUsers.getOrDefault(id, null);
+    public EndUserImpl getEndUserById(Integer id) {
+        EndUserImpl e = endUsers.getOrDefault(id, null);
         return e;
     }
 }

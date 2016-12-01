@@ -35,7 +35,7 @@ Backlog
 |02.05\        | I can delete a User\                                                     |              |3\           |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
 |03.           | As an administrator I want to add rooms that can be reserved. The rooms  |8             |10           |
-|              | should be in a building that I can also manage. I want to create new     |              |             |
+|              | should be in a buildingImpl that I can also manage. I want to create new     |              |             |
 |              | buildings if need be. I also want to be able to add/remove additional    |              |             |
 |              | equipment to a room.                                                     |              |             |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:

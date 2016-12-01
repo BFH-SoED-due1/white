@@ -7,6 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Building;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,16 +19,27 @@ import java.util.Set;
  */
 
 @SuppressWarnings("unused")
-public class Building {
+public class BuildingImpl implements ch.bfh.ti.soed.hs16.srs.white.concept.Building {
 
     private String name;
     private String address;
     private Set<Room> rooms = new HashSet();
 
+    public BuildingImpl(){
+        this(null, null);
+    }
+
+    public BuildingImpl(String name, String address){
+        this.name = name;
+        this.address = address;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public String getAddress() {
         return address;
     }
@@ -38,21 +52,26 @@ public class Building {
         this.name = name;
     }
 
+
+    @Override
     public Set<Room> getRooms() {
         Set<Room> readOnlyRooms = Collections.unmodifiableSet(this.rooms);
         return readOnlyRooms;
     }
 
+    @Override
     public void removeRoom(Room room){
-        rooms.remove(room);
         room.removeAllReservations();
+        rooms.remove(room);
     }
 
+    @Override
     public void addRoom(Room room) {
         this.rooms.add(room);
     }
 
 
+    @Override
     public void destroy() {
         rooms.forEach((room)->room.removeAllReservations());
         rooms.clear();

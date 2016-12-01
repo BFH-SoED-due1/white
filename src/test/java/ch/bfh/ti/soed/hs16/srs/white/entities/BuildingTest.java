@@ -1,5 +1,8 @@
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Building;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,19 +14,17 @@ public class BuildingTest {
 
     @Test
     public void testGettersAndSetters(){
-        Building rolex = new Building();
-        rolex.setName("Rolex");
+        Building rolex = new BuildingImpl("Rolex", "Quellgasse");
         assertEquals("Rolex", rolex.getName());
 
-        rolex.setAddress("Quellgasse");
         assertEquals("Quellgasse",rolex.getAddress());
 
     }
 
     @Test
     public void testRemoveBuilding(){
-        Building building = new Building();
-        Room room = new Room();
+        Building building = new BuildingImpl();
+        Room room = new RoomImpl("",0);
         building.addRoom(room);
         building.removeRoom(room);
         assertTrue(building.getRooms().isEmpty());
@@ -32,9 +33,9 @@ public class BuildingTest {
 
     @Test
     public void testRemoveCertainReservations(){
-        Building building = new Building();
-        Room room1 = new Room();
-        Room room2 = new Room();
+        Building building = new BuildingImpl();
+        Room room1 = new RoomImpl("", 0);
+        Room room2 = new RoomImpl("", 0);
         building.addRoom(room1);
         building.addRoom(room2);
         building.removeRoom(room2);
@@ -49,9 +50,9 @@ public class BuildingTest {
     @Test
     public void testDeletedRoom(){
         // TODO delete room, what happens to reservations in it?
-        Reservation reservation = new Reservation();
-        Building building = new Building();
-        Room room = new Room();
+        Reservation reservation = new ReservationImpl();
+        Building building = new BuildingImpl();
+        Room room = new RoomImpl("", 0);
         building.addRoom(room);
         reservation.setReservedRoom(room);
         building.removeRoom(room);
@@ -63,16 +64,16 @@ public class BuildingTest {
 
     @Test
     public void testRemoveBuildingRemovesReservations(){
-        Building building = new Building();
-        Room room = new Room();
-        Reservation reservation = new Reservation();
+        BuildingImpl buildingImpl = new BuildingImpl();
+        RoomImpl room = new RoomImpl("", 0);
+        ReservationImpl reservation = new ReservationImpl();
 
-        building.addRoom(room);
+        buildingImpl.addRoom(room);
         room.addReservation(reservation);
 
-        building.destroy();
+        buildingImpl.destroy();
 
-        assertEquals(0, building.getRooms().size());
+        assertEquals(0, buildingImpl.getRooms().size());
         assertEquals(0, room.getReservations().size());
     }
 

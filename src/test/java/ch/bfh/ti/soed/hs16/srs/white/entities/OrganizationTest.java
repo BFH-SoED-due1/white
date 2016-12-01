@@ -6,9 +6,14 @@
 
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Building;
+import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
 
 /**
  * Created by joni on 20.10.2016.
@@ -17,8 +22,8 @@ public class OrganizationTest {
     @Test
     public void testAddAndRemoveEndUser(){
         Organization organization = new Organization();
-        EndUser userRemain = new EndUser();
-        EndUser userRemove = new EndUser();
+        EndUser userRemain = new EndUserImpl();
+        EndUser userRemove = new EndUserImpl();
         organization.addEndUser(userRemain);
         organization.addEndUser(userRemove);
         organization.removeEndUser(userRemove);
@@ -27,11 +32,13 @@ public class OrganizationTest {
         assertFalse(organization.getEndUsers().contains(userRemove));
     }
 
+
+
     @Test
     public void testAddAndRemoveBuilding(){
         Organization organization = new Organization();
-        Building buildingRemain = new Building();
-        Building buildingRemove = new Building();
+        Building buildingRemain = new BuildingImpl();
+        Building buildingRemove = new BuildingImpl();
         organization.addBuilding(buildingRemain);
         organization.addBuilding(buildingRemove);
         organization.removeBuilding(buildingRemove);
@@ -42,12 +49,12 @@ public class OrganizationTest {
     @Test
     public void deleteBuildingDeletesReservations(){
         //@Dubuis
-        //Should this only be tested as a Room object that gets deleted and loses it's reservations
+        //Should this only be tested as a RoomImpl object that gets deleted and loses it's reservations
         //Is the chain of events unnecessary?
         Organization organization = new Organization();
-        Building building = new Building();
-        Room room = new Room();
-        Reservation reservation = new Reservation();
+        Building building = new BuildingImpl();
+        Room room = new RoomImpl("", 0);
+        ReservationImpl reservation = new ReservationImpl();
         organization.addBuilding(building);
         building.addRoom(room);
         reservation.setReservedRoom(room);
@@ -60,8 +67,8 @@ public class OrganizationTest {
     @Test
     public void deleteBuildingDeletesRooms(){
         Organization organization = new Organization();
-        Building building = new Building();
-        Room room = new Room();
+        Building building = new BuildingImpl();
+        RoomImpl room = new RoomImpl("", 0);
         organization.addBuilding(building);
         building.addRoom(room);
         organization.removeBuilding(building);
@@ -73,8 +80,8 @@ public class OrganizationTest {
     @Test
     public void removeEndUserDeletesReservations(){
         Organization organization = new Organization();
-        EndUser endUser = new EndUser();
-        Reservation reservation = new Reservation();
+        EndUserImpl endUser = new EndUserImpl();
+        ReservationImpl reservation = new ReservationImpl();
         organization.addEndUser(endUser);
         endUser.addReservations(reservation);
         organization.removeEndUser(endUser);
@@ -84,17 +91,17 @@ public class OrganizationTest {
 
     @Test
     public void testRemoveOneRoomDoesntRemoveAnotherOne(){
-        Building building1 = new Building();
-        Room room1 = new Room();
-        Reservation reservation1 = new Reservation();
+        Building building1 = new BuildingImpl();
+        Room room1 = new RoomImpl("", 0);
+        ReservationImpl reservation1 = new ReservationImpl();
         building1.addRoom(room1);
         room1.addReservation(reservation1);
         assertEquals(1, room1.getReservations().size());
         building1.removeRoom(room1);
         assertEquals(0, room1.getReservations().size());
 
-        Room room2 = new Room();
-        Reservation reservation2 = new Reservation();
+        Room room2 = new RoomImpl("", 0);
+        ReservationImpl reservation2 = new ReservationImpl();
         building1.addRoom(room2);
         room1.addReservation(reservation2);
         assertEquals(1, room1.getReservations().size());

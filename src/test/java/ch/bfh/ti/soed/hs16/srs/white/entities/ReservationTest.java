@@ -8,8 +8,6 @@ package ch.bfh.ti.soed.hs16.srs.white.entities;
 
 import org.junit.Test;
 
-import java.util.Date;
-
 import static org.junit.Assert.*;
 
 /**
@@ -18,9 +16,9 @@ import static org.junit.Assert.*;
 public class ReservationTest {
     @Test
     public void testGettersAndSetters() {
-        Reservation reservation = new Reservation();
-        EndUser user = new EndUser();
-        Room room = new Room();
+        ReservationImpl reservation = new ReservationImpl();
+        EndUserImpl user = new EndUserImpl();
+        RoomImpl room = new RoomImpl("", 0);
 
         reservation.setReservedRoom(room);
         assertEquals(room, reservation.getReservedRoom());

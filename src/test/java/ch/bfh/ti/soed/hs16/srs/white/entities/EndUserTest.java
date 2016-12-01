@@ -17,25 +17,29 @@ import static org.junit.Assert.assertTrue;
 public class EndUserTest {
     @Test
     public void testGettersAndSetters(){
-        EndUser user = new EndUser();
-        user.setFirstName("FirstName");
+        int id = 42;
+        String firstName = "FirstName";
+        String lastName = "LastName";
+        String mail = "white@mailinator.com";
+        EndUserImpl user = new EndUserImpl(id, firstName, lastName, mail);
+
         assertEquals("FirstName", user.getFirstName());
 
-        user.setLastName("LastName");
+
         assertEquals("LastName", user.getLastName());
 
-        user.setId(42);
+
         assertEquals(42, user.getId());
 
-        user.setMail("white@mailinator.com");
+
         assertEquals("white@mailinator.com", user.getMail());
 
     }
 
     @Test
     public void testAddReservations(){
-        EndUser user = new EndUser();
-        Reservation res = new Reservation();
+        EndUserImpl user = new EndUserImpl();
+        ReservationImpl res = new ReservationImpl();
         user.addReservations(res);
         assertTrue(user.getReservations().contains(res));
 
@@ -43,8 +47,8 @@ public class EndUserTest {
 
     @Test
     public void testRemoveReservations(){
-        EndUser user = new EndUser();
-        Reservation res = new Reservation();
+        EndUserImpl user = new EndUserImpl();
+        ReservationImpl res = new ReservationImpl();
         user.addReservations(res);
         user.removeReservation(res);
         assertTrue(user.getReservations().isEmpty());
@@ -53,9 +57,9 @@ public class EndUserTest {
 
     @Test
     public void testRemoveCertainReservations(){
-        EndUser user = new EndUser();
-        Reservation res1 = new Reservation();
-        Reservation res2 = new Reservation();
+        EndUserImpl user = new EndUserImpl();
+        ReservationImpl res1 = new ReservationImpl();
+        ReservationImpl res2 = new ReservationImpl();
         user.addReservations(res1);
         user.addReservations(res2);
         user.removeReservation(res2);
@@ -66,8 +70,8 @@ public class EndUserTest {
     @Test
     public void testRemoveEndUserRemovesReservations(){
         Organization organization = new Organization();
-        EndUser user = new EndUser();
-        Reservation res = new Reservation();
+        EndUserImpl user = new EndUserImpl();
+        ReservationImpl res = new ReservationImpl();
 
         organization.removeEndUser(user);
         assertEquals(0, user.getReservations().size());

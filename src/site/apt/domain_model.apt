@@ -13,7 +13,7 @@ Domain Model
 
     This is the domain model of our room reservation-system project.
     It describes that we can book a room on a given day and time.
-    The rooms are located in a building and contain selected equipment.
+    The rooms are located in a buildingImpl and contain selected equipment.
     We have different roles which are used to either maintain the system or use it.
 
     Note that only a few attributes are showed in the diagram, but no operations.

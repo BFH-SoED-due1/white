@@ -40,7 +40,7 @@ end note
 Class Room{
 	-quantitiOfSeats
 	-name
-	-building
+	-buildingImpl
 	-reservations
 	-equipment
 }
