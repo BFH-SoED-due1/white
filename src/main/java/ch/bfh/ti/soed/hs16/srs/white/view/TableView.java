@@ -18,18 +18,6 @@ public class TableView {
 
     public HorizontalLayout createTable(){
 
-//        Table table1 = new Table("Shoes price list");
-//
-//        table1.addContainerProperty("Name", String.class, null);
-//        table1.addContainerProperty("#Seats", Integer.class, null);
-//        table1.addContainerProperty("Reservations", Integer.class, null);
-//        table1.addContainerProperty("Equipment", String.class, null);
-//
-//        table1.addItem(new Object[] {"A001",50, 2, "Cheese"}, new Integer(1));
-//        table1.addItem(new Object[] {"A002",40, 0, "Oranges"}, new Integer(2));
-//        table1.addItem(new Object[] {"A003",60, 3, "Apples"}, new Integer(3));
-//        table1.addItem(new Object[] {"A004",20, 1, "Bananas"}, new Integer(4));
-
         Table userTable = new Table("Users");
         Table roomTable = new Table("Room");
 //        Table resTable = new Table("Reservation");
@@ -44,10 +32,10 @@ public class TableView {
         EndUser e3 = new EndUserImpl((int)(Math.random() * 10000), "Daniel", "Koehler", "DKoehler@abc.ch");
         EndUser e4 = new EndUserImpl((int)(Math.random() * 10000), "Philip", "Wagner", "PWagner@abc.ch");
 
-        userTable.addItem(new Object[] {e1.getId(), e1.getFirstName(), e1.getLastName(), e1.getMail()});
-        userTable.addItem(new Object[] {e2.getId(), e2.getFirstName(), e2.getLastName(), e2.getMail()});
-        userTable.addItem(new Object[] {e3.getId(), e3.getFirstName(), e3.getLastName(), e3.getMail()});
-        userTable.addItem(new Object[] {e4.getId(), e4.getFirstName(), e4.getLastName(), e4.getMail()});
+        userTable.addItem(new Object[] {e1.getId(), e1.getFirstName(), e1.getLastName(), e1.getMail()}, new Integer(1));
+        userTable.addItem(new Object[] {e2.getId(), e2.getFirstName(), e2.getLastName(), e2.getMail()}, new Integer(2));
+        userTable.addItem(new Object[] {e3.getId(), e3.getFirstName(), e3.getLastName(), e3.getMail()}, new Integer(3));
+        userTable.addItem(new Object[] {e4.getId(), e4.getFirstName(), e4.getLastName(), e4.getMail()}, new Integer(4));
 
         roomTable.addContainerProperty("ID", String.class, null);
         roomTable.addContainerProperty("#Seats", Integer.class, null);
