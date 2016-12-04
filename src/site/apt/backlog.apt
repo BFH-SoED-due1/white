@@ -35,7 +35,7 @@ Backlog
 |02.05\        | I can delete a User\                                                     |              |3\           |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
 |03.           | As an administrator I want to add rooms that can be reserved. The rooms  |8             |10           |
-|              | should be in a buildingImpl that I can also manage. I want to create new     |              |             |
+|              | should be in a buildingImpl that I can also manage. I want to create new |              |             |
 |              | buildings if need be. I also want to be able to add/remove additional    |              |             |
 |              | equipment to a room.                                                     |              |             |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
@@ -82,12 +82,14 @@ Backlog
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
 | <<No.>>      | <<Description>>                                                          | <<Priority>> | <<Time>>    |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
-|13.           | As an administrator I want to see a tabbed view, where there is a tab    |3             |7            |
+|13.           | As an administrator I want to see a tabbed view, where there is a tab    |3             |5            |
 |              | for users, buildings, rooms and reservations. I want to be able to sort  |              |             |
 |              | and filter them by desire.                                               |              |             |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
-|13.01\        | I want to see a tab for user, buildings and reservations                 |              |4\           |
-|13.02\        | I want to sort and filter                                                |              |3\           |
+|13.01\        | As an Administrator I want to see a table for users                      |              |1\           |
+|13.02\        | As an Administrator I want to see a table for rooms                      |              |1\           |
+|13.03\        | As an Administrator I want to see a table for reservations               |              |1\           |
+|13.04\        | As an Administrator I want to sort and filter option                     |              |2\           |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
 |14.           | As an administrator I want to create and remove Users, Buildings, Rooms  |4             |7            |
 |              | and reservations.                                                        |              |             |
@@ -165,4 +167,18 @@ Sprint 2: Tasks
 |03.04\        | I can add buildings\                                                     |1\            |2\           |
 |03.05\        | I can delete buildings\                                                  |2\            |4.5\         |
 |03.06\        | I can edit buildings\                                                    |1\            |1\           |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+
+Sprint 3: Tasks
+
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>      | <<Description>>                                                          |  << Plan>>   | << Actual>> |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|02.04         | I can assign rights to a User\                                           |1\            |2\           |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|11            | As a non registered user I can request an account by filling out         |2\            |4\           |
+|              | a registrations form.                                                    |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|13.01         | As an Administrator I want to see a table for users                      |1\            |2\           |
+|13.02         | As an Administrator I want to see a table for rooms                      |1\            |1\           |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
