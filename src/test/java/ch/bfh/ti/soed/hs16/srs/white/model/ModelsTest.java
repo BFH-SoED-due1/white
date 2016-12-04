@@ -36,9 +36,9 @@ public class ModelsTest {
 
         um.createEndUser(e1);
         um.createEndUser(e2);
+        um.saveUsers();
         um.loadEndUsers("users.xml");
         um.loadEndUsers("nofile.xml");
-        um.saveUsers();
 
 
 
