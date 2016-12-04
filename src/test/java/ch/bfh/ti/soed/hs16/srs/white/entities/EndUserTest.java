@@ -6,6 +6,8 @@
 
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -21,7 +23,7 @@ public class EndUserTest {
         String firstName = "FirstName";
         String lastName = "LastName";
         String mail = "white@mailinator.com";
-        EndUserImpl user = new EndUserImpl(id, firstName, lastName, mail);
+        EndUser user = new EndUserImpl(id, firstName, lastName, mail);
 
         assertEquals("FirstName", user.getFirstName());
 
@@ -38,8 +40,8 @@ public class EndUserTest {
 
     @Test
     public void testAddReservations(){
-        EndUserImpl user = new EndUserImpl();
-        ReservationImpl res = new ReservationImpl();
+        EndUser user = new EndUserImpl();
+        Reservation res = new ReservationImpl();
         user.addReservations(res);
         assertTrue(user.getReservations().contains(res));
 
@@ -47,7 +49,7 @@ public class EndUserTest {
 
     @Test
     public void testRemoveReservations(){
-        EndUserImpl user = new EndUserImpl();
+        EndUser user = new EndUserImpl();
         ReservationImpl res = new ReservationImpl();
         user.addReservations(res);
         user.removeReservation(res);
@@ -57,9 +59,9 @@ public class EndUserTest {
 
     @Test
     public void testRemoveCertainReservations(){
-        EndUserImpl user = new EndUserImpl();
-        ReservationImpl res1 = new ReservationImpl();
-        ReservationImpl res2 = new ReservationImpl();
+        EndUser user = new EndUserImpl();
+        Reservation res1 = new ReservationImpl();
+        Reservation res2 = new ReservationImpl();
         user.addReservations(res1);
         user.addReservations(res2);
         user.removeReservation(res2);
@@ -70,8 +72,9 @@ public class EndUserTest {
     @Test
     public void testRemoveEndUserRemovesReservations(){
         Organization organization = new Organization();
-        EndUserImpl user = new EndUserImpl();
-        ReservationImpl res = new ReservationImpl();
+        EndUser user = new EndUserImpl();
+        Reservation res = new ReservationImpl();
+        user.addReservations(res);
 
         organization.removeEndUser(user);
         assertEquals(0, user.getReservations().size());
