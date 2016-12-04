@@ -99,18 +99,32 @@ public class EndUserTest {
         user1 = new EndUserImpl(0,"x", "y", null);
         user2 = new EndUserImpl(0,"x", "y", "z");
         assertFalse(user1.equals(user2));
+        assertFalse(user2.equals(user1));
 
         user1 = new EndUserImpl(0,null, "y", "z");
         user2 = new EndUserImpl(0,null, "b", "c");
         assertFalse(user1.equals(user2));
+        assertFalse(user2.equals(user1));
 
         user1 = new EndUserImpl(0,"x", null, "z");
         user2 = new EndUserImpl(0,"a", null, "c");
         assertFalse(user1.equals(user2));
+        assertFalse(user2.equals(user1));
 
         user1 = new EndUserImpl(0,"x", "y", null);
         user2 = new EndUserImpl(0,"a", "b", null);
         assertFalse(user1.equals(user2));
+
+        int hash = 23671443;
+        EndUser user3 = new EndUserImpl(0, null, null, null);
+        assertEquals(hash, user3.hashCode());
+
+
+        EndUser user4 = new EndUserImpl(0, null, null, "test");
+        user4.hashCode();
+
+        hash = 24014936;
+        assertEquals(hash, user1.hashCode());
     }
 
 }

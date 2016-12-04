@@ -30,6 +30,11 @@ public class RightsTest {
         Iterator i = user.getRights().iterator();
 
         assertEquals(i.next(), Rights.READ);
+
+        assertEquals(Rights.valueOf("DELETE"), Rights.DELETE);
+        Rights[] rightsArray = Rights.values();
+        assertEquals(4, rightsArray.length);
+
     }
 
 }

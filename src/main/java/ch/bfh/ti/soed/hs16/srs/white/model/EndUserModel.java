@@ -38,13 +38,13 @@ public class EndUserModel {
     /**
      * This function loads the users from the Database
      */
-    public boolean loadEndUsers() {
+    public boolean loadEndUsers(String fileName) {
         EndUserModel endUserModel;
         boolean b = false;
 
         try {
             ClassLoader cl = this.getClass().getClassLoader();
-            File f = new File(cl.getResource("users.xml").getFile());
+            File f = new File(cl.getResource(fileName).getFile());
 
             if ( f.exists() ) {
                 FileInputStream is  = new FileInputStream(f);

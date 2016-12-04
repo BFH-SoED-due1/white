@@ -6,6 +6,7 @@ import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
 import ch.bfh.ti.soed.hs16.srs.white.entities.EndUserImpl;
 import ch.bfh.ti.soed.hs16.srs.white.entities.ReservationImpl;
 import ch.bfh.ti.soed.hs16.srs.white.entities.RoomImpl;
+import ch.bfh.ti.soed.hs16.srs.white.helpers.JAXBHelper;
 import org.junit.Test;
 
 import java.net.URISyntaxException;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Set;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -28,15 +30,23 @@ public class ModelsTest {
 
         EndUser e1 = new EndUserImpl(0, "Carlos", "Arauz", "carlos.arauz@bfh.ch");
         EndUser e2 = new EndUserImpl(1, "Pablo", "Donan", "pablo.donan@bfh.ch");
+        EndUser e3 = new EndUserImpl(3, "Carlos", "Arauz", "carlos.arauz@bfh.ch");
 
         System.out.println(e1.toString());
 
         um.createEndUser(e1);
         um.createEndUser(e2);
-        um.loadEndUsers();
+        um.loadEndUsers("users.xml");
+        um.loadEndUsers("nofile.xml");
         um.saveUsers();
 
+
+
         List<EndUser> endUserList = um.getEndUsers();
+
+        assertFalse(e1.equals(null));
+        assertFalse(e1.equals(new String("test")));
+        assertFalse(e1.equals(e3));
 
         Room r1 = new RoomImpl("",0);                                                       // Creating a room, later will be loaded with model
 
@@ -107,7 +117,9 @@ public class ModelsTest {
     @Test
     public void testEndUserModel() throws URISyntaxException {
         EndUserModel userModel = new EndUserModel();
+        JAXBHelper jaxb = new JAXBHelper();
 
+        jaxb.getClass();
 
     }
 
