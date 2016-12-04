@@ -80,17 +80,11 @@ public class ModelsTest {
 
         //e2.setFirstName("Jan");
 
-        assertFalse(cloneE2.equals(e2));
-
         //e2.setFirstName(null);
         //e2.setLastName("Mustername");
 
-        assertFalse(cloneE2.equals(e2));
-
         //e2.setLastName(null);
         //e2.setMail("cde@xyz.com");
-
-        assertFalse(cloneE2.equals(e2));
 
     }
 

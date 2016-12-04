@@ -6,6 +6,5 @@ package ch.bfh.ti.soed.hs16.srs.white.concept;
 public interface Reservation {
     EndUser getOwner();
     Room getReservedRoom();
-
     void setReservedRoom(Room reservedRoom);
 }
