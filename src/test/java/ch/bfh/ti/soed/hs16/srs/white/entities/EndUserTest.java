@@ -11,6 +11,7 @@ import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -78,6 +79,38 @@ public class EndUserTest {
 
         organization.removeEndUser(user);
         assertEquals(0, user.getReservations().size());
+    }
+
+    @Test
+    public void testEqualsMethod(){
+
+        EndUser user1 = new EndUserImpl(0,"x", "y", "z");
+        EndUser user2 = new EndUserImpl(0,"a", "b", "c");
+        assertFalse(user1.equals(user2));
+
+        user1 = new EndUserImpl(0,null, "y", "z");
+        user2 = new EndUserImpl(0,"x", "y", "z");
+        assertFalse(user1.equals(user2));
+
+        user1 = new EndUserImpl(0,"x", null, "z");
+        user2 = new EndUserImpl(0,"x", "y", "z");
+        assertFalse(user1.equals(user2));
+
+        user1 = new EndUserImpl(0,"x", "y", null);
+        user2 = new EndUserImpl(0,"x", "y", "z");
+        assertFalse(user1.equals(user2));
+
+        user1 = new EndUserImpl(0,null, "y", "z");
+        user2 = new EndUserImpl(0,null, "b", "c");
+        assertFalse(user1.equals(user2));
+
+        user1 = new EndUserImpl(0,"x", null, "z");
+        user2 = new EndUserImpl(0,"a", null, "c");
+        assertFalse(user1.equals(user2));
+
+        user1 = new EndUserImpl(0,"x", "y", null);
+        user2 = new EndUserImpl(0,"a", "b", null);
+        assertFalse(user1.equals(user2));
     }
 
 }

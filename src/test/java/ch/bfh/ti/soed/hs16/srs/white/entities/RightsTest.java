@@ -6,6 +6,7 @@
 
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -17,6 +18,9 @@ public class RightsTest {
 
     @Test
     public void testGettersAndSetters(){
+
+        EndUser user = new EndUserImpl(0, "", "", "");
+
 
     }
 

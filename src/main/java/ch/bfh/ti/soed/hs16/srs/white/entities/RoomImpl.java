@@ -33,6 +33,7 @@ public class RoomImpl implements Room{
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -42,6 +43,7 @@ public class RoomImpl implements Room{
         return quantityOfSeats;
     }
 
+    @Override
     public void setQuantityOfSeats(int quantityOfSeats) {
         this.quantityOfSeats = quantityOfSeats;
     }

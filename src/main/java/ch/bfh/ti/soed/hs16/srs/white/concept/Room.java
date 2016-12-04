@@ -9,7 +9,9 @@ import java.util.Set;
  */
 public interface Room {
     String getName();
+    void setName(String name);
     int getQuantityOfSeats();
+    void setQuantityOfSeats(int quantityOfSeats);
     Set<Reservation> getReservations();
     void removeReservation(Reservation reservation);
     void addReservation(Reservation reservation);

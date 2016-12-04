@@ -36,9 +36,6 @@ public class ModelsTest {
         Set<Reservation> reservationsFromUser = ReservationModel.getReservationsFromUser(e1);   // get all reservations made from user e1
 
 
-
-
-
         assertEquals(2, reservationsFromUser.size());                                       // test if the user has made 2 reservations
 
         /* Cancel all reservations */

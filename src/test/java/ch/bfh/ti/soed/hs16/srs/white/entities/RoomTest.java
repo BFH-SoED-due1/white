@@ -16,13 +16,13 @@ public class RoomTest {
 	@Test
 	public void testGettersAndSetters(){
 		Room room = new RoomImpl("abc", 42);
-		//room.setName("abc");
+		room.setName("abc");
 		assertEquals("abc", room.getName());
 
-		//room.setQuantityOfSeats(42);
+		room.setQuantityOfSeats(42);
 		assertEquals(42, room.getQuantityOfSeats());
 
-		ReservationImpl reservation = new ReservationImpl();
+		Reservation reservation = new ReservationImpl();
 		room.addReservation(reservation);
 		// TODO: Following test fails since wrong:
 		// assertEquals(reservation, room.getReservations());

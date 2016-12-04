@@ -102,11 +102,11 @@ public class EndUserImpl implements EndUser{
             return false;
         }
 
-        if (!EndUserImpl.class.isAssignableFrom(obj.getClass())) {
+        if (!EndUser.class.isAssignableFrom(obj.getClass())) {
             return false;
         }
 
-        final EndUserImpl other = (EndUserImpl) obj;
+        final EndUser other = (EndUser) obj;
 
         if (this.id != other.getId()) {
             return false;
