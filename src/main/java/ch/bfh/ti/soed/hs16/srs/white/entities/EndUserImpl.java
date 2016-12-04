@@ -37,7 +37,6 @@ public class EndUserImpl implements EndUser{
         this.mail       = mail;
     }
 
-
     @Override
     public int getId() {
         return id;
@@ -79,6 +78,17 @@ public class EndUserImpl implements EndUser{
     public Set<Reservation> getReservations() {
         Set<Reservation> readOnlyReservations = Collections.unmodifiableSet(this.reservations);
         return readOnlyReservations;
+    }
+
+    @Override
+    public void setRights(Rights r){
+        rights.add(r);
+    }
+
+    @Override
+    public Set<Rights> getRights(){
+        Set<Rights> userRight = Collections.unmodifiableSet(this.rights);
+        return userRight;
     }
 
     @Override
