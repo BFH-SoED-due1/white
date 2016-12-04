@@ -39,8 +39,13 @@ public class LogInView {
             myUI.setContent(new TableView().createTable());
         });
 
+        Button register = new Button("Register");
+        register.addClickListener(e -> {
+            myUI.setContent(new RegistrationView().register());
+        });
 
-        layout.addComponents(name, mail, password, button1);
+
+        layout.addComponents(name, mail, password, button1, register);
         layout.setMargin(true);
         layout.setSpacing(true);
 
