@@ -7,8 +7,8 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Building;
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -19,7 +19,7 @@ import java.util.Set;
  */
 public class Organization {
     private Set<EndUser> endUsers = new HashSet<>();
-    private Set<Building> building = new HashSet<>();
+    private Set<Room> rooms = new HashSet();
 
     public Set<EndUser> getEndUsers() {
         Set<EndUser> readOnlyEndUsers = Collections.unmodifiableSet(this.endUsers);
@@ -36,19 +36,28 @@ public class Organization {
         this.endUsers.add(endUser);
     }
 
-    public Set<Building> getBuildings() {
-        Set<Building> readOnlyBuilding = Collections.unmodifiableSet(this.building);
-        return readOnlyBuilding;
+
+    public Set<Room> getRooms() {
+        Set<Room> readOnlyRooms = Collections.unmodifiableSet(this.rooms);
+        return readOnlyRooms;
     }
 
-    public void removeBuilding(Building building){
-        this.building.remove(building);
-        building.destroy();
+    public void removeRoom(Room room){
+        room.removeAllReservations();
+        rooms.remove(room);
     }
 
-    public void addBuilding(Building building){
-        this.building.add(building);
+    public void addRoom(Room room) {
+        this.rooms.add(room);
     }
+
+
+    public void destroy() {
+        rooms.forEach((room)->room.removeAllReservations());
+        rooms.clear();
+    }
+
+
 
 
 }
