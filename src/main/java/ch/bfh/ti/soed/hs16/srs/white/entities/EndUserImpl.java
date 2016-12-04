@@ -7,6 +7,14 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Rights;
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,83 +22,98 @@ import java.util.Set;
 /**
  * Created by arauzca on 19.10.16.
  */
-
-public class EndUser {
+@XmlRootElement(namespace ="http://ch.bfh.ti.soed.hs16.srs.white")
+public class EndUserImpl implements EndUser{
     private int id;
     private String firstName;
     private String lastName;
     private String mail;
     private Set<Reservation> reservations = new HashSet<>();
-    private Role role;
+    private Set<Rights> rights = new HashSet<>(); //TODO
 
-    public EndUser() {
+    public EndUserImpl() {
         this((int)(Math.random() * 10000),null,null,null);
     }
 
-    public EndUser(int id, String firstName, String lastName, String mail) {
+    public EndUserImpl(int id, String firstName, String lastName, String mail) {
         this.id         = id;
         this.firstName  = firstName;
         this.lastName   = lastName;
         this.mail       = mail;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
+    @Override
+    @XmlAttribute
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
+    @Override
+    @XmlElement
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//    }
 
+    @Override
+    @XmlElement
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+//    public void setLastName(String lastName) {
+//        this.lastName = lastName;
+//    }
 
+    @Override
+    @XmlElement
     public String getMail() {
         return mail;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
+//    public void setMail(String mail) {
+//        this.mail = mail;
+//    }
 
 
+    @Override
+    @XmlTransient
     public Set<Reservation> getReservations() {
         Set<Reservation> readOnlyReservations = Collections.unmodifiableSet(this.reservations);
         return readOnlyReservations;
     }
 
+    @Override
+    public void setRights(Rights r){
+        rights.add(r);
+    }
+
+    @Override
+    public Set<Rights> getRights(){
+        Set<Rights> userRight = Collections.unmodifiableSet(this.rights);
+        return userRight;
+    }
+
+    @Override
     public void removeReservation(Reservation reservation){
         reservations.remove(reservation);
     }
 
+    @Override
     public void addReservations(Reservation reservation) {
         this.reservations.add(reservation);
     }
 
+    @Override
     public void destroy() {
         reservations.clear();
-
     }
 
     @Override
@@ -99,11 +122,11 @@ public class EndUser {
             return false;
         }
 
-        if (!EndUser.class.isAssignableFrom(obj.getClass())) {
+        if (!EndUserImpl.class.isAssignableFrom(obj.getClass())) {
             return false;
         }
 
-        final EndUser other = (EndUser) obj;
+        final EndUserImpl other = (EndUserImpl) obj;
 
         if (this.id != other.getId()) {
             return false;
@@ -135,16 +158,14 @@ public class EndUser {
     }
 
     @Override
-    public EndUser clone() {
-        EndUser clonedEndUser = new EndUser(this.id, this.firstName, this.lastName, this.mail);
-        clonedEndUser.setRole( this.getRole() );
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
 
-        if ( this.reservations.size() > 0) {
-            this.reservations.forEach(e -> {
-                clonedEndUser.addReservations(e);
-            });
-        }
+        sb.append("ID: ").append(this.id).append("\n");
+        sb.append("First Name: ").append(this.firstName).append("\n");
+        sb.append("Last Name: ").append(this.lastName).append("\n");
+        sb.append("Main: ").append(this.mail).append("\n");
 
-        return clonedEndUser;
+        return sb.toString();
     }
 }

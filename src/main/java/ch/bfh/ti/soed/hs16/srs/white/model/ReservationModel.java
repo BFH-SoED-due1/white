@@ -7,9 +7,10 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
-import ch.bfh.ti.soed.hs16.srs.white.entities.EndUser;
-import ch.bfh.ti.soed.hs16.srs.white.entities.Reservation;
-import ch.bfh.ti.soed.hs16.srs.white.entities.Room;
+import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
+import ch.bfh.ti.soed.hs16.srs.white.entities.ReservationImpl;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -22,7 +23,7 @@ public class ReservationModel {
     private Set<Reservation> reservations = new HashSet<>();
 
     public void makeReservation(EndUser user, Room room, Date date) {
-        Reservation reservation = new Reservation(user, room, date);
+        Reservation reservation = new ReservationImpl(user, room, date);
 
         reservations.add(reservation);
         user.addReservations(reservation);

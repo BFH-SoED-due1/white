@@ -163,6 +163,19 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.7.7.201606060606 </version>
+				<configuration>
+					<excludes>
+						<exclude>
+							**/*View.class
+						</exclude>
+						<exclude>
+							**/*Controller.class
+						</exclude>
+						<exclude>
+							**/*MyUI*.class
+						</exclude>
+					</excludes>
+				</configuration>
 				<executions>
 					<execution>
 						<id>default-prepare-agent</id>

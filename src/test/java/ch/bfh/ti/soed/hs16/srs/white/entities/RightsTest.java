@@ -6,7 +6,10 @@
 
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Rights;
 import org.junit.Test;
+
+import java.util.Iterator;
 
 import static org.junit.Assert.*;
 
@@ -16,7 +19,21 @@ import static org.junit.Assert.*;
 public class RightsTest {
 
     @Test
-    public void testGettersAndSetters(){
+    public void userHasOneRight() {
+        int id = 10;
+        String firstName = "Max";
+        String lastName = "Tester";
+        String mail = "Rights@tester.com";
+        EndUserImpl user = new EndUserImpl(id, firstName, lastName, mail);
+        user.setRights(Rights.READ);
+
+        Iterator i = user.getRights().iterator();
+
+        assertEquals(i.next(), Rights.READ);
+
+        assertEquals(Rights.valueOf("DELETE"), Rights.DELETE);
+        Rights[] rightsArray = Rights.values();
+        assertEquals(4, rightsArray.length);
 
     }
 

@@ -31,7 +31,10 @@ public class MyUI extends UI {
 	protected void init(VaadinRequest vaadinRequest) {
 		MyUIController controller = new MyUIController(this);
 		controller.initSystem();
+
 	}
+
+
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
 	@VaadinServletConfiguration(ui = MyUI.class, productionMode = false)

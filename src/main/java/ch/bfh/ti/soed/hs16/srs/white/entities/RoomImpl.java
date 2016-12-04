@@ -7,6 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,52 +18,48 @@ import java.util.Set;
  * Created by arauzca on 19.10.16.
  */
 @SuppressWarnings("unused")
-public class Room {
+public class RoomImpl implements Room{
     private String name;
     private int quantityOfSeats;
     private Set<Reservation> reservations = new HashSet<>();
-    private Set<Equipment> equipments = new HashSet<>();
 
+    public RoomImpl(String name, int quantityOfSeats){
+       this.name = name;
+       this.quantityOfSeats =quantityOfSeats;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    @Override
     public int getQuantityOfSeats() {
         return quantityOfSeats;
     }
 
-    public void setQuantityOfSeats(int quantityOfSeats) {
-        this.quantityOfSeats = quantityOfSeats;
-    }
-
+    @Override
     public Set<Reservation> getReservations() {
         Set<Reservation> readOnlyReservations = Collections.unmodifiableSet(this.reservations);
         return readOnlyReservations;
     }
 
+    @Override
     public void removeReservation(Reservation reservation){
         reservations.remove(reservation);
     }
 
 
+    @Override
     public void addReservation(Reservation reservation) {
         this.reservations.add(reservation);
     }
 
+    @Override
     public void removeAllReservations(){
         reservations.clear();
     }
 
-    public void addEquipments(Equipment c){
-        this.equipments.add(c);
-    }
 
-    public Set<Equipment> getEquipments(){
-        Set<Equipment> readOnlyEquipment = Collections.unmodifiableSet(this.equipments);
-        return readOnlyEquipment;
-    }
+
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:EndUsers xmlns:ns2="http://ch.bfh.ti.soed.hs16.srs.white">
+    <enduser id="0">
+        <firstName>Carlos</firstName>
+        <lastName>Arauz</lastName>
+        <mail>carlos.arauz@bfh.ch</mail>
+    </enduser>
+    <enduser id="1">
+        <firstName>Pablo</firstName>
+        <lastName>Donan</lastName>
+        <mail>pablo.donan@bfh.ch</mail>
+    </enduser>
+</ns2:EndUsers>

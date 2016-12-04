@@ -8,10 +8,10 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
-import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.Button;
 
 /**
@@ -40,9 +40,16 @@ public class LogInView {
         button1.addClickListener( e -> {
             controller.clickMe(layout, name);
             controller.getLogin(mail, password);
+            myUI.setContent(new TableView().createTable());
         });
 
-        layout.addComponents(name, mail, password, button1);
+        Button register = new Button("Register");
+        register.addClickListener(e -> {
+            myUI.setContent(new RegistrationView().register());
+        });
+
+
+        layout.addComponents(name, mail, password, button1, register);
         layout.setMargin(true);
         layout.setSpacing(true);
 
