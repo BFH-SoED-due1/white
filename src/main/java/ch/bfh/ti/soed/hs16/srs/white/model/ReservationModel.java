@@ -10,9 +10,7 @@ package ch.bfh.ti.soed.hs16.srs.white.model;
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
-import ch.bfh.ti.soed.hs16.srs.white.entities.EndUserImpl;
 import ch.bfh.ti.soed.hs16.srs.white.entities.ReservationImpl;
-import ch.bfh.ti.soed.hs16.srs.white.entities.RoomImpl;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -45,7 +43,7 @@ public class ReservationModel {
         return user.getReservations();
     }
 
-    public static Set<Reservation> getReservationsFromRoom(RoomImpl room) {
+    public static Set<Reservation> getReservationsFromRoom(Room room) {
         return room.getReservations();
     }
 

@@ -9,7 +9,12 @@ package ch.bfh.ti.soed.hs16.srs.white.entities;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Rights;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +22,7 @@ import java.util.Set;
 /**
  * Created by arauzca on 19.10.16.
  */
-
+@XmlRootElement(namespace ="http://ch.bfh.ti.soed.hs16.srs.white")
 public class EndUserImpl implements EndUser{
     private int id;
     private String firstName;
@@ -38,6 +43,7 @@ public class EndUserImpl implements EndUser{
     }
 
     @Override
+    @XmlAttribute
     public int getId() {
         return id;
     }
@@ -47,6 +53,7 @@ public class EndUserImpl implements EndUser{
 //    }
 
     @Override
+    @XmlElement
     public String getFirstName() {
         return firstName;
     }
@@ -56,6 +63,7 @@ public class EndUserImpl implements EndUser{
 //    }
 
     @Override
+    @XmlElement
     public String getLastName() {
         return lastName;
     }
@@ -65,6 +73,7 @@ public class EndUserImpl implements EndUser{
 //    }
 
     @Override
+    @XmlElement
     public String getMail() {
         return mail;
     }
@@ -75,6 +84,7 @@ public class EndUserImpl implements EndUser{
 
 
     @Override
+    @XmlTransient
     public Set<Reservation> getReservations() {
         Set<Reservation> readOnlyReservations = Collections.unmodifiableSet(this.reservations);
         return readOnlyReservations;
@@ -112,11 +122,11 @@ public class EndUserImpl implements EndUser{
             return false;
         }
 
-        if (!EndUser.class.isAssignableFrom(obj.getClass())) {
+        if (!EndUserImpl.class.isAssignableFrom(obj.getClass())) {
             return false;
         }
 
-        final EndUser other = (EndUser) obj;
+        final EndUserImpl other = (EndUserImpl) obj;
 
         if (this.id != other.getId()) {
             return false;
@@ -148,15 +158,14 @@ public class EndUserImpl implements EndUser{
     }
 
     @Override
-    public EndUserImpl clone() {
-        EndUserImpl clonedEndUser = new EndUserImpl(this.id, this.firstName, this.lastName, this.mail);
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
 
-        if ( this.reservations.size() > 0) {
-            this.reservations.forEach(e -> {
-                clonedEndUser.addReservations(e);
-            });
-        }
+        sb.append("ID: ").append(this.id).append("\n");
+        sb.append("First Name: ").append(this.firstName).append("\n");
+        sb.append("Last Name: ").append(this.lastName).append("\n");
+        sb.append("Main: ").append(this.mail).append("\n");
 
-        return clonedEndUser;
+        return sb.toString();
     }
 }

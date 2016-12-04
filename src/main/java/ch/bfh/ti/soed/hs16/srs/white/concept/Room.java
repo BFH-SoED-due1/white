@@ -1,6 +1,11 @@
+/*
+ * Copyright (c) 2017 Berner Fachhochschule, Switzerland.
+ *
+ * Project Smart Reservation System.
+ *
+ * Distributable under GPL license. See terms of license at gnu.org.
+ */
 package ch.bfh.ti.soed.hs16.srs.white.concept;
-
-import ch.bfh.ti.soed.hs16.srs.white.entities.ReservationImpl;
 
 import java.util.Set;
 
@@ -9,9 +14,7 @@ import java.util.Set;
  */
 public interface Room {
     String getName();
-    void setName(String name);
     int getQuantityOfSeats();
-    void setQuantityOfSeats(int quantityOfSeats);
     Set<Reservation> getReservations();
     void removeReservation(Reservation reservation);
     void addReservation(Reservation reservation);

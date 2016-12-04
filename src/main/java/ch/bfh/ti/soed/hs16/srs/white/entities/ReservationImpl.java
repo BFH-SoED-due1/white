@@ -11,12 +11,17 @@ import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
  * Created by arauzca on 19.10.16.
  */
-@SuppressWarnings("unused")
+
+@XmlRootElement(namespace ="http://ch.fbi.xml.beispielEins")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ReservationImpl implements Reservation{
     private EndUser owner;
     private Room reservedRoom;

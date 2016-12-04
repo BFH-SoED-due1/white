@@ -35,7 +35,7 @@ public class OrganizationTest {
 
 
 
-    @Test
+   /* @Test
     public void removeEndUserDeletesReservations(){
         Organization organization = new Organization();
         EndUserImpl endUser = new EndUserImpl();
@@ -45,7 +45,7 @@ public class OrganizationTest {
         organization.removeEndUser(endUser);
         assertEquals(0, endUser.getReservations().size());
         assertFalse(endUser.getReservations().contains(reservation));
-    }
+    }*/
 
     @Test
     public void testRemoveOneRoomDoesntRemoveAnotherOne(){

@@ -6,7 +6,7 @@
 
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Rights;
 import org.junit.Test;
 
 import java.util.Iterator;

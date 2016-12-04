@@ -1,12 +1,10 @@
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by joni on 20.10.2016.
@@ -16,10 +14,7 @@ public class RoomTest {
 	@Test
 	public void testGettersAndSetters(){
 		Room room = new RoomImpl("abc", 42);
-		room.setName("abc");
 		assertEquals("abc", room.getName());
-
-		room.setQuantityOfSeats(42);
 		assertEquals(42, room.getQuantityOfSeats());
 
 		Reservation reservation = new ReservationImpl();

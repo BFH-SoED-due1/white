@@ -34,18 +34,8 @@ public class RoomImpl implements Room{
     }
 
     @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
     public int getQuantityOfSeats() {
         return quantityOfSeats;
-    }
-
-    @Override
-    public void setQuantityOfSeats(int quantityOfSeats) {
-        this.quantityOfSeats = quantityOfSeats;
     }
 
     @Override

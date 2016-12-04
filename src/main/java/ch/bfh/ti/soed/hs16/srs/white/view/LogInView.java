@@ -8,7 +8,11 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
-import com.vaadin.ui.*;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.Button;
 
 /**
  * Created by arauzca on 25.10.16.
