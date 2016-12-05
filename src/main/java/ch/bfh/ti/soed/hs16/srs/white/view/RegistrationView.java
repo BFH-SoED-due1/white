@@ -30,16 +30,16 @@ public class RegistrationView {
 
 
         Button submit = new Button("Submit");
+        Label label = new Label();
         submit.addClickListener(e -> {
             if(password.getValue().contentEquals(password2.getValue())) {
-                layout.addComponent(new Label("Data has been sent"));
+                label.setValue("Data has been sent");
             }else{
-                layout.addComponent(new Label("Passwords don't match"));
+                label.setValue("Passwords don't match");
             }
         });
 
-        layout.addComponents(firstName, lastName, password, password2, submit);
-
+        layout.addComponents(firstName, lastName, password, password2, submit, label);
         return layout;
     }
 }

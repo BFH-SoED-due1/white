@@ -28,7 +28,7 @@ public class Organization {
 
     public void removeEndUser(EndUser endUser){
         this.endUsers.remove(endUser);
-        endUser.destroy(); //not sure
+        endUser.destroy();
         //TODO remove all endUsers reservations
     }
 
