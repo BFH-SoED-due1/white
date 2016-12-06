@@ -25,6 +25,7 @@ public class ModelsTest {
 
     @Test
     public void testReservation() {
+        assertTrue(EndUserModel.testConnection());
         ReservationModel rm = new ReservationModel();                               // Initializing ReservationModel
         EndUserModel um = new EndUserModel();                                       // Initializing EndUserModel
 

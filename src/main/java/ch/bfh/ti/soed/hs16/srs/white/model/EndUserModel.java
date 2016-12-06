@@ -16,6 +16,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +61,24 @@ public class EndUserModel {
         }
 
         return b;
+    }
+
+    public static boolean testConnection() {
+        boolean value = true;
+        String protocol = "jdbc:derby:/Users/arauzca/Workspace/white/src/main/resources/ReservationSystem;username=sed_while;password=sedhs2016";
+
+        try {
+            Connection conn = DriverManager.getConnection(protocol);
+            if (conn == null) {
+                value = false;
+            }
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            value = false;
+        }
+
+        return value;
     }
 
     // TODO this needs more specifications
