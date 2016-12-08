@@ -8,6 +8,7 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
+import ch.bfh.ti.soed.hs16.srs.white.controller.RegistrationController;
 import com.vaadin.ui.*;
 
 /**
@@ -26,6 +27,8 @@ public class LogInView {
         this.loginController = logInController;
     }
 
+
+
     public void load(UI myUI) {
 
         final VerticalLayout layout = new VerticalLayout();
@@ -39,9 +42,9 @@ public class LogInView {
 
         });
 
-//        registerButton.addClickListener(e -> {
-//            myUI.setContent(new RegistrationView().registerButton());
-//        });
+        registerButton.addClickListener(e -> {
+
+        });
 
 
         layout.addComponents(nameField, mailField, passwordField, loginButton, registerButton, messageLabel);
@@ -54,6 +57,8 @@ public class LogInView {
     public TextField getNameField() {
         return nameField;
     }
+
+
 
     public TextField getMailField() {
         return mailField;
