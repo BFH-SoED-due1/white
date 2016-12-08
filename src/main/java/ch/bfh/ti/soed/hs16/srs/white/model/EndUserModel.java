@@ -8,64 +8,57 @@
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
-import ch.bfh.ti.soed.hs16.srs.white.entities.EndUserImpl;
-import ch.bfh.ti.soed.hs16.srs.white.helpers.JAXBHelper;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Model;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by arauzca on 21.10.16.
  */
-@XmlRootElement(name = "EndUsers", namespace = "http://ch.bfh.ti.soed.hs16.srs.white")
-public class EndUserModel {
-    private List<EndUser> endUsers;
+public class EndUserModel implements Model {
+    private List<EndUser> endUsers = new ArrayList<>();;
+    private Connection connection;
 
-    public EndUserModel() {
-        endUsers = new ArrayList<>();
+    public EndUserModel(Connection connection) {
+        this.connection = connection;
     }
 
-    @XmlElement(name = "enduser", type = EndUserImpl.class)
     public List<EndUser> getEndUsers() {
         return endUsers;
     }
 
-    /**
-     * This function loads the users from the Database
-     */
-    public boolean loadEndUsers(String fileName) {
-        EndUserModel endUserModel;
+    public boolean loadModel() {
         boolean b = false;
+        try (PreparedStatement ps = connection.prepareStatement("SELECT * FROM enduser")) {
+            b = ps.execute();
 
-        try {
-            ClassLoader cl = this.getClass().getClassLoader();
-            File f = new File(cl.getResource(fileName).getFile());
+            ResultSet rs = ps.executeQuery();
 
-            if ( f.exists() ) {
-                FileInputStream is  = new FileInputStream(f);
-                endUserModel        = (EndUserModel) JAXBHelper.loadInstance(is, this.getClass());
-                this.endUsers = endUserModel.getEndUsers();
-                b = true;
+            while (rs.next()) {
+                System.out.println( rs.getString(2) );
             }
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         return b;
     }
 
+    public List getData() {
+        return endUsers;
+    }
+
+    public void addData(Object o) {
+        EndUser user = (EndUser) o;
+        endUsers.add(user);
+    }
+
     public static boolean testConnection() {
         boolean value = true;
-        String protocol = "jdbc:derby:/Users/arauzca/Workspace/white/src/main/resources/ReservationSystem;username=sed_while;password=sedhs2016";
+        String protocol = "jdbc:derby:/Users/arauzca/Workspace/white/src/main/resources/ReservationSystem;user=sed_while;password=sedhs2016";
 
         try {
             Connection conn = DriverManager.getConnection(protocol);
@@ -81,12 +74,6 @@ public class EndUserModel {
         return value;
     }
 
-    // TODO this needs more specifications
-    public void createEndUser(EndUser e) {
-        endUsers.add(e);
-        saveUsers();
-    }
-
     /*public void deleteEndUserById(Integer id) {
         endUsers.remove(id);
     }
@@ -97,14 +84,5 @@ public class EndUserModel {
     }*/
 
     public void saveUsers() {
-        try (FileOutputStream os=new FileOutputStream(new File("./src/main/resources/users.xml"))){
-            JAXBHelper.saveInstance(os, this);
-            ClassLoader cl = this.getClass().getClassLoader();
-            JAXBHelper.saveSchema(new File("."), EndUserModel.class);
-
-            os.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

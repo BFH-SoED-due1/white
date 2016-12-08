@@ -11,10 +11,6 @@ import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Rights;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,7 +18,6 @@ import java.util.Set;
 /**
  * Created by arauzca on 19.10.16.
  */
-@XmlRootElement(namespace ="http://ch.bfh.ti.soed.hs16.srs.white")
 public class EndUserImpl implements EndUser{
     private int id;
     private String firstName;
@@ -43,7 +38,6 @@ public class EndUserImpl implements EndUser{
     }
 
     @Override
-    @XmlAttribute
     public int getId() {
         return id;
     }
@@ -53,7 +47,6 @@ public class EndUserImpl implements EndUser{
 //    }
 
     @Override
-    @XmlElement
     public String getFirstName() {
         return firstName;
     }
@@ -63,7 +56,6 @@ public class EndUserImpl implements EndUser{
 //    }
 
     @Override
-    @XmlElement
     public String getLastName() {
         return lastName;
     }
@@ -73,7 +65,6 @@ public class EndUserImpl implements EndUser{
 //    }
 
     @Override
-    @XmlElement
     public String getMail() {
         return mail;
     }
@@ -84,7 +75,6 @@ public class EndUserImpl implements EndUser{
 
 
     @Override
-    @XmlTransient
     public Set<Reservation> getReservations() {
         Set<Reservation> readOnlyReservations = Collections.unmodifiableSet(this.reservations);
         return readOnlyReservations;

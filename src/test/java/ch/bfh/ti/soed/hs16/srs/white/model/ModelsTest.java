@@ -1,21 +1,14 @@
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
-import ch.bfh.ti.soed.hs16.srs.white.entities.EndUserImpl;
-import ch.bfh.ti.soed.hs16.srs.white.entities.ReservationImpl;
-import ch.bfh.ti.soed.hs16.srs.white.entities.RoomImpl;
-import ch.bfh.ti.soed.hs16.srs.white.helpers.JAXBHelper;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Model;
+import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
 import org.junit.Test;
 
-import java.net.URISyntaxException;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
-import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -23,11 +16,11 @@ import static org.junit.Assert.assertTrue;
  */
 public class ModelsTest {
 
-    @Test
+    /*@Test
     public void testReservation() {
         assertTrue(EndUserModel.testConnection());
         ReservationModel rm = new ReservationModel();                               // Initializing ReservationModel
-        EndUserModel um = new EndUserModel();                                       // Initializing EndUserModel
+        Model um = new EndUserModel();                                       // Initializing EndUserModel
 
         EndUser e1 = new EndUserImpl(0, "Carlos", "Arauz", "carlos.arauz@bfh.ch");
         EndUser e2 = new EndUserImpl(1, "Pablo", "Donan", "pablo.donan@bfh.ch");
@@ -66,7 +59,7 @@ public class ModelsTest {
 
         assertEquals(2, reservationsFromUser.size());                                       // test if the user has made 2 reservations
 
-        /* Cancel all reservations */
+        Cancel all reservations
         Set<Reservation> reservationsFromRoom = ReservationModel.getReservationsFromRoom(r1);
         assertEquals(2, reservationsFromRoom.size());
 
@@ -88,7 +81,7 @@ public class ModelsTest {
         //assertTrue( endUser.equals(clonedEndUser) );
         //assertEquals(endUser.hashCode(), clonedEndUser.hashCode());
 
-        /*EndUser e2 = new EndUserImpl(2, null, null, null);
+        EndUser e2 = new EndUserImpl(2, null, null, null);
         EndUser cloneE2 = e2.clone();
 
         um.createEndUser(e2);
@@ -111,16 +104,28 @@ public class ModelsTest {
         //e2.setLastName(null);
         //e2.setMail("cde@xyz.com");
 
-        assertFalse(cloneE2.equals(e2));*/
+        assertFalse(cloneE2.equals(e2));
 
-    }
+    }*/
 
     @Test
-    public void testEndUserModel() throws URISyntaxException {
-        EndUserModel userModel = new EndUserModel();
-        JAXBHelper jaxb = new JAXBHelper();
+    public void testEndUserModel() {
+        Model userModel;
 
-        jaxb.getClass();
+        try {
+            Connection dbConnection = DbConnection.getConnection();
+            assertNotNull(dbConnection);
+
+            PreparedStatement ps = dbConnection.prepareStatement("SELECT * FROM enduser");
+            assertTrue(ps.execute());
+
+            ResultSet rs = ps.getResultSet();
+            while (rs.next()) {
+                System.out.println(rs.getString(2));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
