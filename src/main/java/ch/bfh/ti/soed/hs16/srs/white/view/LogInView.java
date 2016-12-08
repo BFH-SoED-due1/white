@@ -8,51 +8,62 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.PasswordField;
-import com.vaadin.ui.Button;
+import com.vaadin.ui.*;
 
 /**
  * Created by arauzca on 25.10.16.
  */
 public class LogInView {
-    private LogInController controller;
+    private LogInController loginController;
+    private TextField nameField = new TextField();
+    private TextField mailField = new TextField();
+    private PasswordField passwordField = new PasswordField();
+    private Button loginButton = new Button("Click Me");
+    private Button registerButton = new Button("Register");
+    private Label messageLabel = new Label("");
 
-    public LogInView(LogInController controller) {
-        this.controller = controller;
+    public LogInView(LogInController logInController){
+        this.loginController = logInController;
     }
 
     public void load(UI myUI) {
+
         final VerticalLayout layout = new VerticalLayout();
+        nameField.setCaption("Type your name here:");
+        mailField.setCaption("Type your mail here:");
+        passwordField.setCaption("Type your password here:");
 
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
 
-        final TextField mail = new TextField();
-        mail.setCaption("Type your mail here:");
+        loginButton.addClickListener(e -> {
+            loginController.login();
 
-        final PasswordField password = new PasswordField();
-        password.setCaption("Type your password here:");
-
-        Button button1 = new Button("Click Me");
-        button1.addClickListener( e -> {
-            controller.clickMe(layout, name);
-            controller.getLogin(mail, password);
-            myUI.setContent(new TableView().createTable());
         });
 
-        Button register = new Button("Register");
-        register.addClickListener(e -> {
-            myUI.setContent(new RegistrationView().register());
-        });
+//        registerButton.addClickListener(e -> {
+//            myUI.setContent(new RegistrationView().registerButton());
+//        });
 
 
-        layout.addComponents(name, mail, password, button1, register);
+        layout.addComponents(nameField, mailField, passwordField, loginButton, registerButton, messageLabel);
         layout.setMargin(true);
         layout.setSpacing(true);
 
         myUI.setContent(layout);
+    }
+
+    public TextField getNameField() {
+        return nameField;
+    }
+
+    public TextField getMailField() {
+        return mailField;
+    }
+
+    public PasswordField getPasswordField() {
+        return passwordField;
+    }
+
+    public Label getMessageLabel() {
+        return messageLabel;
     }
 }

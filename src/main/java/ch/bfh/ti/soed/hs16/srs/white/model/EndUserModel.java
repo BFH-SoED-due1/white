@@ -85,4 +85,8 @@ public class EndUserModel implements Model {
 
     public void saveUsers() {
     }
+
+    public boolean checkLogin(){
+        return false;
+    }
 }
