@@ -7,23 +7,34 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.View;
+import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
 import ch.bfh.ti.soed.hs16.srs.white.view.LogInView;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.UI;
 
 /**
  * Created by arauzca on 25.10.16.
  */
-public class LogInController {
-    private UI myUI;
-    private LogInView logInView;
+public class LogInController implements Controller {
+    private UI ui;
+    private View logInView;
+    private EndUserModel endUserModel;
 
-    public LogInController(UI mainUI) {
-        this.myUI = mainUI;
+    public LogInController(UI ui) {
+        this.ui             = ui;
+        this.endUserModel   = EndUserModel.getInstance();
+    }
+
+    @Override
+    public void init() {
         logInView = new LogInView(this);
     }
 
+    @Override
     public void loadView() {
-        logInView.load(myUI);
+        logInView.load(ui);
     }
 
 
@@ -35,19 +46,14 @@ public class LogInController {
 
     }*/
 
-    public void login(){
-        String pw = logInView.getPasswordField().getValue();
-        String mail = logInView.getMailField().getValue();
-
-        //TODO needs model to compare login data with the database
-
-        if (pw.equals("123")  && mail.equals("mail@bfh.ch")){
-            logInView.getMessageLabel().setValue("Login successful");
+    public void login(String mail, String pw, Label messageLabel) {
+        if (endUserModel.checkLogin(mail, pw)){
+            messageLabel.setValue("Login successful");
             // TODO creates new view
             //myUI.setContent(new TableView().createTable());
             // eg. loadTableView()
         }else{
-            logInView.getMessageLabel().setValue("Login incorrect");
+            messageLabel.setValue("Login incorrect");
         }
 
 

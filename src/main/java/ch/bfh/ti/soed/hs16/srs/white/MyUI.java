@@ -7,6 +7,7 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.controller.MyUIController;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -29,9 +30,9 @@ public class MyUI extends UI {
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
-		MyUIController controller = new MyUIController(this);
-		controller.initSystem();
-
+		Controller controller = new MyUIController(this);
+		controller.init();
+		controller.loadView();
 	}
 
 

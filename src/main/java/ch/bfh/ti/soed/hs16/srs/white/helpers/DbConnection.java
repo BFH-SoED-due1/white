@@ -16,14 +16,13 @@ import java.util.Properties;
  * Created by arauzca on 07.12.16.
  */
 public abstract class DbConnection {
-    private final static String protocol = "jdbc:derby:/Users/arauzca/Workspace/white/src/main/resources/ReservationSystem;user=sed_white;password=sedhs2016";//"jdbc:derby:ReservationSystem";
+    private final static String protocol = "jdbc:derby:/Users/arauzca/Workspace/white/src/main/resources/ReservationSystem;user=sed_white;password=sedhs2016";
     private static Properties properties = new Properties();
     private static Connection connection;
 
-    public static Connection getConnection() {
+    private static Connection getConnection() {
         try {
-            //String rb = DbConnection.class.getClass().getResource("db.properties").toURI().toString();
-            //InputStream is = new FileInputStream(rb);
+            //InputStream is = new FileInputStream(path);
             //properties.load(is);
 
             connection = DriverManager.getConnection(protocol);
@@ -34,6 +33,14 @@ public abstract class DbConnection {
 
         if (connection == null) {
             throw new NullPointerException();
+        }
+
+        return connection;
+    }
+
+    public static Connection getInstance() {
+        if (connection == null) {
+            connection = getConnection();
         }
 
         return connection;

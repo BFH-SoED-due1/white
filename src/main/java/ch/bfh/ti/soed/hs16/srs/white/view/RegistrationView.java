@@ -8,13 +8,14 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.RegistrationController;
 import com.vaadin.ui.*;
 
 /**
  * Created by joni on 04/12/16.
  */
-public class RegistrationView {
+public class RegistrationView implements View {
     private RegistrationController regController;
     private VerticalLayout layout = new VerticalLayout();
     private TextField firstName = new TextField("First Name");
@@ -29,11 +30,10 @@ public class RegistrationView {
         this.regController = regController;
     }
 
-    public void load(UI myUI) {
-
-
+    @Override
+    public void load(UI ui) {
         layout.addComponents(firstName, lastName, password1, password1, submit, label);
-        myUI.setContent(layout);
+        ui.setContent(layout);
     }
 
 

@@ -10,16 +10,18 @@ package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
+import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.entities.EndUserImpl;
 import ch.bfh.ti.soed.hs16.srs.white.entities.RoomImpl;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Table;
+import com.vaadin.ui.UI;
 
 
 /**
  * Created by joni on 30/11/16.
  */
-public class TableView {
+public class TableView implements View {
 
     private HorizontalLayout layout = new HorizontalLayout();
 
@@ -74,4 +76,8 @@ public class TableView {
     }
 
 
+    @Override
+    public void load(UI ui) {
+
+    }
 }

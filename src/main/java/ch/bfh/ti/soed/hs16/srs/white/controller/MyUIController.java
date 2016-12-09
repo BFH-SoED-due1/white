@@ -7,23 +7,28 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import com.vaadin.ui.UI;
 
 /**
  * Created by arauzca on 24.10.16.
  */
-public class MyUIController {
+public class MyUIController implements Controller {
     private UI myUI;
-    private LogInController logInController;
+    private Controller logInController;
 
     public MyUIController(UI myUI) {
-        this.myUI = myUI;
-        logInController = new LogInController(this.myUI);
-        initSystem();
-
+        this.myUI       = myUI;
     }
 
-    public void initSystem() {
+    @Override
+    public void init() {
+        logInController = new LogInController(this.myUI);
+        logInController.init();
+    }
+
+    @Override
+    public void loadView() {
         logInController.loadView();
     }
 

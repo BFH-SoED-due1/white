@@ -113,7 +113,7 @@ public class ModelsTest {
         Model userModel;
 
         try {
-            Connection dbConnection = DbConnection.getConnection();
+            Connection dbConnection = DbConnection.getInstance();
             assertNotNull(dbConnection);
 
             PreparedStatement ps = dbConnection.prepareStatement("SELECT * FROM enduser");

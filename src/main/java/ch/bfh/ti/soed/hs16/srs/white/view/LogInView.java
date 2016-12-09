@@ -7,29 +7,28 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
-import ch.bfh.ti.soed.hs16.srs.white.controller.RegistrationController;
 import com.vaadin.ui.*;
 
 /**
  * Created by arauzca on 25.10.16.
  */
-public class LogInView {
+public class LogInView implements View {
     private LogInController loginController;
-    private TextField nameField = new TextField();
-    private TextField mailField = new TextField();
-    private PasswordField passwordField = new PasswordField();
-    private Button loginButton = new Button("Click Me");
-    private Button registerButton = new Button("Register");
-    private Label messageLabel = new Label("");
+    private TextField       nameField           = new TextField();
+    private TextField       mailField           = new TextField();
+    private PasswordField   passwordField       = new PasswordField();
+    private Button          loginButton         = new Button("Click Me");
+    private Button          registerButton      = new Button("Register");
+    private Label           messageLabel        = new Label("");
 
     public LogInView(LogInController logInController){
         this.loginController = logInController;
     }
 
-
-
-    public void load(UI myUI) {
+    @Override
+    public void load(UI ui) {
 
         final VerticalLayout layout = new VerticalLayout();
         nameField.setCaption("Type your name here:");
@@ -37,21 +36,18 @@ public class LogInView {
         passwordField.setCaption("Type your password here:");
 
 
-        loginButton.addClickListener(e -> {
-            loginController.login();
-
-        });
+        loginButton.addClickListener(e -> loginController.login(mailField.getValue(), passwordField.getValue(), messageLabel));
 
         registerButton.addClickListener(e -> {
 
         });
 
-
         layout.addComponents(nameField, mailField, passwordField, loginButton, registerButton, messageLabel);
         layout.setMargin(true);
         layout.setSpacing(true);
 
-        myUI.setContent(layout);
+        ui.setContent(layout);
+
     }
 
     public TextField getNameField() {

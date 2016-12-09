@@ -9,8 +9,12 @@ package ch.bfh.ti.soed.hs16.srs.white.model;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Model;
+import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,14 +22,23 @@ import java.util.List;
  * Created by arauzca on 21.10.16.
  */
 public class EndUserModel implements Model {
+    private static EndUserModel uniqueModel;
     private List<EndUser> endUsers = new ArrayList<>();;
     private Connection connection;
 
-    public EndUserModel(Connection connection) {
-        this.connection = connection;
+    public static EndUserModel getInstance() {
+        if (uniqueModel == null) {
+            uniqueModel = new EndUserModel();
+        }
+
+        return uniqueModel;
     }
 
-    public List<EndUser> getEndUsers() {
+    private EndUserModel() {
+        this.connection = DbConnection.getInstance();
+    }
+
+    protected List<EndUser> getEndUsers() {
         return endUsers;
     }
 
@@ -56,24 +69,6 @@ public class EndUserModel implements Model {
         endUsers.add(user);
     }
 
-    public static boolean testConnection() {
-        boolean value = true;
-        String protocol = "jdbc:derby:/Users/arauzca/Workspace/white/src/main/resources/ReservationSystem;user=sed_while;password=sedhs2016";
-
-        try {
-            Connection conn = DriverManager.getConnection(protocol);
-            if (conn == null) {
-                value = false;
-            }
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            value = false;
-        }
-
-        return value;
-    }
-
     /*public void deleteEndUserById(Integer id) {
         endUsers.remove(id);
     }
@@ -83,10 +78,26 @@ public class EndUserModel implements Model {
         return e;
     }*/
 
-    public void saveUsers() {
+    public boolean saveUser(EndUser u) {
+        return false;
     }
 
-    public boolean checkLogin(){
-        return false;
+    public boolean checkLogin(String email, String password){
+        try (PreparedStatement ps = connection.prepareStatement("SELECT PASSWORD FROM ENDUSER WHERE EMAIL = ?")) {
+            ps.setString(1, email);
+            ResultSet resultSet = ps.executeQuery();
+
+            if (resultSet == null) return false;
+
+            resultSet.next();
+            String databasePW = resultSet.getString(1);
+
+            if (!password.equals(databasePW)) return false;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return true;
     }
 }
