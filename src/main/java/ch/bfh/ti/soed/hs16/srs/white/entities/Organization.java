@@ -7,55 +7,53 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.entities;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
-
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+
+import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
 
 /**
  * Created by joni on 20.10.2016.
  */
 public class Organization {
-    private Set<EndUser> endUsers = new HashSet<>();
-    private Set<Room> rooms = new HashSet();
+	private Set<EndUser> endUsers = new HashSet<>();
+	// TODO Use generic type
+	private Set<Room> rooms = new HashSet();
 
-    public Set<EndUser> getEndUsers() {
-        Set<EndUser> readOnlyEndUsers = Collections.unmodifiableSet(this.endUsers);
-        return readOnlyEndUsers;
-    }
+	public Set<EndUser> getEndUsers() {
+		Set<EndUser> readOnlyEndUsers = Collections.unmodifiableSet(this.endUsers);
+		return readOnlyEndUsers;
+	}
 
-    public void removeEndUser(EndUser endUser){
-        this.endUsers.remove(endUser);
-        endUser.destroy(); //not sure
-        //TODO remove all endUsers reservations
-    }
+	public void removeEndUser(EndUser endUser) {
+		this.endUsers.remove(endUser);
+		endUser.destroy(); // not sure
+		// TODO remove all endUsers reservations
+	}
 
-    public void addEndUser(EndUser endUser) {
-        this.endUsers.add(endUser);
-    }
+	public void addEndUser(EndUser endUser) {
+		this.endUsers.add(endUser);
+	}
 
+	public Set<Room> getRooms() {
+		Set<Room> readOnlyRooms = Collections.unmodifiableSet(this.rooms);
+		return readOnlyRooms;
+	}
 
-    public Set<Room> getRooms() {
-        Set<Room> readOnlyRooms = Collections.unmodifiableSet(this.rooms);
-        return readOnlyRooms;
-    }
+	public void removeRoom(Room room) {
+		room.removeAllReservations();
+		rooms.remove(room);
+	}
 
-    public void removeRoom(Room room){
-        room.removeAllReservations();
-        rooms.remove(room);
-    }
+	public void addRoom(Room room) {
+		this.rooms.add(room);
+	}
 
-    public void addRoom(Room room) {
-        this.rooms.add(room);
-    }
-
-
-//    public void destroy() {
-//        rooms.forEach((room)->room.removeAllReservations());
-//        rooms.clear();
-//    }
-
+	// public void destroy() {
+	// rooms.forEach((room)->room.removeAllReservations());
+	// rooms.clear();
+	// }
 
 }

@@ -3,7 +3,7 @@
 		-------------
 		Eric Dubuis
 		-------------
-		November 18, 2016
+		November 18, 2016; updated December 11, 2016
 
 
 Deliverable 3
@@ -112,6 +112,48 @@ example, in the Iteration Plan document, however.)
 	50 points at most per team member are attributed to this deliverable. Points may
 not be equally distributed among team members. (However, this is the goal.)
 
+*-------------------------------------------+---------------*-----------------*
+| Item										| Max. points	| Points received |
+*-------------------------------------------+---------------*-----------------*
+| Product backlog items at the beginning\	| 		 6		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - All in one: okay						| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Sprint backlog items / tasks and their states\ | 	6		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - Okay									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Package structure meets SOLID principles, JDepend\ | 8	| 		 8		  |
+| COMMENTS:\								| 				| 				  |
+| - No cycles: good 						| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Production classes and interfaces\		| 		 8		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - Code quality must be improved (-2): 	| 				| 				  |
+| unused local variables; unnecessary annotations; more...| | 				  |
+*-------------------------------------------+---------------*-----------------*
+| Working infrastructure with persistence\	| 		 8		| 		 6		  |
+| COMMENTS:\								| 				| 			  	  |
+| - UI not linked with persistence (-2) 	| 				| 				  |
+| - Rest: Good 								| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| JUnit tests, code coverage\				| 		 8		| 		 6		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Some tests are not complete (-2)\ 		| 				| 				  |
+| - Coverage: Okay 							| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Checkstyle report\						| 		 6		| 		 6		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Okay 									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Miscellaneous\							| 				| 		 		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Relational database recommended\		| 				| 				  |
+| - WetWareCode: Not sufficient contribution (-10) | 		| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Total										| 		50		| 		44		  |
+*-------------------------------------------+---------------*-----------------*
+Distribution of points for this deliverable.
 
 
 * Deadline
