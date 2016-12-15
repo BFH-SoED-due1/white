@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Thu Dec 08 10:41:27 CET 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0158-ddcf-1c72-00000dd2d780 
-on database directory /Users/arauzca/Workspace/white/src/main/resources/ReservationSystem with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
-Loaded from file:/Users/arauzca/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+Thu Dec 15 11:31:37 CET 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0159-0209-8bc3-00000d5a0910 
+on database directory /home/joni/IdeaProjects/white/src/main/resources/ReservationSystem with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Loaded from file:/home/joni/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_92-b14
-user.dir=/Users/arauzca/Workspace/white
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.12.2
+java.runtime.version=1.8.0_111-b14
+user.dir=/home/joni/IdeaProjects/white
+os.name=Linux
+os.arch=amd64
+os.version=4.4.0-21-generic
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
