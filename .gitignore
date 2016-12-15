@@ -4,3 +4,4 @@ srs-white.iml
 *.swo
 *.swp
 .idea/
+/derby.log
