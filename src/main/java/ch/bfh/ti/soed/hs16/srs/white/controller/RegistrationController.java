@@ -12,13 +12,12 @@ public class RegistrationController implements Controller {
     private RegistrationView regView;
 
     public RegistrationController(UI regUI){
-        this.myUI = regUI;
-        regView = new RegistrationView(this);
+        myUI = regUI;
     }
 
     @Override
     public void init() {
-
+        regView = new RegistrationView(this);
     }
 
     @Override

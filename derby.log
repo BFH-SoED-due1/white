@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Thu Dec 08 10:41:27 CET 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0158-ddcf-1c72-00000dd2d780 
-on database directory /Users/arauzca/Workspace/white/src/main/resources/ReservationSystem with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Thu Dec 15 12:04:38 CET 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0159-0227-c6a2-00001ab8ea48 
+on database directory /Users/arauzca/Workspace/white/src/main/resources/ReservationSystem with class loader WebAppClassLoader=889961821@350bbd5d 
 Loaded from file:/Users/arauzca/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_92-b14

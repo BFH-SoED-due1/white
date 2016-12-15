@@ -9,6 +9,7 @@ package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
+import ch.bfh.ti.soed.hs16.srs.white.controller.RegistrationController;
 import com.vaadin.ui.*;
 
 /**
@@ -39,7 +40,9 @@ public class LogInView implements View {
         loginButton.addClickListener(e -> loginController.login(mailField.getValue(), passwordField.getValue(), messageLabel));
 
         registerButton.addClickListener(e -> {
-
+            RegistrationController registrationController = new RegistrationController(ui);
+            registrationController.init();
+            registrationController.loadView();
         });
 
         layout.addComponents(nameField, mailField, passwordField, loginButton, registerButton, messageLabel);

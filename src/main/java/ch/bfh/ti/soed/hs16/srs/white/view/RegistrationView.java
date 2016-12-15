@@ -26,8 +26,8 @@ public class RegistrationView implements View {
     private Label label = new Label();
 
 
-    public RegistrationView(RegistrationController regController){
-        this.regController = regController;
+    public RegistrationView(RegistrationController r){
+        this.regController = r;
     }
 
     @Override
