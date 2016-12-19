@@ -7,16 +7,7 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Model;
-import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
 import org.junit.Test;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by arauzca on 13.11.16.
@@ -117,10 +108,10 @@ public class ModelsTest {
 
     @Test
     public void testEndUserModel() {
-        Model userModel;
+        /*Model userModel;
 
         try {
-            Connection dbConnection = DbConnection.getInstance();
+            Connection dbConnection = DbConnection.getConnection();
             assertNotNull(dbConnection);
 
             PreparedStatement ps = dbConnection.prepareStatement("SELECT * FROM enduser");
@@ -132,7 +123,7 @@ public class ModelsTest {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 

@@ -8,6 +8,7 @@
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.view.LogInView;
 import com.vaadin.ui.UI;
 
 /**
@@ -15,7 +16,6 @@ import com.vaadin.ui.UI;
  */
 public class MyUIController implements Controller {
     private UI myUI;
-    private Controller logInController;
 
     public MyUIController(UI myUI) {
         this.myUI       = myUI;
@@ -23,14 +23,9 @@ public class MyUIController implements Controller {
 
     @Override
     public void init() {
-        logInController = new LogInController(this.myUI);
-        logInController.init();
+        LogInController controller = new LogInController();
+        LogInView firstView = new LogInView( controller );
+
+        firstView.load(myUI);
     }
-
-    @Override
-    public void loadView() {
-        logInController.loadView();
-    }
-
-
 }

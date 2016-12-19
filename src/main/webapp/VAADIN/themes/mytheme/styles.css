@@ -12967,3 +12967,46 @@ div.v-layout.v-horizontal.v-widget {
 	width: 19px;
 	overflow: hidden;
 }
+
+.mytheme .body {
+	background-color: #ddd;
+	color: #282828;
+}
+
+.mytheme .login-form {
+	max-width: 100%;
+	max-height: 100%;
+	font-family: "Francois One";
+	color: #8b8b8b;
+}
+
+.mytheme .absolute-center {
+	width: 50%;
+	height: 50%;
+	overflow: auto;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.mytheme .horizontal-center, .mytheme .button-center, .mytheme .v-slot-textfield-form {
+	margin: auto;
+	display: table;
+}
+
+.mytheme .logo-corner-300 {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 300px;
+}
+
+.mytheme .footer {
+	font-family: "Helvetica Neue", sans-serif;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}

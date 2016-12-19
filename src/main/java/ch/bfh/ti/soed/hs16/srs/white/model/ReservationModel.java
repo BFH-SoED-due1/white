@@ -10,7 +10,7 @@ package ch.bfh.ti.soed.hs16.srs.white.model;
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
-import ch.bfh.ti.soed.hs16.srs.white.entities.ReservationImpl;
+import ch.bfh.ti.soed.hs16.srs.white.implementations.ReservationImpl;
 
 import java.util.Date;
 import java.util.HashSet;

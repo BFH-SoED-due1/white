@@ -7,43 +7,44 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.helpers;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Properties;
 
 /**
  * Created by arauzca on 07.12.16.
  */
 public abstract class DbConnection {
-    private final static String protocol = "jdbc:derby:/Users/arauzca/Workspace/white/src/main/resources/ReservationSystem;user=sed_white;password=sedhs2016";
     private static Properties properties = new Properties();
-    private static Connection connection;
 
-    private static Connection getConnection() {
+    public static Connection getConnection() {
+        Connection connection = null;
+
         try {
-            //InputStream is = new FileInputStream(path);
-            //properties.load(is);
+            StringBuilder protocolBuilder   = new StringBuilder("jdbc:derby:");
+            ResourcesHelper resourcesHelper = ResourcesHelper.getInstance();
+            String path                     = resourcesHelper.getPath();
 
-            connection = DriverManager.getConnection(protocol);
+            protocolBuilder.append(path).append("ReservationSystem");
 
-        } catch (SQLException e) {
+            InputStream propertiesFile      = new FileInputStream(path + "db.properties");
+            properties.load(propertiesFile);
+            propertiesFile.close();
+
+            String protocol = protocolBuilder.toString();
+            String username = properties.getProperty("jdbc.username");
+            String password = properties.getProperty("jdbc.password");
+
+            connection = DriverManager.getConnection(protocol, username, password);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if (connection == null) {
-            throw new NullPointerException();
-        }
-
         return connection;
-    }
 
-    public static Connection getInstance() {
-        if (connection == null) {
-            connection = getConnection();
-        }
-
-        return connection;
     }
 
 }

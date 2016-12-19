@@ -12,5 +12,4 @@ package ch.bfh.ti.soed.hs16.srs.white.concept;
  */
 public interface Controller {
     void init();
-    void loadView();
 }
