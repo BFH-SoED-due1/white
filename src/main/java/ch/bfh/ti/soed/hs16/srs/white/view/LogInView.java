@@ -11,7 +11,14 @@ import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.controller.ApplicationController;
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
 import com.vaadin.server.Responsive;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.HorizontalLayout;
+
 
 /**
  * Created by arauzca on 25.10.16.
@@ -22,10 +29,10 @@ public class LogInView extends AbstractView {
 
     // UI Components
     private TextField       fieldMail           = new TextField();
-    private PasswordField   fieldPassword       = new PasswordField();
-    private Button          btnLogin            = new Button("Log in");
+    private PasswordField fieldPassword       = new PasswordField();
+    private Button btnLogin            = new Button("Log in");
     private Button          btnRegister         = new Button("Register");
-    private Label           labelMessage        = new Label("");
+    private Label labelMessage        = new Label("");
 
     public LogInView(){
         loadController();

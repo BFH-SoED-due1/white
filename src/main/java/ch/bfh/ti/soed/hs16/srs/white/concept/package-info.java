@@ -4,7 +4,5 @@
  * Project Smart Reservation System.
  *
  * Distributable under GPL license. See terms of license at gnu.org.
- *//**
- * Created by arauzca on 21.12.16.
  */
 package ch.bfh.ti.soed.hs16.srs.white.concept;

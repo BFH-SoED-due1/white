@@ -10,7 +10,11 @@ package ch.bfh.ti.soed.hs16.srs.white.view;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinService;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.Image;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
 
 import java.io.File;
 

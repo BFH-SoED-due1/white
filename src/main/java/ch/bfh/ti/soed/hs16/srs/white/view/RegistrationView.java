@@ -10,7 +10,13 @@ package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.controller.RegistrationController;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.HorizontalLayout;
 
 /**
  * Created by joni on 04/12/16.
@@ -19,11 +25,11 @@ public class RegistrationView extends AbstractView {
     private RegistrationController  registrationController  = new RegistrationController();
     private TextField               fieldFirstName          = new TextField("First Name");
     private TextField               fieldLastName           = new TextField("Last Name");
-    private PasswordField           fieldPassword           = new PasswordField("Password");
+    private PasswordField fieldPassword           = new PasswordField("Password");
     private PasswordField           fieldConfirmPassword    = new PasswordField("Repeat Password");
-    private Button                  btnSubmit               = new Button("Submit");
+    private Button btnSubmit               = new Button("Submit");
     private Button                  btnCancel               = new Button("Cancel");
-    private Label                   labelMessage            = new Label();
+    private Label labelMessage            = new Label();
 
     public RegistrationView(AbstractView lastView) {
         super( lastView );

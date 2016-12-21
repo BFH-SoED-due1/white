@@ -7,7 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
-import com.vaadin.ui.*;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
 
 /**
  * Created by joni on 08/12/16.
@@ -15,9 +17,9 @@ import com.vaadin.ui.*;
 public class RegistrationController extends AbstractController {
     private TextField       fieldFirstName;
     private TextField       fieldLastName;
-    private PasswordField   fieldPassword;
+    private PasswordField fieldPassword;
     private PasswordField   fieldConfirmPassword;
-    private Label           labelMessage;
+    private Label labelMessage;
 
     @Override
     public void init() {
