@@ -62,8 +62,10 @@ public class LogInView extends View {
         loginButton.setWidth("91px");
 
         registerButton.addClickListener(e -> {
+            RegistrationView rView = new RegistrationView();
+            rView.loadController();
             ApplicationController applicationController = ApplicationController.getInstance();
-            applicationController.loadView( new RegistrationView() );
+            applicationController.loadView( rView );
         });
         registerButton.setStyleName("button-center");
         registerButton.setWidth("91px");

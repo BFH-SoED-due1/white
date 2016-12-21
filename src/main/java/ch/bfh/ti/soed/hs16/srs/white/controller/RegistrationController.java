@@ -11,28 +11,54 @@ import ch.bfh.ti.soed.hs16.srs.white.MyUI;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.view.LogInView;
 import ch.bfh.ti.soed.hs16.srs.white.view.RegistrationView;
+import com.vaadin.ui.*;
 
 /**
  * Created by joni on 08/12/16.
  */
 public class RegistrationController extends Controller {
-    private RegistrationView regView;
+    private TextField firstName;
+    private TextField lastName;
+    private PasswordField password1;
+    private PasswordField password2;
+    private Label label;
+
+    public void setFirstName(TextField firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(TextField lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setPassword1(PasswordField password1) {
+        this.password1 = password1;
+    }
+
+    public void setPassword2(PasswordField password2) {
+        this.password2 = password2;
+    }
+
+    public void setLabel(Label label) {
+        this.label = label;
+    }
 
     @Override
     public void init() {
+
     }
 
     public void register(){
-      String fName = regView.getFirstName().getValue();
-      String lName = regView.getLastName().getValue();
-      String pass1 = regView.getPassword1().getValue();
-      String pass2 = regView.getPassword2().getValue();
-
-      if(pass1.equals(pass1)){
-          regView.getLabel().setValue("Passwords match");
+      String fName = firstName.getValue();
+      String lName = lastName.getValue();
+      String pass1 = password1.getValue();
+      String pass2 = password2.getValue();
+      if((pass1.isEmpty()) || (pass2.isEmpty())){ label.setValue("Password can't be empty");
+      } else if(pass1.equals(pass2)){
+          label.setValue("Passwords match");
           //TODO database update
       }else{
-          regView.getLabel().setValue("Password don't match");
+          label.setValue("Password don't match");
       }
     }
 
