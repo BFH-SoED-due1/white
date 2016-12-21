@@ -12,7 +12,7 @@ import com.vaadin.ui.Component;
 /**
  * Created by arauzca on 09.12.16.
  */
-public abstract class View {
-    public abstract Component load();
-    public abstract Controller loadController();
+public interface View {
+    Component load();
+    Controller loadController();
 }

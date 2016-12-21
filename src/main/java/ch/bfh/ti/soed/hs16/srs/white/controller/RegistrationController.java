@@ -7,16 +7,14 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
-import ch.bfh.ti.soed.hs16.srs.white.MyUI;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.view.LogInView;
-import ch.bfh.ti.soed.hs16.srs.white.view.RegistrationView;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
 
 /**
  * Created by joni on 08/12/16.
  */
-public class RegistrationController extends Controller {
+public class RegistrationController extends AbstractController {
     private TextField firstName;
     private TextField lastName;
     private PasswordField password1;

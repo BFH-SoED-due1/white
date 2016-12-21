@@ -10,12 +10,11 @@ package ch.bfh.ti.soed.hs16.srs.white.controller;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 
 /**
- * Created by arauzca on 24.10.16.
+ * Created by arauzca on 21.12.16.
  */
-public class MyUIController extends Controller {
-
-    @Override
-    public void init() {
-
+public abstract class AbstractController implements Controller {
+    public abstract void init();
+    public AbstractController() {
+        init();
     }
 }

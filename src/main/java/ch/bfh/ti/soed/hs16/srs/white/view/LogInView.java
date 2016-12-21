@@ -8,7 +8,6 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.ApplicationController;
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
 import com.vaadin.server.Responsive;
@@ -17,7 +16,7 @@ import com.vaadin.ui.*;
 /**
  * Created by arauzca on 25.10.16.
  */
-public class LogInView extends View {
+public class LogInView extends AbstractView {
     // Controller of this View
     private LogInController logInController;
 

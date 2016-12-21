@@ -9,14 +9,13 @@ package ch.bfh.ti.soed.hs16.srs.white.view;
 
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.RegistrationController;
 import com.vaadin.ui.*;
 
 /**
  * Created by joni on 04/12/16.
  */
-public class RegistrationView extends View {
+public class RegistrationView extends AbstractView {
     private RegistrationController regCon = new RegistrationController();
     private VerticalLayout layout = new VerticalLayout();
     private TextField firstName = new TextField("First Name");

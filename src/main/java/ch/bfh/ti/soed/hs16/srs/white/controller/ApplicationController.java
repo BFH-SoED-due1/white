@@ -7,6 +7,7 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.view.TemplateLayout;
 import com.vaadin.ui.UI;
@@ -14,7 +15,7 @@ import com.vaadin.ui.UI;
 /**
  * Created by arauzca on 20.12.16.
  */
-public class ApplicationController {
+public class ApplicationController implements Controller{
     private static ApplicationController uniqueApplicationController = new ApplicationController();
     private TemplateLayout templateLayout;
     private UI applicationUI;

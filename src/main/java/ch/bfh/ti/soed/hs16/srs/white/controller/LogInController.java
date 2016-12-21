@@ -7,14 +7,15 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
 
 /**
  * Created by arauzca on 25.10.16.
  */
-public class LogInController extends Controller {
+public class LogInController extends AbstractController {
     private EndUserModel endUserModel;
 
     // UI Components of the View

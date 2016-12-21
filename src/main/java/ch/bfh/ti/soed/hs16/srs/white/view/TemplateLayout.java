@@ -8,7 +8,6 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinService;
 import com.vaadin.ui.*;
@@ -18,7 +17,7 @@ import java.io.File;
 /**
  * Created by arauzca on 20.12.16.
  */
-public class TemplateLayout extends View {
+public class TemplateLayout extends AbstractView {
     private UI applicationUI;
     private VerticalLayout body = new VerticalLayout();
 

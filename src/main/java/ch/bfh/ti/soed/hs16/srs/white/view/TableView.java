@@ -11,7 +11,6 @@ package ch.bfh.ti.soed.hs16.srs.white.view;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
-import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.implementations.EndUserImpl;
 import ch.bfh.ti.soed.hs16.srs.white.implementations.RoomImpl;
 import com.vaadin.ui.Component;
@@ -22,7 +21,7 @@ import com.vaadin.ui.Table;
 /**
  * Created by joni on 30/11/16.
  */
-public class TableView extends View {
+public class TableView extends AbstractView {
 
     private HorizontalLayout layout = new HorizontalLayout();
 
