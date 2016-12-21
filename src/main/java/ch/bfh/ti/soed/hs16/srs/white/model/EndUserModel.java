@@ -23,6 +23,7 @@ import java.util.List;
  */
 public class EndUserModel implements Model {
     private static EndUserModel uniqueModel;
+    private DbConnection myconn;
     private List<EndUser> endUsers = new ArrayList<>();
 
     public static EndUserModel getInstance() {
@@ -34,6 +35,7 @@ public class EndUserModel implements Model {
     }
 
     private EndUserModel() {
+        myconn = DbConnection.getInstance();
     }
 
     protected List<EndUser> getEndUsers() {
@@ -41,9 +43,14 @@ public class EndUserModel implements Model {
     }
 
     public boolean loadModel() {
-        Connection connection = DbConnection.getConnection();
+        Connection connection;
+        PreparedStatement ps;
+
         boolean b = false;
-        try (PreparedStatement ps = connection.prepareStatement("SELECT * FROM enduser")) {
+
+        try {
+            connection = myconn.getConnection();
+            ps = connection.prepareStatement("SELECT * FROM enduser");
             b = ps.execute();
 
             ResultSet rs = ps.executeQuery();
@@ -52,6 +59,7 @@ public class EndUserModel implements Model {
                 System.out.println( rs.getString(2) );
             }
 
+            ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -73,7 +81,12 @@ public class EndUserModel implements Model {
     }
 
     public boolean checkLogin(String email, String password) {
-        try (Connection connection = DbConnection.getConnection(); PreparedStatement ps = connection.prepareStatement("SELECT PASSWORD FROM ENDUSER WHERE EMAIL = ?")) {
+        Connection connection;
+        PreparedStatement ps;
+
+        try {
+            connection = myconn.getConnection();
+            ps = connection.prepareStatement("SELECT PASSWORD FROM ENDUSER WHERE EMAIL = ?");
             ps.setString(1, email);
             ResultSet resultSet = ps.executeQuery();
 
@@ -83,9 +96,9 @@ public class EndUserModel implements Model {
             int column          = resultSet.findColumn("PASSWORD");
             String databasePW   = resultSet.getString(column);
 
-            if (!password.equals(databasePW)) return false;
-            connection.close();
+            ps.close();
 
+            if (!password.equals(databasePW)) return false;
         } catch (SQLException e) {
             return false;
         }

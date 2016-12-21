@@ -9,32 +9,22 @@ package ch.bfh.ti.soed.hs16.srs.white.controller;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.PasswordField;
-import com.vaadin.ui.TextField;
+import com.vaadin.ui.*;
 
 /**
  * Created by arauzca on 25.10.16.
  */
-public class LogInController implements Controller {
+public class LogInController extends Controller {
     private EndUserModel endUserModel;
 
     // UI Components of the View
-    public TextField       mailField;
-    public PasswordField   passwordField;
-    public Button          loginButton;
-    public Button          registerButton;
-    public Label           messageLabel;
-
-
-    public LogInController() {
-        this.endUserModel   = EndUserModel.getInstance();
-    }
+    private TextField       mailField;
+    private PasswordField   passwordField;
+    private Label           messageLabel;
 
     @Override
     public void init() {
-
+        this.endUserModel   = EndUserModel.getInstance();
     }
 
     public void login() {
@@ -54,6 +44,18 @@ public class LogInController implements Controller {
                 messageLabel.setValue( "Login Failed" );
             }
         }
+    }
+
+    public void setMailField(TextField mailField) {
+        this.mailField = mailField;
+    }
+
+    public void setPasswordField(PasswordField passwordField) {
+        this.passwordField = passwordField;
+    }
+
+    public void setMessageLabel(Label messageLabel) {
+        this.messageLabel = messageLabel;
     }
 
 

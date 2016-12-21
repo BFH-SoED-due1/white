@@ -13,11 +13,8 @@ import ch.bfh.ti.soed.hs16.srs.white.view.RegistrationView;
 /**
  * Created by joni on 08/12/16.
  */
-public class RegistrationController implements Controller {
+public class RegistrationController extends Controller {
     private RegistrationView regView;
-
-    public RegistrationController(){
-    }
 
     @Override
     public void init() {

@@ -7,8 +7,7 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.controller.MyUIController;
+import ch.bfh.ti.soed.hs16.srs.white.view.TemplateLayout;
 import com.vaadin.annotations.StyleSheet;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
@@ -34,8 +33,11 @@ public class MyUI extends UI {
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
-		Controller controller = new MyUIController(this);
-		controller.init();
+		TemplateLayout templateLayout = new TemplateLayout(this);
+		templateLayout.load();
+		//Controller controller = new ApplicationController();
+		// /Controller controller = new MyUIController(this);
+		//controller.init();
 	}
 
 

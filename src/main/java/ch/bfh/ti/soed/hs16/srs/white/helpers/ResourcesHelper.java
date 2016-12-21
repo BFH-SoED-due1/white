@@ -7,6 +7,8 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.helpers;
 
+import com.vaadin.server.VaadinService;
+
 /**
  * Created by arauzca on 18.12.16.
  */
@@ -15,7 +17,7 @@ public class ResourcesHelper {
     private String path;
 
     private ResourcesHelper() {
-        path = ResourcesHelper.class.getClassLoader().getResource(".").getPath();
+        path = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
     }
 
     public String getPath() {

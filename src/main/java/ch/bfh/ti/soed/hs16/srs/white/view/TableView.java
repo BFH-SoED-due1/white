@@ -8,11 +8,13 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
 import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.implementations.EndUserImpl;
 import ch.bfh.ti.soed.hs16.srs.white.implementations.RoomImpl;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.UI;
@@ -21,9 +23,13 @@ import com.vaadin.ui.UI;
 /**
  * Created by joni on 30/11/16.
  */
-public class TableView implements View {
+public class TableView extends View {
 
     private HorizontalLayout layout = new HorizontalLayout();
+
+    public TableView(UI appui) {
+        super(appui);
+    }
 
     public HorizontalLayout createTable(){
 
@@ -75,9 +81,13 @@ public class TableView implements View {
         return layout;
     }
 
+    @Override
+    public Component load() {
+        return null;
+    }
 
     @Override
-    public void load(UI ui) {
-
+    public Controller loadController() {
+        return null;
     }
 }

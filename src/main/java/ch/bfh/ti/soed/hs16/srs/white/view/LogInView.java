@@ -7,19 +7,18 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
-import com.vaadin.server.FileResource;
-import com.vaadin.server.VaadinService;
+import com.vaadin.server.Responsive;
 import com.vaadin.ui.*;
-
-import java.io.File;
 
 /**
  * Created by arauzca on 25.10.16.
  */
-public class LogInView implements View {
-    private LogInController loginController;                                            // Controller of this View
+public class LogInView extends View {
+    // Controller of this View
+    private LogInController logInController;
 
     // UI Components
     private TextField       mailField           = new TextField();
@@ -27,32 +26,27 @@ public class LogInView implements View {
     private Button          loginButton         = new Button("Log in");
     private Button          registerButton      = new Button("Register");
     private Label           messageLabel        = new Label("");
-    private Label           footer              = FooterView.getInstance();
-    private FileResource    resource;
 
-    public LogInView(LogInController logInController){
-        this.loginController    = logInController;
-        String basepath         = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
-        resource                = new FileResource(new File(basepath + "/images/uite_logo.png"));
-
-        loginController.mailField       = this.mailField;
-        loginController.passwordField   = this.passwordField;
-        loginController.loginButton     = this.loginButton;
-        loginController.registerButton  = this.registerButton;
-        loginController.messageLabel    = this.messageLabel;
+    public LogInView(UI applicationUI){
+        super(applicationUI);
+        loadController();
     }
 
     @Override
-    public void load(UI ui) {
+    public Controller loadController() {
+        logInController = new LogInController();
 
-        final VerticalLayout layout = new VerticalLayout();
-        layout.setStyleName("login-form");
+        logInController.setMailField(mailField);
+        logInController.setPasswordField(passwordField);
+        logInController.setMessageLabel(messageLabel);
 
+        return logInController;
+    }
+
+    @Override
+    public Component load() {
         final VerticalLayout formContainer = new VerticalLayout();
         formContainer.setStyleName("absolute-center");
-
-        Image imageLogo = new Image("", resource);
-        imageLogo.setStyleName("logo-corner-300");
 
         mailField.setCaption("Type your mail here:");
         mailField.setStyleName("textfield-form");
@@ -61,8 +55,9 @@ public class LogInView implements View {
         passwordField.setStyleName("textfield-form");
 
         loginButton.addClickListener(e -> {
-            loginController.login();
+            logInController.login();
         });
+
         loginButton.setStyleName("button-center");
         loginButton.setWidth("91px");
 
@@ -86,11 +81,9 @@ public class LogInView implements View {
         formContainer.setMargin(true);
         formContainer.setSpacing(true);
 
-        layout.addComponents(imageLogo, formContainer, footer);
-        layout.setMargin(true);
-        layout.setSpacing(true);
+        Responsive.makeResponsive(formContainer);
 
-        ui.setContent(layout);
+        return formContainer;
 
     }
 }

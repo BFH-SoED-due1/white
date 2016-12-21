@@ -8,14 +8,19 @@
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 
 /**
- * Created by arauzca on 24.10.16.
+ * Created by arauzca on 20.12.16.
  */
-public class MyUIController extends Controller {
+public class ApplicationController extends Controller {
 
     @Override
     public void init() {
+    }
+
+    public void loadView(View v) {
+
 
     }
 }
