@@ -24,11 +24,6 @@ public class RegistrationView extends View {
     private Button submit = new Button("Submit");
     private Label label = new Label();
 
-
-    public RegistrationView(UI applicationUI){
-        super(applicationUI);
-    }
-
     @Override
     public Component load() {
         layout.addComponents(firstName, lastName, password1, password1, submit, label);

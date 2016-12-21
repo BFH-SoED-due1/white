@@ -17,7 +17,6 @@ import ch.bfh.ti.soed.hs16.srs.white.implementations.RoomImpl;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Table;
-import com.vaadin.ui.UI;
 
 
 /**
@@ -26,10 +25,6 @@ import com.vaadin.ui.UI;
 public class TableView extends View {
 
     private HorizontalLayout layout = new HorizontalLayout();
-
-    public TableView(UI appui) {
-        super(appui);
-    }
 
     public HorizontalLayout createTable(){
 
@@ -66,13 +61,6 @@ public class TableView extends View {
         roomTable.addItem(new Object[] {r2.getName(),r2.getQuantityOfSeats()}, new Integer(2));
         roomTable.addItem(new Object[] {r3.getName(),r3.getQuantityOfSeats()}, new Integer(3));
         roomTable.addItem(new Object[] {r4.getName(),r4.getQuantityOfSeats()}, new Integer(4));
-
-
-//        resTable.addContainerProperty("User", String.class, null);
-//        resTable.addContainerProperty("Room", String.class, null);
-//        resTable.addContainerProperty("Date", String.class, null);
-//
-//        Reservation res1 = new ReservationImpl();
 
 
         layout.addComponent(roomTable);

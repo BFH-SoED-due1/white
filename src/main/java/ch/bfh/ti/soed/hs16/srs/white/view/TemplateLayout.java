@@ -19,10 +19,11 @@ import java.io.File;
  * Created by arauzca on 20.12.16.
  */
 public class TemplateLayout extends View {
-    private Component body;
+    private UI applicationUI;
+    private VerticalLayout body = new VerticalLayout();
 
     public TemplateLayout(UI applicationUI) {
-        super(applicationUI);
+        this.applicationUI = applicationUI;
     }
 
     @Override
@@ -34,8 +35,8 @@ public class TemplateLayout extends View {
         Image imageLogo = new Image("", resource);
         imageLogo.setStyleName("logo-corner-300");
 
-        LogInView logInView             = new LogInView( applicationUI );
-        body = logInView.load();
+        LogInView logInView             = new LogInView();
+        body.addComponent( logInView.load() );
 
         Label footer = FooterView.getInstance();
 
@@ -50,8 +51,9 @@ public class TemplateLayout extends View {
         return null;
     }
 
-    public void setBody(Component body) {
-        this.body = body;
+    public void updateBody(Component newBody) {
+        this.body.removeAllComponents();
+        this.body.addComponent( newBody );
     }
 
 }

@@ -9,6 +9,7 @@ package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.concept.View;
+import ch.bfh.ti.soed.hs16.srs.white.controller.ApplicationController;
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
 import com.vaadin.server.Responsive;
 import com.vaadin.ui.*;
@@ -27,8 +28,7 @@ public class LogInView extends View {
     private Button          registerButton      = new Button("Register");
     private Label           messageLabel        = new Label("");
 
-    public LogInView(UI applicationUI){
-        super(applicationUI);
+    public LogInView(){
         loadController();
     }
 
@@ -62,6 +62,8 @@ public class LogInView extends View {
         loginButton.setWidth("91px");
 
         registerButton.addClickListener(e -> {
+            ApplicationController applicationController = ApplicationController.getInstance();
+            applicationController.loadView( new RegistrationView() );
         });
         registerButton.setStyleName("button-center");
         registerButton.setWidth("91px");
