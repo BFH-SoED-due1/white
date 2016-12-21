@@ -89,7 +89,8 @@ public class EndUserModel implements Model {
             ps = connection.prepareStatement("SELECT PASSWORD FROM ENDUSER WHERE EMAIL = ?");
             ps.setString(1, email);
             ResultSet resultSet = ps.executeQuery();
-
+            if(email.isEmpty()) return false;
+            if (password.isEmpty()) return false;
             if (resultSet == null) return false;
 
             resultSet.next();

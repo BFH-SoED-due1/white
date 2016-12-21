@@ -26,7 +26,7 @@ public class RegistrationView extends View {
 
     @Override
     public Component load() {
-        layout.addComponents(firstName, lastName, password1, password1, submit, label);
+        layout.addComponents(firstName, lastName, password1, password2, submit, label);
 
         return layout;
     }

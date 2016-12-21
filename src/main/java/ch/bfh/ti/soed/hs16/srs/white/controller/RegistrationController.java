@@ -7,7 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
+import ch.bfh.ti.soed.hs16.srs.white.MyUI;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.view.LogInView;
 import ch.bfh.ti.soed.hs16.srs.white.view.RegistrationView;
 
 /**
@@ -33,4 +35,6 @@ public class RegistrationController extends Controller {
           regView.getLabel().setValue("Password don't match");
       }
     }
+
+
 }
