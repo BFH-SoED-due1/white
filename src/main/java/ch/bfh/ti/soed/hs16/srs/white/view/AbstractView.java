@@ -15,6 +15,22 @@ import com.vaadin.ui.Component;
  * Created by arauzca on 21.12.16.
  */
 public abstract class AbstractView implements View {
+    // Class variables
+    private AbstractView lastView;
+
+    // Constructors
+    public AbstractView() {}
+
+    public AbstractView(AbstractView lastView) {
+        this.lastView = lastView;
+    }
+
+    // Abstract methods
     public abstract Component load();
     public abstract Controller loadController();
+
+    // Protected methods
+    protected AbstractView getLastView() {
+        return lastView;
+    }
 }
