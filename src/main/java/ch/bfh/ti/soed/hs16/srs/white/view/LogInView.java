@@ -21,11 +21,11 @@ public class LogInView extends AbstractView {
     private LogInController logInController;
 
     // UI Components
-    private TextField       mailField           = new TextField();
-    private PasswordField   passwordField       = new PasswordField();
-    private Button          loginButton         = new Button("Log in");
-    private Button          registerButton      = new Button("Register");
-    private Label           messageLabel        = new Label("");
+    private TextField       fieldMail           = new TextField();
+    private PasswordField   fieldPassword       = new PasswordField();
+    private Button          btnLogin            = new Button("Log in");
+    private Button          btnRegister         = new Button("Register");
+    private Label           labelMessage        = new Label("");
 
     public LogInView(){
         loadController();
@@ -35,9 +35,9 @@ public class LogInView extends AbstractView {
     public Controller loadController() {
         logInController = new LogInController();
 
-        logInController.setMailField(mailField);
-        logInController.setPasswordField(passwordField);
-        logInController.setMessageLabel(messageLabel);
+        logInController.setMailField(fieldMail);
+        logInController.setPasswordField(fieldPassword);
+        logInController.setMessageLabel(labelMessage);
 
         return logInController;
     }
@@ -47,46 +47,45 @@ public class LogInView extends AbstractView {
         final VerticalLayout formContainer = new VerticalLayout();
         formContainer.setStyleName("absolute-center");
 
-        mailField.setCaption("Type your mail here:");
-        mailField.setStyleName("textfield-form");
+        fieldMail.setCaption("Type your mail here:");
+        fieldMail.setStyleName("textfield-form");
 
-        passwordField.setCaption("Type your password here:");
-        passwordField.setStyleName("textfield-form");
+        fieldPassword.setCaption("Type your password here:");
+        fieldPassword.setStyleName("textfield-form");
 
-        loginButton.addClickListener(e -> {
+        btnLogin.addClickListener(e -> {
             logInController.login();
         });
 
-        loginButton.setStyleName("button-center");
-        loginButton.setWidth("91px");
+        btnLogin.setStyleName("button-center");
+        btnLogin.setWidth("91px");
 
-        registerButton.addClickListener(e -> {
-            RegistrationView rView = new RegistrationView();
+        btnRegister.addClickListener(e -> {
+            RegistrationView rView = new RegistrationView( this );
             rView.loadController();
             ApplicationController applicationController = ApplicationController.getInstance();
             applicationController.loadView( rView );
         });
-        registerButton.setStyleName("button-center");
-        registerButton.setWidth("91px");
+        btnRegister.setStyleName("button-center");
+        btnRegister.setWidth("91px");
 
-        messageLabel.setStyleName("horizontal-center");
-        messageLabel.setSizeUndefined();
+        labelMessage.setStyleName("horizontal-center");
+        labelMessage.setSizeUndefined();
 
 
-        final HorizontalLayout buttonLayout = new HorizontalLayout();
+        final HorizontalLayout layoutButtons = new HorizontalLayout();
 
-        buttonLayout.addComponents(loginButton, registerButton);
-        buttonLayout.setStyleName("horizontal-center");
-        buttonLayout.setMargin(true);
-        buttonLayout.setSpacing(true);
+        layoutButtons.addComponents(btnLogin, btnRegister);
+        layoutButtons.setStyleName("horizontal-center");
+        layoutButtons.setMargin(true);
+        layoutButtons.setSpacing(true);
 
-        formContainer.addComponents(mailField, passwordField, buttonLayout, messageLabel);
+        formContainer.addComponents(fieldMail, fieldPassword, layoutButtons, labelMessage);
         formContainer.setMargin(true);
         formContainer.setSpacing(true);
 
         Responsive.makeResponsive(formContainer);
 
         return formContainer;
-
     }
 }

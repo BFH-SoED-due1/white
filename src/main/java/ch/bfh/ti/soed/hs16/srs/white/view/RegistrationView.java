@@ -16,57 +16,60 @@ import com.vaadin.ui.*;
  * Created by joni on 04/12/16.
  */
 public class RegistrationView extends AbstractView {
-    private RegistrationController regCon = new RegistrationController();
-    private VerticalLayout layout = new VerticalLayout();
-    private TextField firstName = new TextField("First Name");
-    private TextField lastName = new TextField("Last Name");
-    private PasswordField password1 = new PasswordField("Password");
-    private PasswordField password2 = new PasswordField("Repeat Password");
-    private Button submit = new Button("Submit");
-    private Label label = new Label();
+    private RegistrationController  registrationController  = new RegistrationController();
+    private TextField               fieldFirstName          = new TextField("First Name");
+    private TextField               fieldLastName           = new TextField("Last Name");
+    private PasswordField           fieldPassword           = new PasswordField("Password");
+    private PasswordField           fieldConfirmPassword    = new PasswordField("Repeat Password");
+    private Button                  btnSubmit               = new Button("Submit");
+    private Button                  btnCancel               = new Button("Cancel");
+    private Label                   labelMessage            = new Label();
+
+    public RegistrationView(AbstractView lastView) {
+        super( lastView );
+    }
 
     @Override
     public Component load() {
-        submit.addClickListener(e -> {regCon.register();});
-        layout.addComponents(firstName, lastName, password1, password2, submit, label);
+        final VerticalLayout layout = new VerticalLayout();
+        layout.setStyleName("absolute-center");
+
+        fieldFirstName.setStyleName("textfield-form");
+        fieldLastName.setStyleName("textfield-form");
+        fieldPassword.setStyleName("textfield-form");
+        fieldConfirmPassword.setStyleName("textfield-form");
+
+        btnSubmit.setStyleName("button-center");
+        btnSubmit.setWidth("91px");
+        btnSubmit.addClickListener(e -> registrationController.register());
+
+        btnCancel.setStyleName("button-center");
+        btnCancel.setWidth("91px");
+        btnCancel.addClickListener(e -> registrationController.goBack( getLastView() ));
+
+        final HorizontalLayout layoutButtons = new HorizontalLayout();
+        layoutButtons.addComponents(btnSubmit, btnCancel);
+        layoutButtons.setStyleName("horizontal-center");
+        layoutButtons.setMargin(true);
+        layoutButtons.setSpacing(true);
+
+        labelMessage.setStyleName("horizontal-center");
+        labelMessage.setSizeUndefined();
+
+        layout.addComponents(fieldFirstName, fieldLastName, fieldPassword, fieldConfirmPassword, layoutButtons, labelMessage);
 
         return layout;
     }
 
     @Override
     public Controller loadController() {
-        regCon.setFirstName(firstName);
-        regCon.setLastName(lastName);
-        regCon.setPassword1(password1);
-        regCon.setPassword2(password2);
-        regCon.setLabel(label);
+        registrationController.setFieldFirstName( fieldFirstName );
+        registrationController.setFieldLastName( fieldLastName );
+        registrationController.setFieldPassword( fieldPassword );
+        registrationController.setFieldConfirmPassword( fieldConfirmPassword );
+        registrationController.setLabelMessage( labelMessage );
 
         return null;
-    }
-
-
-    public TextField getFirstName() {
-        return firstName;
-    }
-
-    public TextField getLastName() {
-        return lastName;
-    }
-
-    public PasswordField getPassword1() {
-        return password1;
-    }
-
-    public PasswordField getPassword2() {
-        return password2;
-    }
-
-    public Button getSubmit() {
-        return submit;
-    }
-
-    public Label getLabel() {
-        return label;
     }
 
 }
