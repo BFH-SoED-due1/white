@@ -1,0 +1,54 @@
+@startuml
+package concept{
+	Interface Controller
+	Interface EndUser
+	Interface Model
+	Interface Reservation
+	Interface Rights
+	Interface Room
+	Interface View
+}
+
+package model{
+	class EndUserModel
+	class ReservationModel
+}
+
+package controller{
+	abstract class AbstracController
+	class ApplicationController
+	class LogInController
+	class RegistrationController
+	class TableController
+}
+
+package view{
+	abstract class AbstractView
+	class FooterView
+	class LogInView
+	class RegistrationView
+	class TableView
+	class TemplateLayout
+}
+
+package helper{
+	class DbConnection
+	class ResourcesHelper
+}
+
+package implementations{
+	class EndUserImpl
+	class Organization
+	class ReservationImpl
+	class RoomImpl
+}
+
+
+controller -down-> concept
+helper -down-> concept
+implementations -down-> concept
+model -down-> concept
+view -down-> concept
+
+
+@enduml
