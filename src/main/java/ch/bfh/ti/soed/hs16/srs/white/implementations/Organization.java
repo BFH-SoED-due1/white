@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by joni on 20.10.2016.
+ * Created by hyamsj on 20.10.2016.
  */
 public class Organization {
     private Set<EndUser> endUsers = new HashSet<>();

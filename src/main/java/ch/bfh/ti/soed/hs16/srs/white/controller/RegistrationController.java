@@ -12,31 +12,32 @@ import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 
 /**
- * Created by joni on 08/12/16.
+ * Created by hyamsj on 08/12/16.
  */
 public class RegistrationController extends AbstractController {
-    private TextField       fieldFirstName;
-    private TextField       fieldLastName;
+    private TextField fieldFirstName;
+    private TextField fieldLastName;
     private PasswordField fieldPassword;
-    private PasswordField   fieldConfirmPassword;
+    private PasswordField fieldConfirmPassword;
     private Label labelMessage;
 
     @Override
     public void init() {
     }
 
-    public void register(){
-      String fName = fieldFirstName.getValue();
-      String lName = fieldLastName.getValue();
-      String pass1 = fieldPassword.getValue();
-      String pass2 = fieldConfirmPassword.getValue();
-      if((pass1.isEmpty()) || (pass2.isEmpty())){ labelMessage.setValue("Password can't be empty");
-      } else if(pass1.equals(pass2)){
-          labelMessage.setValue("Passwords match");
-          //TODO database update
-      }else{
-          labelMessage.setValue("Password don't match");
-      }
+    public void register() {
+        String fName = fieldFirstName.getValue();
+        String lName = fieldLastName.getValue();
+        String pass1 = fieldPassword.getValue();
+        String pass2 = fieldConfirmPassword.getValue();
+        if ((pass1.isEmpty()) || (pass2.isEmpty())) {
+            labelMessage.setValue("Password can't be empty");
+        } else if (pass1.equals(pass2)) {
+            labelMessage.setValue("Passwords match");
+            //TODO database update
+        } else {
+            labelMessage.setValue("Password don't match");
+        }
     }
 
     public void setFieldFirstName(TextField fieldFirstName) {

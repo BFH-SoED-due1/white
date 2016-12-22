@@ -17,7 +17,7 @@ import java.util.Set;
 /**
  * Created by arauzca on 19.10.16.
  */
-@SuppressWarnings("unused")
+
 public class RoomImpl implements Room{
     private String name;
     private int quantityOfSeats;

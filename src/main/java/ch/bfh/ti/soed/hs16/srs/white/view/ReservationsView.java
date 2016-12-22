@@ -8,7 +8,7 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 /**
- * Created by joni on 15/12/16.
+ * Created by hyamsj on 15/12/16.
  */
 public class ReservationsView {
 }

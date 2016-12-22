@@ -15,4 +15,5 @@ import com.vaadin.ui.Component;
 public interface View {
     Component load();
     Controller loadController();
+    void restart();
 }

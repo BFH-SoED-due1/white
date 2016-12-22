@@ -10,6 +10,7 @@ package ch.bfh.ti.soed.hs16.srs.white.model;
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Model;
 import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
+import ch.bfh.ti.soed.hs16.srs.white.implementations.EndUserImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -56,7 +57,15 @@ public class EndUserModel implements Model {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                System.out.println( rs.getString(2) );
+                int id = rs.getInt(rs.findColumn("ID"));
+                String fName = rs.getString(rs.findColumn("FNAME"));
+                String lName = rs.getString(rs.findColumn("LNAME"));
+                String mail = rs.getString(rs.findColumn("EMAIL"));
+                EndUser endUser = new EndUserImpl(id, fName, lName, mail);
+                endUsers.add(endUser);
+                System.out.println(endUser);
+
+
             }
 
             ps.close();
@@ -89,13 +98,13 @@ public class EndUserModel implements Model {
             ps = connection.prepareStatement("SELECT PASSWORD FROM ENDUSER WHERE EMAIL = ?");
             ps.setString(1, email);
             ResultSet resultSet = ps.executeQuery();
-            if(email.isEmpty()) return false;
+            if (email.isEmpty()) return false;
             if (password.isEmpty()) return false;
             if (resultSet == null) return false;
 
             resultSet.next();
-            int column          = resultSet.findColumn("PASSWORD");
-            String databasePW   = resultSet.getString(column);
+            int column = resultSet.findColumn("PASSWORD");
+            String databasePW = resultSet.getString(column);
 
             ps.close();
 

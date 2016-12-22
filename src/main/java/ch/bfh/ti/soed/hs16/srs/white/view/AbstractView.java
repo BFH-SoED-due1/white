@@ -28,6 +28,7 @@ public abstract class AbstractView implements View {
     // Abstract methods
     public abstract Component load();
     public abstract Controller loadController();
+    public abstract void restart();
 
     // Protected methods
     protected AbstractView getLastView() {

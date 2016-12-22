@@ -18,7 +18,7 @@ import java.util.Set;
 /**
  * Created by arauzca on 19.10.16.
  */
-public class EndUserImpl implements EndUser{
+public class EndUserImpl implements EndUser {
     private int id;
     private String firstName;
     private String lastName;
@@ -27,14 +27,14 @@ public class EndUserImpl implements EndUser{
     private Set<Rights> rights = new HashSet<>(); //TODO
 
     public EndUserImpl() {
-        this((int)(Math.random() * 10000),null,null,null);
+        this((int) (Math.random() * 10000), null, null, null);
     }
 
     public EndUserImpl(int id, String firstName, String lastName, String mail) {
-        this.id         = id;
-        this.firstName  = firstName;
-        this.lastName   = lastName;
-        this.mail       = mail;
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mail = mail;
     }
 
     @Override
@@ -42,37 +42,20 @@ public class EndUserImpl implements EndUser{
         return id;
     }
 
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-
     @Override
     public String getFirstName() {
         return firstName;
     }
-
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
 
     @Override
     public String getLastName() {
         return lastName;
     }
 
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
-
     @Override
     public String getMail() {
         return mail;
     }
-
-//    public void setMail(String mail) {
-//        this.mail = mail;
-//    }
-
 
     @Override
     public Set<Reservation> getReservations() {
@@ -81,18 +64,18 @@ public class EndUserImpl implements EndUser{
     }
 
     @Override
-    public void setRights(Rights r){
+    public void setRights(Rights r) {
         rights.add(r);
     }
 
     @Override
-    public Set<Rights> getRights(){
+    public Set<Rights> getRights() {
         Set<Rights> userRight = Collections.unmodifiableSet(this.rights);
         return userRight;
     }
 
     @Override
-    public void removeReservation(Reservation reservation){
+    public void removeReservation(Reservation reservation) {
         reservations.remove(reservation);
     }
 
@@ -122,15 +105,15 @@ public class EndUserImpl implements EndUser{
             return false;
         }
 
-        if ( this.firstName == null ? !(other.getFirstName() == null) : !this.firstName.equals(other.getFirstName()) ) {
+        if (this.firstName == null ? !(other.getFirstName() == null) : !this.firstName.equals(other.getFirstName())) {
             return false;
         }
 
-        if ( this.lastName == null ? !(other.getLastName() == null) : !this.lastName.equals(other.getLastName()) ) {
+        if (this.lastName == null ? !(other.getLastName() == null) : !this.lastName.equals(other.getLastName())) {
             return false;
         }
 
-        if ( this.mail == null ? !(other.getMail() == null) : !this.mail.equals(other.getMail()) ) {
+        if (this.mail == null ? !(other.getMail() == null) : !this.mail.equals(other.getMail())) {
             return false;
         }
 

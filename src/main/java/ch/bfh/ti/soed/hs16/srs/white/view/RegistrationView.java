@@ -19,20 +19,20 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.HorizontalLayout;
 
 /**
- * Created by joni on 04/12/16.
+ * Created by hyamsj on 04/12/16.
  */
 public class RegistrationView extends AbstractView {
-    private RegistrationController  registrationController  = new RegistrationController();
-    private TextField               fieldFirstName          = new TextField("First Name");
-    private TextField               fieldLastName           = new TextField("Last Name");
-    private PasswordField fieldPassword           = new PasswordField("Password");
-    private PasswordField           fieldConfirmPassword    = new PasswordField("Repeat Password");
-    private Button btnSubmit               = new Button("Submit");
-    private Button                  btnCancel               = new Button("Cancel");
-    private Label labelMessage            = new Label();
+    private RegistrationController registrationController = new RegistrationController();
+    private TextField fieldFirstName = new TextField("First Name");
+    private TextField fieldLastName = new TextField("Last Name");
+    private PasswordField fieldPassword = new PasswordField("Password");
+    private PasswordField fieldConfirmPassword = new PasswordField("Repeat Password");
+    private Button btnSubmit = new Button("Submit");
+    private Button btnCancel = new Button("Cancel");
+    private Label labelMessage = new Label();
 
     public RegistrationView(AbstractView lastView) {
-        super( lastView );
+        super(lastView);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class RegistrationView extends AbstractView {
 
         btnCancel.setStyleName("button-center");
         btnCancel.setWidth("91px");
-        btnCancel.addClickListener(e -> registrationController.goBack( getLastView() ));
+        btnCancel.addClickListener(e -> registrationController.goBack(getLastView()));
 
         final HorizontalLayout layoutButtons = new HorizontalLayout();
         layoutButtons.addComponents(btnSubmit, btnCancel);
@@ -69,13 +69,21 @@ public class RegistrationView extends AbstractView {
 
     @Override
     public Controller loadController() {
-        registrationController.setFieldFirstName( fieldFirstName );
-        registrationController.setFieldLastName( fieldLastName );
-        registrationController.setFieldPassword( fieldPassword );
-        registrationController.setFieldConfirmPassword( fieldConfirmPassword );
-        registrationController.setLabelMessage( labelMessage );
+        registrationController.setFieldFirstName(fieldFirstName);
+        registrationController.setFieldLastName(fieldLastName);
+        registrationController.setFieldPassword(fieldPassword);
+        registrationController.setFieldConfirmPassword(fieldConfirmPassword);
+        registrationController.setLabelMessage(labelMessage);
 
         return null;
+    }
+
+    @Override
+    public void restart() {
+        fieldFirstName.clear();
+        fieldLastName.clear();
+        fieldPassword.clear();
+        fieldConfirmPassword.clear();
     }
 
 }

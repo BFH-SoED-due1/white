@@ -16,7 +16,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by joni on 20.10.2016.
+ * Created by hyamsj on 20.10.2016.
  */
 public class EndUserTest {
     @Test

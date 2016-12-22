@@ -8,6 +8,7 @@
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
 import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
+import ch.bfh.ti.soed.hs16.srs.white.view.TableView;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
@@ -41,6 +42,10 @@ public class LogInController extends AbstractController {
         } else {
             if ( endUserModel.checkLogin(mail, pw) ) {
                 messageLabel.setValue( "Login Successful" );
+                if(mail.equals("admin")) {
+                    ApplicationController appController = ApplicationController.getInstance();
+                    appController.loadView(new TableView());
+                }
             } else {
                 messageLabel.setValue( "Login Failed" );
             }

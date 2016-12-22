@@ -10,7 +10,7 @@ package ch.bfh.ti.soed.hs16.srs.white.concept;
 import java.util.Set;
 
 /**
- * Created by joni on 01/12/16.
+ * Created by hyamsj on 01/12/16.
  */
 public interface Room {
     String getName();

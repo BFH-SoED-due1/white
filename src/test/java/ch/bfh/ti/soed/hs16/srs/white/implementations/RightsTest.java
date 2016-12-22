@@ -15,7 +15,7 @@ import java.util.Iterator;
 import static org.junit.Assert.*;
 
 /**
- * Created by joni on 20.10.2016.
+ * Created by hyamsj on 20.10.2016.
  */
 public class RightsTest {
 

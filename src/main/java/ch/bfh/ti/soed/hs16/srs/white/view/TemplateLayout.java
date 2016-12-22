@@ -31,14 +31,14 @@ public class TemplateLayout extends AbstractView {
 
     @Override
     public Component load() {
-        VerticalLayout layout   = new VerticalLayout();
-        String basePath         = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
-        FileResource resource   = new FileResource(new File(basePath + "/images/uite_logo.png"));
+        VerticalLayout layout = new VerticalLayout();
+        String basePath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
+        FileResource resource = new FileResource(new File(basePath + "/images/uite_logo.png"));
 
         Image imageLogo = new Image("", resource);
         imageLogo.setStyleName("logo-corner-300");
 
-        LogInView logInView             = new LogInView();
+        LogInView logInView = new LogInView();
         body.addComponent( logInView.load() );
 
         Label footer = FooterView.getInstance();
@@ -53,6 +53,12 @@ public class TemplateLayout extends AbstractView {
     public Controller loadController() {
         return null;
     }
+
+    @Override
+    public void restart() {
+
+    }
+
 
     public void updateBody(Component newBody) {
         this.body.removeAllComponents();
