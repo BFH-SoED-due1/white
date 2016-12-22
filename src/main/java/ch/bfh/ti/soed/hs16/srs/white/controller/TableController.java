@@ -35,7 +35,8 @@ public class TableController extends AbstractController {
         List<EndUser> endUsers = endUserModel.getEndUsers();
         endUsers.forEach(e -> {
             System.out.println(e.getId());
-            table.addItem(new Object[]{e.getId(), e.getFirstName(), e.getLastName(), e.getMail()});
+            table.addItem(new Object[]{e.getId(), e.getFirstName(), e.getLastName(), e.getMail()}, e.getId());
+
         });
     }
 }
