@@ -20,12 +20,19 @@ import java.util.Set;
 
 public class RoomImpl implements Room {
     private String name;
+    private int id;
     private int quantityOfSeats;
     private Set<Reservation> reservations = new HashSet<>();
 
-    public RoomImpl(String name, int quantityOfSeats) {
+    public RoomImpl(int id, String name, int quantityOfSeats) {
+        this.id = id;
         this.name = name;
         this.quantityOfSeats = quantityOfSeats;
+    }
+
+    @Override
+    public int getId(){
+        return id;
     }
 
     @Override

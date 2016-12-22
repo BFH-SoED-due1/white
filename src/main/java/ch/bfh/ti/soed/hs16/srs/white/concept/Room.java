@@ -13,6 +13,8 @@ import java.util.Set;
  * Created by hyamsj on 01/12/16.
  */
 public interface Room {
+    int getId();
+
     String getName();
     int getQuantityOfSeats();
     Set<Reservation> getReservations();
