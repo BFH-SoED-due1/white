@@ -54,7 +54,11 @@ Backlog
 |05.           | As a registered user I want to reserve a room and invite people.         |4             |4            |
 |              | I want to notify them via email.                                         |              |             |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
-|06.           | As a registered user I want to login with my account.                    |4             |2            |
+|06.           | As a registered user I want to login with my account.                    |4             |5            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|06.01\        |I can connect to the Database                                             |              |3            |
+|06.02\        |I get an notification if the input is wrong                               |              |1            |
+|06.03\        |Login Inputs can not alter the Database                                   |              |1            |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
 |07.           | As a registered user I want to be able to edit Reservations (change the  |7             |5            |
 |              | time, title, change the room, delete).                                   |              |             |
@@ -86,9 +90,9 @@ Backlog
 |              | for users, buildings, rooms and reservations. I want to be able to sort  |              |             |
 |              | and filter them by desire.                                               |              |             |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
-|13.01\        | As an Administrator I want to see a table for users                      |              |1\           |
-|13.02\        | As an Administrator I want to see a table for rooms                      |              |1\           |
-|13.03\        | As an Administrator I want to see a table for reservations               |              |1\           |
+|13.01\        | As an Administrator I want to see a table for users\                     |              |1\           |
+|13.02\        | As an Administrator I want to see a table for rooms\                     |              |1\           |
+|13.03\        | As an Administrator I want to see a table for reservations\              |              |1\           |
 |13.04\        | As an Administrator I want to sort and filter option                     |              |2\           |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
 |14.           | As an administrator I want to create and remove Users, Buildings, Rooms  |4             |7            |
@@ -179,6 +183,26 @@ Sprint 3: Tasks
 |11            | As a non registered user I can request an account by filling out         |2\            |4\           |
 |              | a registrations form.                                                    |              |             |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
-|13.01         | As an Administrator I want to see a table for users                      |1\            |2\           |
+|13.01         | As an Administrator I want to see a table for users\                     |1\            |2\           |
 |13.02         | As an Administrator I want to see a table for rooms                      |1\            |1\           |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
+
+Sprint 4: Tasks
+
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+| <<No.>>      | <<Description>>                                                          |  << Plan>>   | << Actual>> |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|06.01\        |I can connect to the Database                                             |3             |6            |
+|06.02\        |I get an notification if the input is wrong                               |1             |2            |
+|06.03\        |Login Inputs can not alter the Database                                   |1             |4            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|11.           | As a non registered user I can request an account by filling out         |7             |4            |
+|              | a registrations form.                                                    |              |             |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|18.           | As a non-registered User I want to be able to register.                  |5             |4            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+|13.01\        | As an Administrator I want to see a table for users                      |1             |5            |
+|13.02\        | As an Administrator I want to see a table for rooms                      |1             |2            |
+*--------------+--------------------------------------------------------------------------+--------------+-------------:
+
+

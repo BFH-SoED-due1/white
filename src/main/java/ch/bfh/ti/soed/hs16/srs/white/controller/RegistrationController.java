@@ -17,6 +17,7 @@ import com.vaadin.ui.TextField;
 public class RegistrationController extends AbstractController {
     private TextField fieldFirstName;
     private TextField fieldLastName;
+    private TextField fieldEmail;
     private PasswordField fieldPassword;
     private PasswordField fieldConfirmPassword;
     private Label labelMessage;
@@ -28,8 +29,12 @@ public class RegistrationController extends AbstractController {
     public void register() {
         String fName = fieldFirstName.getValue();
         String lName = fieldLastName.getValue();
+        String eMail = fieldEmail.getValue();
         String pass1 = fieldPassword.getValue();
         String pass2 = fieldConfirmPassword.getValue();
+        if (fName.isEmpty()) fieldFirstName.setInputPrompt("Can't be empty");
+        if (lName.isEmpty()) fieldLastName.setInputPrompt("Can't be empty");
+        if (eMail.isEmpty()) fieldEmail.setInputPrompt("Can't be empty");
         if ((pass1.isEmpty()) || (pass2.isEmpty())) {
             labelMessage.setValue("Password can't be empty");
         } else if (pass1.equals(pass2)) {
@@ -46,6 +51,10 @@ public class RegistrationController extends AbstractController {
 
     public void setFieldLastName(TextField fieldLastName) {
         this.fieldLastName = fieldLastName;
+    }
+
+    public void setFieldEmail(TextField fieldEmail) {
+        this.fieldEmail = fieldEmail;
     }
 
     public void setFieldPassword(PasswordField fieldPassword) {
