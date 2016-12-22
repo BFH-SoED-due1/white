@@ -14,14 +14,24 @@ import java.util.Set;
  */
 public interface EndUser {
     int getId();
+
     String getFirstName();
+
     String getLastName();
+
     String getMail();
+
     Set<Reservation> getReservations();
+
     Set<Rights> getRights();
+
     void setRights(Rights rights);
+
     void removeReservation(Reservation reservation);
+
     void addReservations(Reservation reservation);
+
     void destroy();
+
     String toString();
 }

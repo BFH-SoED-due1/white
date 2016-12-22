@@ -26,7 +26,7 @@ public class Organization {
         return readOnlyEndUsers;
     }
 
-    public void removeEndUser(EndUser endUser){
+    public void removeEndUser(EndUser endUser) {
         this.endUsers.remove(endUser);
         endUser.destroy();
         //TODO remove all endUsers reservations
@@ -42,7 +42,7 @@ public class Organization {
         return readOnlyRooms;
     }
 
-    public void removeRoom(Room room){
+    public void removeRoom(Room room) {
         room.removeAllReservations();
         rooms.remove(room);
     }

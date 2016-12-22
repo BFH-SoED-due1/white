@@ -9,9 +9,7 @@ package ch.bfh.ti.soed.hs16.srs.white.view;
 
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.controller.TableController;
-import ch.bfh.ti.soed.hs16.srs.white.implementations.EndUserImpl;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Table;
@@ -27,9 +25,6 @@ public class TableView extends AbstractView {
 
     @Override
     public Component load() {
-
-
-//        Table resTable = new Table("Reservation");
 
         userTable.addContainerProperty("ID", Integer.class, null);
         userTable.addContainerProperty("First Name", String.class, null);

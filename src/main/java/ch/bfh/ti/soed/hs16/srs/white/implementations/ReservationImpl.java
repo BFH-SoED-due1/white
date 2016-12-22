@@ -16,7 +16,7 @@ import java.util.Date;
 /**
  * Created by arauzca on 19.10.16.
  */
-public class ReservationImpl implements Reservation{
+public class ReservationImpl implements Reservation {
     private EndUser owner;
     private Room reservedRoom;
     private Date time; //TODO find a better type for time so it can be established if a reservation overlaps another one.
@@ -50,8 +50,6 @@ public class ReservationImpl implements Reservation{
     public void setReservedRoom(Room reservedRoom) {
         this.reservedRoom = reservedRoom;
     }
-
-
 
 
 }

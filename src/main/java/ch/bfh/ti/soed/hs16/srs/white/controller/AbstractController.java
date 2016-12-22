@@ -27,6 +27,6 @@ public abstract class AbstractController implements Controller {
     public void goBack(AbstractView lastView) {
         lastView.restart();
         ApplicationController applicationController = ApplicationController.getInstance();
-        applicationController.loadView( lastView );
+        applicationController.loadView(lastView);
     }
 }

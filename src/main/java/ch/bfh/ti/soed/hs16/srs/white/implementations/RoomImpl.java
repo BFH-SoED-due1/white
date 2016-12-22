@@ -18,14 +18,14 @@ import java.util.Set;
  * Created by arauzca on 19.10.16.
  */
 
-public class RoomImpl implements Room{
+public class RoomImpl implements Room {
     private String name;
     private int quantityOfSeats;
     private Set<Reservation> reservations = new HashSet<>();
 
-    public RoomImpl(String name, int quantityOfSeats){
-       this.name = name;
-       this.quantityOfSeats =quantityOfSeats;
+    public RoomImpl(String name, int quantityOfSeats) {
+        this.name = name;
+        this.quantityOfSeats = quantityOfSeats;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class RoomImpl implements Room{
     }
 
     @Override
-    public void removeReservation(Reservation reservation){
+    public void removeReservation(Reservation reservation) {
         reservations.remove(reservation);
     }
 
@@ -56,10 +56,9 @@ public class RoomImpl implements Room{
     }
 
     @Override
-    public void removeAllReservations(){
+    public void removeAllReservations() {
         reservations.clear();
     }
-
 
 
 }

@@ -18,19 +18,19 @@ import java.util.Properties;
  * Created by arauzca on 07.12.16.
  */
 public class DbConnection {
-    private static final DbConnection uniqueConnection    = new DbConnection();
-    private Properties properties                   = new Properties();
-    private Connection connection                   = null;
+    private static final DbConnection uniqueConnection = new DbConnection();
+    private Properties properties = new Properties();
+    private Connection connection = null;
 
     private DbConnection() {
         try {
-            StringBuilder protocolBuilder   = new StringBuilder("jdbc:derby:");
+            StringBuilder protocolBuilder = new StringBuilder("jdbc:derby:");
             ResourcesHelper resourcesHelper = ResourcesHelper.getInstance();
-            String path                     = resourcesHelper.getPath();
+            String path = resourcesHelper.getPath();
 
             protocolBuilder.append(path).append("/ReservationSystem");
 
-            InputStream propertiesFile      = new FileInputStream(path + "/db.properties");
+            InputStream propertiesFile = new FileInputStream(path + "/db.properties");
             properties.load(propertiesFile);
             propertiesFile.close();
 
@@ -46,7 +46,7 @@ public class DbConnection {
     }
 
     public Connection getConnection() throws SQLException {
-        if ( connection == null ) {
+        if (connection == null) {
             throw new SQLException("Failed to initialize connection");
         }
         return this.connection;

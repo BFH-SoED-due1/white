@@ -31,8 +31,8 @@ public class ReservationModel {
     }
 
     public void cancelReservation(Reservation reservation) {
-        Room room       = reservation.getReservedRoom();
-        EndUser user    = reservation.getOwner();
+        Room room = reservation.getReservedRoom();
+        EndUser user = reservation.getOwner();
 
         room.removeReservation(reservation);
         user.removeReservation(reservation);
@@ -46,7 +46,6 @@ public class ReservationModel {
     public static Set<Reservation> getReservationsFromRoom(Room room) {
         return room.getReservations();
     }
-
 
 
 }

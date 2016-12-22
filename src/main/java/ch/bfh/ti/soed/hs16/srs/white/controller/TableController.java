@@ -17,8 +17,8 @@ import java.util.List;
  * Created by hyamsj on 22/12/16.
  */
 public class TableController extends AbstractController {
-    private EndUserModel endUserModel = EndUserModel.getInstance();
     private Table table;
+    private EndUserModel endUserModel;
 
     public void setTable(Table table) {
         this.table = table;
@@ -26,10 +26,12 @@ public class TableController extends AbstractController {
 
     @Override
     public void init() {
+        endUserModel = EndUserModel.getInstance();
         endUserModel.loadModel();
-        List<EndUser> endUsers = endUserModel.getData();
+        List<EndUser> endUsers = endUserModel.getEndUsers();
         endUsers.forEach(e -> {
-            table.addItem(new Object[] {e.getId(), e.getFirstName(), e.getLastName(), e.getMail()});
+            //table.addItem(new Object[]{e.getId(), e.getFirstName(), e.getLastName(), e.getMail()});
+            table.addItem(new Object[]{123, "Test", "Test", "test@bfh.ch"}, new Integer(1));
             //e.getFirstName();
         });
 

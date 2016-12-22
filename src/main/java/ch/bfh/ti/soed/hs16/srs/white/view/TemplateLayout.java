@@ -39,7 +39,7 @@ public class TemplateLayout extends AbstractView {
         imageLogo.setStyleName("logo-corner-300");
 
         LogInView logInView = new LogInView();
-        body.addComponent( logInView.load() );
+        body.addComponent(logInView.load());
 
         Label footer = FooterView.getInstance();
 
@@ -62,7 +62,7 @@ public class TemplateLayout extends AbstractView {
 
     public void updateBody(Component newBody) {
         this.body.removeAllComponents();
-        this.body.addComponent( newBody );
+        this.body.addComponent(newBody);
     }
 
 }

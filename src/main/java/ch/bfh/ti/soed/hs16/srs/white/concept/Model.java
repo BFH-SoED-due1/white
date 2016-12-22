@@ -14,6 +14,8 @@ import java.util.List;
  */
 public interface Model {
     boolean loadModel();
+
     List getData();
+
     void addData(Object o);
 }

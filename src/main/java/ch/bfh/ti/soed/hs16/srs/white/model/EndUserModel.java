@@ -39,7 +39,7 @@ public class EndUserModel implements Model {
         myconn = DbConnection.getInstance();
     }
 
-    protected List<EndUser> getEndUsers() {
+    public List<EndUser> getEndUsers() {
         return endUsers;
     }
 
@@ -63,7 +63,6 @@ public class EndUserModel implements Model {
                 String mail = rs.getString(rs.findColumn("EMAIL"));
                 EndUser endUser = new EndUserImpl(id, fName, lName, mail);
                 endUsers.add(endUser);
-                System.out.println(endUser);
 
 
             }

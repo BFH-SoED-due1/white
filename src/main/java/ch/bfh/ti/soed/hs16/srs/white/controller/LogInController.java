@@ -20,34 +20,36 @@ public class LogInController extends AbstractController {
     private EndUserModel endUserModel;
 
     // UI Components of the View
-    private TextField       mailField;
-    private PasswordField   passwordField;
-    private Label           messageLabel;
+    private TextField mailField;
+    private PasswordField passwordField;
+    private Label messageLabel;
 
     @Override
     public void init() {
-        this.endUserModel   = EndUserModel.getInstance();
+        this.endUserModel = EndUserModel.getInstance();
     }
 
     public void login() {
         String mail = mailField.getValue();
-        String pw   = passwordField.getValue();
+        String pw = passwordField.getValue();
 
-        if ( mail.isEmpty() && pw.isEmpty() ) {
+        if (mail.isEmpty() && pw.isEmpty()) {
             messageLabel.setValue("Please enter your e-mail address and your password to log in");
-        } else if ( mail.isEmpty() ) {
+        } else if (mail.isEmpty()) {
             messageLabel.setValue("Please enter your e-mail address");
-        } else if ( pw.isEmpty()) {
+        } else if (pw.isEmpty()) {
             messageLabel.setValue("Please enter your password");
         } else {
-            if ( endUserModel.checkLogin(mail, pw) ) {
-                messageLabel.setValue( "Login Successful" );
-                if(mail.equals("admin")) {
+            if (endUserModel.checkLogin(mail, pw)) {
+                messageLabel.setValue("Login Successful");
+                if (mail.equals("admin")) {
                     ApplicationController appController = ApplicationController.getInstance();
-                    appController.loadView(new TableView());
+                    TableView tView = new TableView();
+                    tView.loadController();
+                    appController.loadView(tView);
                 }
             } else {
-                messageLabel.setValue( "Login Failed" );
+                messageLabel.setValue("Login Failed");
             }
         }
     }
@@ -63,8 +65,6 @@ public class LogInController extends AbstractController {
     public void setMessageLabel(Label messageLabel) {
         this.messageLabel = messageLabel;
     }
-
-
 
 
 }
