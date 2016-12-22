@@ -19,7 +19,7 @@ import com.vaadin.ui.Table;
  * Created by hyamsj on 30/11/16.
  */
 public class TableView extends AbstractView {
-    private TableController tableController = new TableController();
+    private TableController tableController;
     private HorizontalLayout layout = new HorizontalLayout();
     private Table userTable = new Table("Users");
 
@@ -31,16 +31,7 @@ public class TableView extends AbstractView {
         userTable.addContainerProperty("Last Name", String.class, null);
         userTable.addContainerProperty("Mail", String.class, null);
 
-//        EndUser e1 = new EndUserImpl((int) (Math.random() * 10000), "Anne", "Dreher", "ADreher@abc.ch");
-//        EndUser e2 = new EndUserImpl((int) (Math.random() * 10000), "Florian", "Koenig", "FKoenig@abc.ch");
-//        EndUser e3 = new EndUserImpl((int) (Math.random() * 10000), "Daniel", "Koehler", "DKoehler@abc.ch");
-//        EndUser e4 = new EndUserImpl((int) (Math.random() * 10000), "Philip", "Wagner", "PWagner@abc.ch");
-
-
-//        userTable.addItem(new Object[]{e1.getId(), e1.getFirstName(), e1.getLastName(), e1.getMail()}, new Integer(1));
-//        userTable.addItem(new Object[]{e2.getId(), e2.getFirstName(), e2.getLastName(), e2.getMail()}, new Integer(2));
-//        userTable.addItem(new Object[]{e3.getId(), e3.getFirstName(), e3.getLastName(), e3.getMail()}, new Integer(3));
-//        userTable.addItem(new Object[]{e4.getId(), e4.getFirstName(), e4.getLastName(), e4.getMail()}, new Integer(4));
+        tableController.loadTable();
 
         layout.addComponent(userTable);
 
@@ -49,8 +40,10 @@ public class TableView extends AbstractView {
 
     @Override
     public Controller loadController() {
+        tableController = new TableController();
         tableController.setTable(userTable);
-        return null;
+
+        return tableController;
     }
 
     @Override

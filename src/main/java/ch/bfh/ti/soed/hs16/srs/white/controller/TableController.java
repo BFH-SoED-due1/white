@@ -21,6 +21,7 @@ public class TableController extends AbstractController {
     private EndUserModel endUserModel;
 
     public void setTable(Table table) {
+        System.out.println(table == null);
         this.table = table;
     }
 
@@ -28,13 +29,13 @@ public class TableController extends AbstractController {
     public void init() {
         endUserModel = EndUserModel.getInstance();
         endUserModel.loadModel();
+    }
+
+    public void loadTable() {
         List<EndUser> endUsers = endUserModel.getEndUsers();
         endUsers.forEach(e -> {
-            //table.addItem(new Object[]{e.getId(), e.getFirstName(), e.getLastName(), e.getMail()});
-            table.addItem(new Object[]{123, "Test", "Test", "test@bfh.ch"}, new Integer(1));
-            //e.getFirstName();
+            System.out.println(e.getId());
+            table.addItem(new Object[]{e.getId(), e.getFirstName(), e.getLastName(), e.getMail()});
         });
-
-
     }
 }
