@@ -43,6 +43,7 @@ public class EndUserModel implements Model {
         return endUsers;
     }
 
+    @Override
     public boolean loadModel() {
         Connection connection;
         PreparedStatement ps;
@@ -75,10 +76,12 @@ public class EndUserModel implements Model {
         return b;
     }
 
+    @Override
     public List getData() {
         return endUsers;
     }
 
+    @Override
     public void addData(Object o) {
         EndUser user = (EndUser) o;
         endUsers.add(user);
