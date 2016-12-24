@@ -7,7 +7,12 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by arauzca on 13.11.16.
@@ -108,23 +113,21 @@ public class ModelsTest {
 
     @Test
     public void testEndUserModel() {
-        /*Model userModel;
+        EndUserModel endUserModel = EndUserModel.getInstance();
+        endUserModel.loadModel();
+        List<EndUser> endUsers = endUserModel.getData();
+        EndUser jarjarBinks = null;
+        String jarjarEmail = "jarjar.binks@death.star";
 
-        try {
-            Connection dbConnection = DbConnection.getConnection();
-            assertNotNull(dbConnection);
+        assertTrue(endUserModel.saveUser("JarJar", "Binks", jarjarEmail, "1234567890"));  // Test: create user to the database and add it to the model
 
-            PreparedStatement ps = dbConnection.prepareStatement("SELECT * FROM enduser");
-            assertTrue(ps.execute());
+        for (EndUser e: endUsers) {
+            String email = e.getMail();
+            if ( email.equals(jarjarEmail) ) jarjarBinks = e;
+        }
 
-            ResultSet rs = ps.getResultSet();
-            while (rs.next()) {
-                System.out.println(rs.getString(2));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-
+        if (jarjarBinks != null)
+            assertTrue( endUserModel.deleteUser(jarjarBinks) );
     }
 
 }

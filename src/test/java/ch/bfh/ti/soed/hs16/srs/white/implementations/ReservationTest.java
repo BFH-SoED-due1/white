@@ -19,7 +19,7 @@ public class ReservationTest {
     public void testGettersAndSetters() {
         ReservationImpl reservation = new ReservationImpl();
         EndUserImpl user = new EndUserImpl();
-        RoomImpl room = new RoomImpl("", 0);
+        RoomImpl room = new RoomImpl(1,"", 0);
 
         reservation.setReservedRoom(room);
         assertEquals(room, reservation.getReservedRoom());

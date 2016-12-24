@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -78,7 +79,8 @@ public class EndUserModel implements Model {
 
     @Override
     public List getData() {
-        return endUsers;
+        List unmodifiable = Collections.unmodifiableList(endUsers);
+        return unmodifiable;
     }
 
     @Override
@@ -87,8 +89,59 @@ public class EndUserModel implements Model {
         endUsers.add(user);
     }
 
-    public boolean saveUser(EndUser u) {
-        return false;
+    public boolean saveUser(String fName, String lName, String eMail, String password) {
+        Connection connection;
+        PreparedStatement preparedStatement;
+        int id;
+        boolean result = false;
+
+        try {
+            connection = myconn.getConnection();
+            id = getNotUsedID( connection );
+
+            preparedStatement = connection.prepareStatement("INSERT INTO ENDUSER (ID, FNAME, LNAME, EMAIL, PASSWORD) VALUES (?, ?, ?, ?, ?)");
+            preparedStatement.setInt(1, id);
+            preparedStatement.setString(2, fName);
+            preparedStatement.setString(3, lName);
+            preparedStatement.setString(4, eMail);
+            preparedStatement.setString(5, password);
+
+            if (preparedStatement.executeUpdate() == 1) {
+                connection.commit();
+                addData(new EndUserImpl(id, fName, lName, eMail));
+                result = true;
+            } else {
+                connection.rollback();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    public boolean deleteUser(EndUser endUser) {
+        Connection connection;
+        PreparedStatement preparedStatement;
+        boolean result = false;
+
+        try {
+            connection = myconn.getConnection();
+            preparedStatement = connection.prepareStatement("DELETE FROM ENDUSER WHERE ID = ?");
+            preparedStatement.setInt(1, endUser.getId());
+
+            if (preparedStatement.executeUpdate() == 1) {
+                connection.commit();
+                endUsers.remove(endUser);
+                result = true;
+            } else {
+                connection.rollback();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     public boolean checkLogin(String email, String password) {
@@ -116,5 +169,18 @@ public class EndUserModel implements Model {
         }
 
         return true;
+    }
+
+    private int getNotUsedID(Connection connection) throws SQLException{
+        int i = (int) (Math.random() * 1000000);
+        PreparedStatement ps = connection.prepareStatement("SELECT ID FROM ENDUSER WHERE ID = ?");
+        ps.setInt(1, i);
+        ResultSet resultSet = ps.executeQuery();
+
+        if (resultSet.next() || i == 0) {
+            return getNotUsedID(connection);
+        }
+
+        return i;
     }
 }

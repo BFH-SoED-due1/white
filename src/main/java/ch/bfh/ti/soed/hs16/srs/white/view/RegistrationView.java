@@ -21,6 +21,7 @@ public class RegistrationView extends AbstractView {
     private TextField fieldFirstName = new TextField("First Name");
     private TextField fieldLastName = new TextField("Last Name");
     private TextField fieldEmail = new TextField("E-Mail Address");
+    private TextField fieldConfirmEmail = new TextField("Repeat E-Mail Address");
     private PasswordField fieldPassword = new PasswordField("Password");
     private PasswordField fieldConfirmPassword = new PasswordField("Repeat Password");
     private Button btnSubmit = new Button("Submit");
@@ -39,6 +40,7 @@ public class RegistrationView extends AbstractView {
         fieldFirstName.setStyleName("textfield-form");
         fieldLastName.setStyleName("textfield-form");
         fieldEmail.setStyleName("textfield-form");
+        fieldConfirmEmail.setStyleName("textfield-form");
         fieldPassword.setStyleName("textfield-form");
         fieldConfirmPassword.setStyleName("textfield-form");
 
@@ -59,16 +61,18 @@ public class RegistrationView extends AbstractView {
         labelMessage.setStyleName("horizontal-center");
         labelMessage.setSizeUndefined();
 
-        layout.addComponents(fieldFirstName, fieldLastName, fieldEmail, fieldPassword, fieldConfirmPassword, layoutButtons, labelMessage);
+        layout.addComponents(fieldFirstName, fieldLastName, fieldEmail, fieldConfirmEmail, fieldPassword, fieldConfirmPassword, layoutButtons, labelMessage);
 
         return layout;
     }
 
     @Override
     public Controller loadController() {
+        registrationController.setMyView(this);
         registrationController.setFieldFirstName(fieldFirstName);
         registrationController.setFieldLastName(fieldLastName);
         registrationController.setFieldEmail(fieldEmail);
+        registrationController.setFieldConfirmEmailEmail(fieldConfirmEmail);
         registrationController.setFieldPassword(fieldPassword);
         registrationController.setFieldConfirmPassword(fieldConfirmPassword);
         registrationController.setLabelMessage(labelMessage);

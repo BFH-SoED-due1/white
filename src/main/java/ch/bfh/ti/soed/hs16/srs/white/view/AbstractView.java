@@ -19,7 +19,8 @@ public abstract class AbstractView implements View {
     private AbstractView lastView;
 
     // Constructors
-    public AbstractView() {}
+    public AbstractView() {
+    }
 
     public AbstractView(AbstractView lastView) {
         this.lastView = lastView;
@@ -27,11 +28,13 @@ public abstract class AbstractView implements View {
 
     // Abstract methods
     public abstract Component load();
+
     public abstract Controller loadController();
+
     public abstract void restart();
 
     // Protected methods
-    protected AbstractView getLastView() {
+    public AbstractView getLastView() {
         return lastView;
     }
 }

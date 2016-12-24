@@ -51,7 +51,7 @@ public class OrganizationTest {
     @Test
     public void testRemoveOneRoomDoesntRemoveAnotherOne(){
         Organization org = new Organization();
-        Room room1 = new RoomImpl("", 0);
+        Room room1 = new RoomImpl(1,"", 0);
         ReservationImpl reservation1 = new ReservationImpl();
         org.addRoom(room1);
         room1.addReservation(reservation1);
@@ -59,7 +59,7 @@ public class OrganizationTest {
         org.removeRoom(room1);
         assertEquals(0, room1.getReservations().size());
 
-        Room room2 = new RoomImpl("", 0);
+        Room room2 = new RoomImpl(1,"", 0);
         ReservationImpl reservation2 = new ReservationImpl();
         org.addRoom(room2);
         room1.addReservation(reservation2);
@@ -69,8 +69,8 @@ public class OrganizationTest {
     @Test
     public void testRemoveCertainReservations(){
         Organization org = new Organization();
-        Room room1 = new RoomImpl("", 0);
-        Room room2 = new RoomImpl("", 0);
+        Room room1 = new RoomImpl(1,"", 0);
+        Room room2 = new RoomImpl(1,"", 0);
         org.addRoom(room1);
         org.addRoom(room2);
         org.removeRoom(room2);
@@ -84,7 +84,7 @@ public class OrganizationTest {
         // TODO delete room, what happens to reservations in it?
         Reservation reservation = new ReservationImpl();
         Organization org = new Organization();
-        Room room = new RoomImpl("", 0);
+        Room room = new RoomImpl(1,"", 0);
         org.addRoom(room);
         reservation.setReservedRoom(room);
         org.removeRoom(room);
@@ -96,7 +96,7 @@ public class OrganizationTest {
     @Test
     public void testRemoveRoomRemovesReservations(){
         Organization org = new Organization();
-        Room room = new RoomImpl("123", 20);
+        Room room = new RoomImpl(1,"123", 20);
         Reservation res = new ReservationImpl();
 
         org.addRoom(room);

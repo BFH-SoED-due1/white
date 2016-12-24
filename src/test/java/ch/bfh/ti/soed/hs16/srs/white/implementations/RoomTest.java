@@ -20,7 +20,7 @@ public class RoomTest {
 
 	@Test
 	public void testGettersAndSetters(){
-		Room room = new RoomImpl("abc", 42);
+		Room room = new RoomImpl(1,"abc", 42);
 		assertEquals("abc", room.getName());
 		assertEquals(42, room.getQuantityOfSeats());
 
@@ -34,7 +34,7 @@ public class RoomTest {
 
 	@Test
 	public void testAddReservation(){
-		Room room = new RoomImpl("", 0);
+		Room room = new RoomImpl(1,"", 0);
 		Reservation reservation = new ReservationImpl();
 		room.addReservation(reservation);
 		assertTrue(room.getReservations().contains(reservation));
@@ -42,7 +42,7 @@ public class RoomTest {
 
 	@Test
 	public void testRemoveReservation(){
-		Room room = new RoomImpl("", 0);
+		Room room = new RoomImpl(1,"", 0);
 		ReservationImpl reservationRemove = new ReservationImpl();
 		ReservationImpl reservationRemain = new ReservationImpl();
 		room.addReservation(reservationRemove);

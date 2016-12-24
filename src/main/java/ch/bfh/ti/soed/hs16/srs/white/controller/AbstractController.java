@@ -15,6 +15,8 @@ import ch.bfh.ti.soed.hs16.srs.white.view.AbstractView;
  */
 public abstract class AbstractController implements Controller {
     // Class variables
+    protected AbstractView myView;
+
     // Constructors
     public AbstractController() {
         init();
@@ -28,5 +30,9 @@ public abstract class AbstractController implements Controller {
         lastView.restart();
         ApplicationController applicationController = ApplicationController.getInstance();
         applicationController.loadView(lastView);
+    }
+
+    public void setMyView(AbstractView myView) {
+        this.myView = myView;
     }
 }
