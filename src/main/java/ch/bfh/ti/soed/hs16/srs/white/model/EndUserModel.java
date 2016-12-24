@@ -8,7 +8,6 @@
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Model;
 import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
 import ch.bfh.ti.soed.hs16.srs.white.implementations.EndUserImpl;
 
@@ -17,16 +16,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by arauzca on 21.10.16.
  */
-public class EndUserModel implements Model {
+public class EndUserModel extends AbstractModel {
     private static EndUserModel uniqueModel;
     private DbConnection myconn;
-    private List<EndUser> endUsers = new ArrayList<>();
 
     public static EndUserModel getInstance() {
         if (uniqueModel == null) {
@@ -38,10 +35,11 @@ public class EndUserModel implements Model {
 
     private EndUserModel() {
         myconn = DbConnection.getInstance();
+        data = new ArrayList<EndUser>();
     }
 
     public List<EndUser> getEndUsers() {
-        return endUsers;
+        return (List<EndUser>) data;
     }
 
     @Override
@@ -64,7 +62,7 @@ public class EndUserModel implements Model {
                 String lName = rs.getString(rs.findColumn("LNAME"));
                 String mail = rs.getString(rs.findColumn("EMAIL"));
                 EndUser endUser = new EndUserImpl(id, fName, lName, mail);
-                endUsers.add(endUser);
+                data.add(endUser);
 
 
             }
@@ -78,15 +76,9 @@ public class EndUserModel implements Model {
     }
 
     @Override
-    public List getData() {
-        List unmodifiable = Collections.unmodifiableList(endUsers);
-        return unmodifiable;
-    }
-
-    @Override
     public void addData(Object o) {
         EndUser user = (EndUser) o;
-        endUsers.add(user);
+        data.add(user);
     }
 
     public boolean saveUser(String fName, String lName, String eMail, String password) {
@@ -133,7 +125,7 @@ public class EndUserModel implements Model {
 
             if (preparedStatement.executeUpdate() == 1) {
                 connection.commit();
-                endUsers.remove(endUser);
+                data.remove(endUser);
                 result = true;
             } else {
                 connection.rollback();

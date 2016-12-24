@@ -12969,15 +12969,15 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .body {
-	background-color: #ddd;
-	color: #282828;
+	background-color: #EEE;
+	color: #222831;
 }
 
 .mytheme .login-form {
 	max-width: 100%;
 	max-height: 100%;
-	font-family: "Francois One";
-	color: #8b8b8b;
+	font-family: "Francois One", "Helvetica Neue", sans-serif;
+	color: #222831;
 }
 
 .mytheme .absolute-center {
@@ -12998,9 +12998,9 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .logo-corner-300 {
-	position: absolute;
-	top: 10px;
-	left: 10px;
+	position: relative;
+	margin-top: 10px;
+	margin-left: 10px;
 	width: 300px;
 }
 
@@ -13009,4 +13009,63 @@ div.v-layout.v-horizontal.v-widget {
 	position: absolute;
 	bottom: 10px;
 	left: 10px;
+}
+
+.mytheme .menu-container {
+	max-width: 250px;
+	width: 250px;
+	height: auto;
+	position: relative;
+	margin-top: 50px;
+}
+
+.mytheme .menu-container .menu-item {
+	position: relative;
+	max-width: inherit;
+	width: 250px;
+	max-height: 50px;
+	background-color: #393E46;
+	cursor: hand;
+}
+
+.mytheme .menu-container .menu-item .menu-item-icon, .mytheme .menu-container .menu-item .menu-item-icon-users, .mytheme .menu-container .menu-item .menu-item-icon-no-icon {
+	min-width: 50px;
+	min-height: 50px;
+	width: 50px;
+	height: 50px;
+	margin-right: 5px;
+	background-color: #EEE;
+}
+
+.mytheme .menu-container .menu-item .menu-item-icon-users {
+	mask-image: url("./images/users.png");
+	-webkit-mask-box-image: url("./images/users.png");
+	mask-type: alpha;
+}
+
+.mytheme .menu-container .menu-item .menu-item-icon-no-icon {
+	mask-image: url("./images/no_icon.png");
+	-webkit-mask-box-image: url("./images/no_icon.png");
+	mask-type: alpha;
+}
+
+.mytheme .menu-container .menu-item .menu-item-caption {
+	height: 50px;
+	display: table-cell;
+	vertical-align: middle;
+	color: #EEE;
+	font-size: large;
+	font-weight: 700;
+}
+
+.mytheme .menu-container .menu-item:hover {
+	background-color: #00ADB5;
+}
+
+.mytheme .menu-container .menu-item:hover .menu-item-caption {
+	color: #222831;
+}
+
+.mytheme .menu-container .menu-item:hover .menu-item-icon, .mytheme .menu-container .menu-item:hover  .menu-item-icon-users, .mytheme .menu-container .menu-item:hover  .menu-item-icon-no-icon {
+	background-color: #222831;
 }

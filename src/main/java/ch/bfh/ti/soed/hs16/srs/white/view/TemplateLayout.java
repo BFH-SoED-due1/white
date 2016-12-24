@@ -8,6 +8,8 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.helpers.ResourcesHelper;
+import ch.bfh.ti.soed.hs16.srs.white.view.subviews.FooterView;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinService;
 import com.vaadin.ui.Component;
@@ -32,10 +34,10 @@ public class TemplateLayout extends AbstractView {
     @Override
     public Component load() {
         VerticalLayout layout = new VerticalLayout();
-        String basePath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
+        String basePath = ResourcesHelper.getInstance().getPath();
         FileResource resource = new FileResource(new File(basePath + "/images/uite_logo.png"));
 
-        Image imageLogo = new Image("", resource);
+        Image imageLogo = new Image(null, resource);
         imageLogo.setStyleName("logo-corner-300");
 
         LogInView logInView = new LogInView();

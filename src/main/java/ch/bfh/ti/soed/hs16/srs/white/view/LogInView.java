@@ -63,16 +63,19 @@ public class LogInView extends AbstractView {
 
         fieldMail.setCaption("Type your mail here:");
         fieldMail.setStyleName("textfield-form");
+        fieldMail.setTabIndex(1);
+        fieldMail.focus();
 
         fieldPassword.setCaption("Type your password here:");
+        fieldPassword.setTabIndex(2);
         fieldPassword.setStyleName("textfield-form");
 
         btnLogin.setClickShortcut(ShortcutAction.KeyCode.ENTER);
-        btnLogin.addClickListener(e -> {
-            logInController.login();
-        });
+        btnLogin.setTabIndex(3);
+        btnLogin.addClickListener(e -> logInController.login());
 
         btnLogin.setStyleName("button-center");
+        btnLogin.setTabIndex(4);
         btnLogin.setWidth("91px");
 
         btnRegister.addClickListener(e -> {
