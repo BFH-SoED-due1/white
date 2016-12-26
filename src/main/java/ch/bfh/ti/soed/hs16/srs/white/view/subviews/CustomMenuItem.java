@@ -7,14 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.view.subviews;
 
-import ch.bfh.ti.soed.hs16.srs.white.helpers.ResourcesHelper;
-import com.vaadin.event.ContextClickEvent;
-import com.vaadin.server.FileResource;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
-
-import java.io.File;
+import static com.vaadin.event.LayoutEvents.LayoutClickListener;
 
 /**
  * Created by arauzca on 24.12.16.
@@ -23,7 +18,7 @@ public class CustomMenuItem extends HorizontalLayout {
     public CustomMenuItem(String caption, String icon) {
         this.setStyleName("menu-item");
 
-        if(icon.isEmpty()) {
+        if(icon == null || icon.isEmpty()) {
             icon = "no-icon";
         }
 
@@ -36,5 +31,13 @@ public class CustomMenuItem extends HorizontalLayout {
         itemCaption.setWidthUndefined();
 
         this.addComponents(imageIcon, itemCaption);
+    }
+
+    public CustomMenuItem(String caption) {
+        this(caption, "");
+    }
+
+    public void addClickListener(LayoutClickListener event) {
+        this.addLayoutClickListener(event);
     }
 }

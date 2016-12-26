@@ -8,37 +8,34 @@
 package ch.bfh.ti.soed.hs16.srs.white.view.subviews;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
 import ch.bfh.ti.soed.hs16.srs.white.controller.AbstractTableController;
-import ch.bfh.ti.soed.hs16.srs.white.controller.AdminController;
-import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
+import ch.bfh.ti.soed.hs16.srs.white.model.RoomModel;
 import ch.bfh.ti.soed.hs16.srs.white.view.AbstractView;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalLayout;
 
 import java.util.List;
 
 /**
- * Created by arauzca on 24.12.16.
+ * Created by arauzca on 26.12.16.
  */
-public class UsersView extends AbstractTableView {
-
+public class RoomsView extends AbstractTableView {
     @Override
     public Controller loadController() {
         this.abstractTableController = new AbstractTableController() {
-            EndUserModel endUserModel;
+            RoomModel roomModel;
 
             @Override
             public List getData() {
-                return endUserModel.getData();
+                return roomModel.getData();
             }
 
             @Override
             public void init() {
-                endUserModel = EndUserModel.getInstance();
-                endUserModel.loadModel();
+                roomModel = RoomModel.getInstance();
+                roomModel.loadModel();
             }
         };
 
@@ -47,40 +44,36 @@ public class UsersView extends AbstractTableView {
 
     @Override
     public Component createItemView(Object o) {
-        EndUser endUser = (EndUser) o;
-        UserView userView = new UserView(endUser.getId(), endUser.getFirstName(), endUser.getLastName(), endUser.getMail());
+        Room room = (Room) o;
+        RoomView roomView = new RoomView(room.getId(), room.getName(), room.getQuantityOfSeats());
 
-        return userView.load();
+        return roomView.load();
     }
 
-    private class UserView extends AbstractView {
+    private class RoomView extends AbstractView {
         private int ID;
-        private String lName;
-        private String fName;
-        private String email;
+        private String name;
+        private int seatQuantity;
 
-        public UserView(int ID, String fName, String lName, String email) {
+        public RoomView(int ID, String name, int seatQuantity) {
             this.ID = ID;
-            this.fName = fName;
-            this.lName = lName;
-            this.email = email;
+            this.name = name;
+            this.seatQuantity = seatQuantity;
         }
 
         @Override
         public Component load() {
-            GridLayout gridLayout = new GridLayout(5, 1);
+            GridLayout gridLayout = new GridLayout(3, 1);
 
             Label labelID = new Label(Integer.toString(ID));
-            Label labelFName = new Label(fName);
-            Label labelLName = new Label(lName);
-            Label labelEmail = new Label(email);
+            Label labelName = new Label(name);
+            Label labelSeatQuantity = new Label(Integer.toString(seatQuantity));
             Label labelDelete = new Label();
             labelDelete.setStyleName("delete-button");
 
             gridLayout.addComponent(labelID);
-            gridLayout.addComponent(labelFName);
-            gridLayout.addComponent(labelLName);
-            gridLayout.addComponent(labelEmail);
+            gridLayout.addComponent(labelName);
+            gridLayout.addComponent(labelSeatQuantity);
             gridLayout.addComponent(labelDelete);
 
             return gridLayout;

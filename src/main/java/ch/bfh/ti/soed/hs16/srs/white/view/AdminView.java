@@ -12,6 +12,7 @@ import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.AdminController;
 import ch.bfh.ti.soed.hs16.srs.white.helpers.ResourcesHelper;
 import ch.bfh.ti.soed.hs16.srs.white.view.subviews.CustomMenuItem;
+import ch.bfh.ti.soed.hs16.srs.white.view.subviews.RoomsView;
 import ch.bfh.ti.soed.hs16.srs.white.view.subviews.UsersView;
 import ch.bfh.ti.soed.hs16.srs.white.view.subviews.VerticalMenu;
 import com.vaadin.ui.Button;
@@ -29,20 +30,28 @@ public class AdminView extends AbstractView {
     @Override
     public Component load() {
         HorizontalLayout layout = new HorizontalLayout();
+        UsersView usersView = new UsersView();
+        RoomsView roomsView = new RoomsView();
+
+        usersView.loadController();
+        roomsView.loadController();
 
         VerticalMenu menuLayout = new VerticalMenu();
         menuLayout.setStyleName("menu-container");
 
         CustomMenuItem item1 = new CustomMenuItem("Users", "users");
+        item1.addClickListener(event -> changeContent(usersView));
 
-        menuLayout.addComponent(item1);
+        CustomMenuItem item2 = new CustomMenuItem("Rooms", null);
+        item2.addClickListener(event -> changeContent(roomsView));
 
-        Button button = new Button();
+        menuLayout.addMenuItem(item1);
+        menuLayout.addMenuItem(item2);
 
-        UsersView usersView = new UsersView();
         changeableContent = new VerticalLayout();
         changeContent(usersView);
-        changeableContent.setStyleName("users-list");
+        changeableContent.setStyleName("changeable-container");
+        changeableContent.setResponsive(true);
 
         layout.addComponents(menuLayout, changeableContent);
 

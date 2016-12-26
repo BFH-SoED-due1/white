@@ -41,6 +41,10 @@
   $secondary-color: #393E46;
   $contrast-color: #00ADB5;
   $background-color: #EEE;
+  $size-16: 16px;
+  $size-32: 32px;
+  $size-48: 48px;
+  $size-50: 50px;
 
   // Insert your own theme rules here
   .body {
@@ -95,6 +99,24 @@
     left:         10px;
   }
 
+  .icon-users {
+    mask-image: url("./images/users.png");
+    -webkit-mask-box-image: url("./images/users.png");
+    mask-type: alpha;
+  }
+
+  .icon-no-icon {
+    mask-image: url("./images/no_icon.png");
+    -webkit-mask-box-image: url("./images/no_icon.png");
+    mask-type: alpha;
+  }
+
+  .icon-delete {
+    mask-image: url("./images/delete.png");
+    -webkit-mask-box-image: url("./images/delete.png");
+    mask-type: alpha;
+  }
+
   .menu-container {
     max-width: 250px;
     width: 250px;
@@ -106,35 +128,32 @@
       position: relative;
       max-width: inherit;
       width: 250px;
-      max-height: 50px;
+      max-height: $size-50;
       background-color: $secondary-color;
-      cursor: hand;
+      cursor: pointer;
+      border-bottom: 1px $background-color solid;
 
       .menu-item-icon {
-        min-width: 50px;
-        min-height: 50px;
-        width: 50px;
-        height: 50px;
+        max-width: $size-50;
+        max-height: $size-50;
+        width: $size-50;
+        height: $size-50;
         margin-right: 5px;
         background-color: $background-color;
       }
 
       .menu-item-icon-users {
         @extend .menu-item-icon;
-        mask-image: url("./images/users.png");
-        -webkit-mask-box-image: url("./images/users.png");
-        mask-type: alpha;
+        @extend .icon-users;
       }
 
       .menu-item-icon-no-icon {
-         @extend .menu-item-icon;
-         mask-image: url("./images/no_icon.png");
-         -webkit-mask-box-image: url("./images/no_icon.png");
-         mask-type: alpha;
+        @extend .menu-item-icon;
+        @extend .icon-no-icon;
        }
 
       .menu-item-caption {
-        height: 50px;
+        height: $size-50;
         display: table-cell;
         vertical-align: middle;
         color: $background-color;
@@ -153,6 +172,26 @@
       .menu-item-icon {
         background-color: $primary-color;
       }
+    }
+  }
+
+  .changeable-container {
+    position: relative;
+    margin-left: 300px;
+    margin-top: 50px;
+
+    .delete-button {
+      @extend .icon-delete;
+      max-width: $size-16;
+      max-height: $size-16;
+      width: $size-16;
+      height: $size-16;
+      cursor: pointer;
+      background: $primary-color;
+    }
+
+    .delete-button:hover {
+      background: red;
     }
   }
 

@@ -18,6 +18,7 @@ public class FooterView extends Label {
     private FooterView() {
         super("© 2016 Berner Fachhochschule - SRS @ white team");
         this.setStyleName("footer");
+        this.setWidthUndefined();
     }
 
     public static FooterView getInstance() {

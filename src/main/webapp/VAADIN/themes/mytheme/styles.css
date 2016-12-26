@@ -13011,6 +13011,24 @@ div.v-layout.v-horizontal.v-widget {
 	left: 10px;
 }
 
+.mytheme .icon-users, .mytheme .menu-container .menu-item .menu-item-icon-users {
+	mask-image: url("./images/users.png");
+	-webkit-mask-box-image: url("./images/users.png");
+	mask-type: alpha;
+}
+
+.mytheme .icon-no-icon, .mytheme .menu-container .menu-item .menu-item-icon-no-icon {
+	mask-image: url("./images/no_icon.png");
+	-webkit-mask-box-image: url("./images/no_icon.png");
+	mask-type: alpha;
+}
+
+.mytheme .icon-delete, .mytheme .changeable-container .delete-button {
+	mask-image: url("./images/delete.png");
+	-webkit-mask-box-image: url("./images/delete.png");
+	mask-type: alpha;
+}
+
 .mytheme .menu-container {
 	max-width: 250px;
 	width: 250px;
@@ -13025,28 +13043,17 @@ div.v-layout.v-horizontal.v-widget {
 	width: 250px;
 	max-height: 50px;
 	background-color: #393E46;
-	cursor: hand;
+	cursor: pointer;
+	border-bottom: 1px #EEE solid;
 }
 
 .mytheme .menu-container .menu-item .menu-item-icon, .mytheme .menu-container .menu-item .menu-item-icon-users, .mytheme .menu-container .menu-item .menu-item-icon-no-icon {
-	min-width: 50px;
-	min-height: 50px;
+	max-width: 50px;
+	max-height: 50px;
 	width: 50px;
 	height: 50px;
 	margin-right: 5px;
 	background-color: #EEE;
-}
-
-.mytheme .menu-container .menu-item .menu-item-icon-users {
-	mask-image: url("./images/users.png");
-	-webkit-mask-box-image: url("./images/users.png");
-	mask-type: alpha;
-}
-
-.mytheme .menu-container .menu-item .menu-item-icon-no-icon {
-	mask-image: url("./images/no_icon.png");
-	-webkit-mask-box-image: url("./images/no_icon.png");
-	mask-type: alpha;
 }
 
 .mytheme .menu-container .menu-item .menu-item-caption {
@@ -13068,4 +13075,23 @@ div.v-layout.v-horizontal.v-widget {
 
 .mytheme .menu-container .menu-item:hover .menu-item-icon, .mytheme .menu-container .menu-item:hover  .menu-item-icon-users, .mytheme .menu-container .menu-item:hover  .menu-item-icon-no-icon {
 	background-color: #222831;
+}
+
+.mytheme .changeable-container {
+	position: relative;
+	margin-left: 300px;
+	margin-top: 50px;
+}
+
+.mytheme .changeable-container .delete-button {
+	max-width: 16px;
+	max-height: 16px;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	background: #222831;
+}
+
+.mytheme .changeable-container .delete-button:hover {
+	background: red;
 }

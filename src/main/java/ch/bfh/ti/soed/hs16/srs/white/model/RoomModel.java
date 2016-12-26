@@ -22,10 +22,9 @@ import java.util.List;
 /**
  * Created by hyamsj on 22/12/16.
  */
-public class RoomModel implements Model {
+public class RoomModel extends AbstractModel {
     private static RoomModel uniqueModel;
     private DbConnection myconn;
-    private List<Room> rooms = new ArrayList<>();
 
     public static RoomModel getInstance() {
         if (uniqueModel == null) {
@@ -36,10 +35,7 @@ public class RoomModel implements Model {
 
     private RoomModel(){
         myconn = DbConnection.getInstance();
-    }
-
-    public List<Room> getRooms(){
-        return rooms;
+        data = new ArrayList<Room>();
     }
 
     @Override
@@ -61,9 +57,7 @@ public class RoomModel implements Model {
                 String name = rs.getString(rs.findColumn("NAME"));
                 int seats = rs.getInt(rs.findColumn("SEAT_QUANTITY"));
                 Room room = new RoomImpl(id, name, seats);
-                rooms.add(room);
-
-
+                data.add(room);
             }
 
             ps.close();
@@ -75,13 +69,8 @@ public class RoomModel implements Model {
     }
 
     @Override
-    public List getData() {
-        return rooms;
-    }
-
-    @Override
     public void addData(Object o) {
         Room room = (Room) o;
-        rooms.add(room);
+        data.add(room);
     }
 }

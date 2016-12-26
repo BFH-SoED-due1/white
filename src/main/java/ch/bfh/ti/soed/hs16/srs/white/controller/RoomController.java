@@ -30,10 +30,8 @@ public class RoomController extends AbstractController{
     }
 
     public void loadTable(){
-        List<Room> rooms = roomModel.getRooms();
-        rooms.forEach(e -> {
-            table.addItem(new Object[]{e.getId(), e.getName(), e.getQuantityOfSeats()}, null);
-        });
+        List<Room> rooms = roomModel.getData();
+        rooms.forEach(e -> table.addItem(new Object[]{e.getId(), e.getName(), e.getQuantityOfSeats()}, null));
     }
 
 }

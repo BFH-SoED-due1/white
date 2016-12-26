@@ -31,7 +31,7 @@ public class UserTableController extends AbstractController {
     }
 
     public void loadTable() {
-        List<EndUser> endUsers = endUserModel.getEndUsers();
+        List<EndUser> endUsers = endUserModel.getData();
         endUsers.forEach(e -> {
             table.addItem(new Object[]{e.getId(), e.getFirstName(), e.getLastName(), e.getMail()}, null);
 

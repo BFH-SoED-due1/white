@@ -16,7 +16,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by arauzca on 21.10.16.
@@ -38,16 +37,13 @@ public class EndUserModel extends AbstractModel {
         data = new ArrayList<EndUser>();
     }
 
-    public List<EndUser> getEndUsers() {
-        return (List<EndUser>) data;
-    }
-
     @Override
     public boolean loadModel() {
         Connection connection;
         PreparedStatement ps;
 
         boolean b = false;
+        data.clear();
 
         try {
             connection = myconn.getConnection();
