@@ -29,11 +29,7 @@ public class AdminController extends AbstractController {
         endUserModel.loadModel();
     }
 
-    public void setUpdatebleComponent(Component updatebleComponent) {
+    public void setUpdatableComponent(Component updatebleComponent) {
         this.updatebleComponent = updatebleComponent;
-    }
-
-    public List<EndUser> loadUsers() {
-        return (List<EndUser>) endUserModel.getData();
     }
 }

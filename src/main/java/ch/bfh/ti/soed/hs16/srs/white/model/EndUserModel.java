@@ -16,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by arauzca on 21.10.16.
@@ -47,7 +48,7 @@ public class EndUserModel extends AbstractModel {
 
         try {
             connection = myconn.getConnection();
-            ps = connection.prepareStatement("SELECT * FROM enduser");
+            ps = connection.prepareStatement("SELECT * FROM enduser ORDER BY ID");
             b = ps.execute();
 
             ResultSet rs = ps.executeQuery();
@@ -75,6 +76,20 @@ public class EndUserModel extends AbstractModel {
     public void addData(Object o) {
         EndUser user = (EndUser) o;
         data.add(user);
+    }
+
+    public EndUser getEndUserById(int ID) {
+        List<EndUser> endUserList = (List<EndUser>) uniqueModel.getData();
+        EndUser wantedEndUser = null;
+
+        for(EndUser e : endUserList) {
+            if (e.getId() == ID) {
+                wantedEndUser = e;
+                break;
+            }
+        }
+
+        return wantedEndUser;
     }
 
     public boolean saveUser(String fName, String lName, String eMail, String password) {

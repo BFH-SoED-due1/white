@@ -9,21 +9,27 @@ package ch.bfh.ti.soed.hs16.srs.white.view.subviews;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.AbstractTableController;
 import ch.bfh.ti.soed.hs16.srs.white.controller.AdminController;
 import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
 import ch.bfh.ti.soed.hs16.srs.white.view.AbstractView;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.GridLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalLayout;
+import ch.bfh.ti.soed.hs16.srs.white.view.AdminView;
+import com.vaadin.ui.*;
 
+import javax.transaction.NotSupportedException;
 import java.util.List;
 
 /**
  * Created by arauzca on 24.12.16.
  */
 public class UsersView extends AbstractTableView {
+    private AbstractView parentView;
+
+    public UsersView(AbstractView parentView) {
+        super();
+        this.parentView = parentView;
+    }
 
     @Override
     public Controller loadController() {
@@ -31,14 +37,25 @@ public class UsersView extends AbstractTableView {
             EndUserModel endUserModel;
 
             @Override
+            public void init() {
+                endUserModel = EndUserModel.getInstance();
+                endUserModel.loadModel();
+            }
+
+            @Override
             public List getData() {
                 return endUserModel.getData();
             }
 
             @Override
-            public void init() {
-                endUserModel = EndUserModel.getInstance();
-                endUserModel.loadModel();
+            public boolean deleteData(int ID) {
+                EndUser e = endUserModel.getEndUserById(ID);
+
+                if (e == null) {
+                    throw new NullPointerException("This ID returned no User");
+                }
+
+                return endUserModel.deleteUser(e);
             }
         };
 
@@ -51,6 +68,11 @@ public class UsersView extends AbstractTableView {
         UserView userView = new UserView(endUser.getId(), endUser.getFirstName(), endUser.getLastName(), endUser.getMail());
 
         return userView.load();
+    }
+
+    @Override
+    public void changeContent(View newContent) {
+
     }
 
     private class UserView extends AbstractView {
@@ -74,8 +96,24 @@ public class UsersView extends AbstractTableView {
             Label labelFName = new Label(fName);
             Label labelLName = new Label(lName);
             Label labelEmail = new Label(email);
-            Label labelDelete = new Label();
+
+            HorizontalLayout popupContent = new HorizontalLayout();
+            popupContent.addComponent(new Label("Delete?"));
+
+            Button deleteConfirm = new Button("OK");
+            deleteConfirm.addClickListener(event -> {
+                if (abstractTableController.deleteData(ID)) {
+                    parentView.changeContent(new UsersView(parentView));
+                }
+            });
+
+            popupContent.addComponent(deleteConfirm);
+            popupContent.setSpacing(true);
+            popupContent.setMargin(true);
+
+            PopupView labelDelete = new PopupView(null, popupContent);
             labelDelete.setStyleName("delete-button");
+            labelDelete.setVisible(true);
 
             gridLayout.addComponent(labelID);
             gridLayout.addComponent(labelFName);
@@ -93,7 +131,12 @@ public class UsersView extends AbstractTableView {
 
         @Override
         public void restart() {
+            throw new UnsupportedOperationException();
+        }
 
+        @Override
+        public void changeContent(View newContent) {
+            throw new UnsupportedOperationException();
         }
     }
 }

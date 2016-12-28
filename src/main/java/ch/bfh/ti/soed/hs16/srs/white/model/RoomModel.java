@@ -44,6 +44,7 @@ public class RoomModel extends AbstractModel {
         PreparedStatement ps;
 
         boolean b = false;
+        data.clear();
 
         try {
             connection = myconn.getConnection();

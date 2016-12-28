@@ -20,9 +20,11 @@ public abstract class AbstractView implements View {
 
     // Constructors
     public AbstractView() {
+        loadController();
     }
 
     public AbstractView(AbstractView lastView) {
+        this();
         this.lastView = lastView;
     }
 
@@ -32,6 +34,8 @@ public abstract class AbstractView implements View {
     public abstract Controller loadController();
 
     public abstract void restart();
+
+    public abstract void changeContent(View newContent);
 
     // Protected methods
     public AbstractView getLastView() {

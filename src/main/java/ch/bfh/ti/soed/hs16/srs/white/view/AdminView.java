@@ -10,12 +10,10 @@ package ch.bfh.ti.soed.hs16.srs.white.view;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.AdminController;
-import ch.bfh.ti.soed.hs16.srs.white.helpers.ResourcesHelper;
 import ch.bfh.ti.soed.hs16.srs.white.view.subviews.CustomMenuItem;
 import ch.bfh.ti.soed.hs16.srs.white.view.subviews.RoomsView;
 import ch.bfh.ti.soed.hs16.srs.white.view.subviews.UsersView;
 import ch.bfh.ti.soed.hs16.srs.white.view.subviews.VerticalMenu;
-import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.VerticalLayout;
@@ -30,8 +28,8 @@ public class AdminView extends AbstractView {
     @Override
     public Component load() {
         HorizontalLayout layout = new HorizontalLayout();
-        UsersView usersView = new UsersView();
-        RoomsView roomsView = new RoomsView();
+        UsersView usersView = new UsersView(this);
+        RoomsView roomsView = new RoomsView(this);
 
         usersView.loadController();
         roomsView.loadController();
@@ -61,7 +59,7 @@ public class AdminView extends AbstractView {
     @Override
     public Controller loadController() {
         adminController = new AdminController();
-        adminController.setUpdatebleComponent(changeableContent);
+        adminController.setUpdatableComponent(changeableContent);
         return adminController;
     }
 
@@ -70,6 +68,7 @@ public class AdminView extends AbstractView {
 
     }
 
+    @Override
     public void changeContent(View newContent) {
         changeableContent.removeAllComponents();
         changeableContent.addComponent(newContent.load());

@@ -31,6 +31,9 @@ public abstract class AbstractTableView extends AbstractView {
             usersLayout.addComponent(itemView);
         }
 
+        usersLayout.setMargin(true);
+        usersLayout.setSpacing(true);
+
         return usersLayout;
     }
 
