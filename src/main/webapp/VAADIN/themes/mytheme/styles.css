@@ -13144,6 +13144,27 @@ div.v-layout.v-horizontal.v-widget {
 	mask-type: alpha;
 }
 
+.mytheme .table-parent {
+	display: table;
+}
+
+.mytheme .table-parent .display-table-cell, .mytheme .table-parent .display-table-header {
+	min-width: 300px;
+	min-height: 30px;
+	margin: 0 1px;
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 10px;
+}
+
+.mytheme .table-parent .display-table-header {
+	padding: 0;
+	background-color: #393E46;
+	color: #EEE;
+	text-align: center;
+	font-weight: 600;
+}
+
 .mytheme .clearfix:after {
 	content: ".";
 	display: block;

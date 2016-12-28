@@ -62,6 +62,25 @@ public class RoomsView extends AbstractTableView {
     }
 
     @Override
+    public Component createHeader() {
+        GridLayout headerGrid = new GridLayout(3,1);
+        headerGrid.setStyleName("table-parent");
+
+        Label labelID = new Label("ID");
+        labelID.setStyleName("display-table-header");
+        Label labelName = new Label("Name");
+        labelName.setStyleName("display-table-header");
+        Label labelSeats = new Label("Seats Available");
+        labelSeats.setStyleName("display-table-header");
+
+        headerGrid.addComponent(labelID);
+        headerGrid.addComponent(labelName);
+        headerGrid.addComponent(labelSeats);
+
+        return headerGrid;
+    }
+
+    @Override
     public void changeContent(View newContent) {
 
     }
@@ -80,10 +99,14 @@ public class RoomsView extends AbstractTableView {
         @Override
         public Component load() {
             GridLayout gridLayout = new GridLayout(4, 1);
+            gridLayout.setStyleName("table-parent");
 
             Label labelID = new Label(Integer.toString(ID));
+            labelID.setStyleName("display-table-cell");
             Label labelName = new Label(name);
+            labelName.setStyleName("display-table-cell");
             Label labelSeatQuantity = new Label(Integer.toString(seatQuantity));
+            labelSeatQuantity.setStyleName("display-table-cell");
 
             HorizontalLayout popupContent = new HorizontalLayout();
             popupContent.addComponent(new Label("Delete?"));
@@ -107,6 +130,8 @@ public class RoomsView extends AbstractTableView {
             gridLayout.addComponent(labelName);
             gridLayout.addComponent(labelSeatQuantity);
             gridLayout.addComponent(labelDelete);
+            gridLayout.setSpacing(false);
+            gridLayout.setMargin(false);
 
             return gridLayout;
         }

@@ -71,8 +71,30 @@ public class UsersView extends AbstractTableView {
     }
 
     @Override
-    public void changeContent(View newContent) {
+    public Component createHeader() {
+        GridLayout headerGrid = new GridLayout(4,1);
+        headerGrid.setStyleName("table-parent");
 
+        Label labelID = new Label("ID");
+        labelID.setStyleName("display-table-header");
+        Label labelFName = new Label("First Name");
+        labelFName.setStyleName("display-table-header");
+        Label labelLName = new Label("Last Name");
+        labelLName.setStyleName("display-table-header");
+        Label labelEMail = new Label("E-Mail");
+        labelEMail.setStyleName("display-table-header");
+
+        headerGrid.addComponent(labelID);
+        headerGrid.addComponent(labelFName);
+        headerGrid.addComponent(labelLName);
+        headerGrid.addComponent(labelEMail);
+
+        return headerGrid;
+    }
+
+    @Override
+    public void changeContent(View newContent) {
+        throw new UnsupportedOperationException();
     }
 
     private class UserView extends AbstractView {
@@ -91,11 +113,16 @@ public class UsersView extends AbstractTableView {
         @Override
         public Component load() {
             GridLayout gridLayout = new GridLayout(5, 1);
+            gridLayout.setStyleName("table-parent");
 
             Label labelID = new Label(Integer.toString(ID));
+            labelID.setStyleName("display-table-cell");
             Label labelFName = new Label(fName);
+            labelFName.setStyleName("display-table-cell");
             Label labelLName = new Label(lName);
+            labelLName.setStyleName("display-table-cell");
             Label labelEmail = new Label(email);
+            labelEmail.setStyleName("display-table-cell");
 
             HorizontalLayout popupContent = new HorizontalLayout();
             popupContent.addComponent(new Label("Delete?"));
@@ -120,6 +147,8 @@ public class UsersView extends AbstractTableView {
             gridLayout.addComponent(labelLName);
             gridLayout.addComponent(labelEmail);
             gridLayout.addComponent(labelDelete);
+            gridLayout.setMargin(false);
+            gridLayout.setSpacing(false);
 
             return gridLayout;
         }

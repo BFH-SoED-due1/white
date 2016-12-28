@@ -237,6 +237,28 @@
     mask-type: alpha;
   }
 
+  .table-parent {
+    display: table;
+
+    .display-table-cell {
+      min-width: 300px;
+      min-height: 30px;
+      margin: 0 1px;
+      display: table-cell;
+      vertical-align: middle;
+      padding-left: 10px;
+    }
+
+    .display-table-header {
+      @extend .display-table-cell;
+      padding: 0;
+      background-color: $secondary-color;
+      color: $background-color;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+
   .clearfix:after {
     content: ".";
     display: block;
