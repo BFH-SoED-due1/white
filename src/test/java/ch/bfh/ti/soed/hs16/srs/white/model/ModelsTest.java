@@ -117,7 +117,7 @@ public class ModelsTest {
         endUserModel.loadModel();
         List<EndUser> endUsers = endUserModel.getData();
         EndUser jarjarBinks = null;
-        String jarjarEmail = "jarjar.binks@death.star";
+        String jarjarEmail = "jarjar.binks@death.star"; //
 
         assertTrue(endUserModel.saveUser("JarJar", "Binks", jarjarEmail, "1234567890"));  // Test: create user to the database and add it to the model
 
