@@ -25,18 +25,28 @@ import com.vaadin.ui.HorizontalLayout;
  */
 public class RegistrationView extends AbstractView {
     private RegistrationController registrationController;
-    private TextField fieldFirstName = new TextField("First Name");
-    private TextField fieldLastName = new TextField("Last Name");
-    private TextField fieldEmail = new TextField("E-Mail Address");
-    private TextField fieldConfirmEmail = new TextField("Repeat E-Mail Address");
-    private PasswordField fieldPassword = new PasswordField("Password");
-    private PasswordField fieldConfirmPassword = new PasswordField("Repeat Password");
-    private Button btnSubmit = new Button("Submit");
-    private Button btnCancel = new Button("Cancel");
-    private Label labelMessage = new Label();
+    private TextField fieldFirstName;
+    private TextField fieldLastName;
+    private TextField fieldEmail;
+    private TextField fieldConfirmEmail;
+    private PasswordField fieldPassword;
+    private PasswordField fieldConfirmPassword;
+    private Button btnSubmit;
+    private Button btnCancel;
+    private Label labelMessage;
 
     public RegistrationView(AbstractView lastView) {
         super(lastView);
+        fieldFirstName = new TextField("First Name");
+        fieldLastName = new TextField("Last Name");
+        fieldEmail = new TextField("E-Mail Address");
+        fieldConfirmEmail = new TextField("Repeat E-Mail Address");
+        fieldPassword = new PasswordField("Password");
+        fieldConfirmPassword = new PasswordField("Repeat Password");
+        btnSubmit = new Button("Submit");
+        btnCancel = new Button("Cancel");
+        labelMessage = new Label();
+        loadController();
     }
 
     @Override
@@ -77,15 +87,15 @@ public class RegistrationView extends AbstractView {
     public Controller loadController() {
         registrationController = new RegistrationController();
         registrationController.setMyView(this);
-        registrationController.setFieldFirstName(fieldFirstName);
-        registrationController.setFieldLastName(fieldLastName);
-        registrationController.setFieldEmail(fieldEmail);
-        registrationController.setFieldConfirmEmailEmail(fieldConfirmEmail);
-        registrationController.setFieldPassword(fieldPassword);
-        registrationController.setFieldConfirmPassword(fieldConfirmPassword);
-        registrationController.setLabelMessage(labelMessage);
+        registrationController.setFieldFirstName(this.fieldFirstName);
+        registrationController.setFieldLastName(this.fieldLastName);
+        registrationController.setFieldEmail(this.fieldEmail);
+        registrationController.setFieldConfirmEmailEmail(this.fieldConfirmEmail);
+        registrationController.setFieldPassword(this.fieldPassword);
+        registrationController.setFieldConfirmPassword(this.fieldConfirmPassword);
+        registrationController.setLabelMessage(this.labelMessage);
 
-        return null;
+        return registrationController;
     }
 
     @Override

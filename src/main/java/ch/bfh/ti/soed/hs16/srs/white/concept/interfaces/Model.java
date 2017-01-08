@@ -7,6 +7,7 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.concept.interfaces;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -15,6 +16,6 @@ import java.util.List;
 public interface Model {
     List getData();
 
-    boolean loadModel();
+    boolean loadModel() throws SQLException;
     void addData(Object o);
 }

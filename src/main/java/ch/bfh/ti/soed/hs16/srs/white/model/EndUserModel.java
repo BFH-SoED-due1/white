@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,35 +41,31 @@ public class EndUserModel extends AbstractModel {
     }
 
     @Override
-    public boolean loadModel() {
+    public boolean loadModel() throws SQLException {
         Connection connection;
         PreparedStatement ps;
 
         boolean b = false;
         data.clear();
 
-        try {
-            connection = myconn.getConnection();
-            ps = connection.prepareStatement("SELECT * FROM enduser ORDER BY ID");
-            b = ps.execute();
+        connection = myconn.getConnection();
+        ps = connection.prepareStatement("SELECT * FROM enduser ORDER BY ID");
+        b = ps.execute();
 
-            ResultSet rs = ps.executeQuery();
+        ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) {
-                int id = rs.getInt(rs.findColumn("ID"));
-                String fName = rs.getString(rs.findColumn("FNAME"));
-                String lName = rs.getString(rs.findColumn("LNAME"));
-                String mail = rs.getString(rs.findColumn("EMAIL"));
-                EndUser endUser = new EndUserImpl(id, fName, lName, mail);
-                data.add(endUser);
+        while (rs.next()) {
+            int id = rs.getInt(rs.findColumn("ID"));
+            String fName = rs.getString(rs.findColumn("FNAME"));
+            String lName = rs.getString(rs.findColumn("LNAME"));
+            String mail = rs.getString(rs.findColumn("EMAIL"));
+            EndUser endUser = new EndUserImpl(id, fName, lName, mail);
+            data.add(endUser);
 
 
-            }
-
-            ps.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
+
+        ps.close();
 
         return b;
     }
@@ -83,7 +80,7 @@ public class EndUserModel extends AbstractModel {
         List<EndUser> endUserList = (List<EndUser>) uniqueModel.getData();
         EndUser wantedEndUser = null;
 
-        for(EndUser e : endUserList) {
+        for (EndUser e : endUserList) {
             if (e.getId() == ID) {
                 wantedEndUser = e;
                 break;
@@ -97,11 +94,11 @@ public class EndUserModel extends AbstractModel {
         Connection connection;
         PreparedStatement preparedStatement;
         int id;
-        boolean result = false;
+        boolean result;
 
         try {
             connection = myconn.getConnection();
-            id = getNotUsedID( connection );
+            id = getNotUsedID(connection);
 
             preparedStatement = connection.prepareStatement("INSERT INTO ENDUSER (ID, FNAME, LNAME, EMAIL, PASSWORD) VALUES (?, ?, ?, ?, ?)");
             preparedStatement.setInt(1, id);
@@ -110,78 +107,72 @@ public class EndUserModel extends AbstractModel {
             preparedStatement.setString(4, eMail);
             preparedStatement.setString(5, password);
 
-            if (preparedStatement.executeUpdate() == 1) {
-                connection.commit();
-                addData(new EndUserImpl(id, fName, lName, eMail));
-                result = true;
-            } else {
-                connection.rollback();
-            }
+            preparedStatement.executeUpdate();
+            addData(new EndUserImpl(id, fName, lName, eMail));
+            result = true;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            result = false;
         }
 
         return result;
     }
 
-    public boolean deleteUser(EndUser endUser) {
+    public boolean deleteUser(EndUser endUser) throws SQLException {
         Connection connection;
         PreparedStatement preparedStatement;
         boolean result = false;
 
-        try {
-            connection = myconn.getConnection();
-            preparedStatement = connection.prepareStatement("DELETE FROM ENDUSER WHERE ID = ?");
-            preparedStatement.setInt(1, endUser.getId());
+        connection = myconn.getConnection();
+        preparedStatement = connection.prepareStatement("DELETE FROM ENDUSER WHERE ID = ?");
+        preparedStatement.setInt(1, endUser.getId());
 
-            if (preparedStatement.executeUpdate() == 1) {
-                connection.commit();
-                data.remove(endUser);
-                result = true;
-            } else {
-                connection.rollback();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (preparedStatement.executeUpdate() == 1) {
+            connection.commit();
+            data.remove(endUser);
+            result = true;
+        } else {
+            connection.rollback();
         }
+
+        preparedStatement.close();
+
         return result;
     }
 
-    public boolean checkLogin(String email, String password) {
+    public boolean checkLogin(String email, String password) throws SQLException {
+        if (email.isEmpty() || password.isEmpty()) return false;
+
         Connection connection;
-        PreparedStatement ps;
+        PreparedStatement preparedStatement;
 
-        try {
-            connection = myconn.getConnection();
-            ps = connection.prepareStatement("SELECT PASSWORD FROM ENDUSER WHERE EMAIL = ?");
-            ps.setString(1, email);
-            ResultSet resultSet = ps.executeQuery();
-            if (email.isEmpty()) return false;
-            if (password.isEmpty()) return false;
-            if (resultSet == null) return false;
+        connection = myconn.getConnection();
+        preparedStatement = connection.prepareStatement("SELECT PASSWORD FROM ENDUSER WHERE EMAIL = ?");
+        preparedStatement.setString(1, email);
+        ResultSet resultSet = preparedStatement.executeQuery();
 
-            resultSet.next();
-            int column = resultSet.findColumn("PASSWORD");
-            String databasePW = resultSet.getString(column);
+        if (!resultSet.next()) return false;
 
-            ps.close();
+        int column = resultSet.findColumn("PASSWORD");
+        String databasePW = resultSet.getString(column);
 
-            if (!password.equals(databasePW)) return false;
-        } catch (SQLException e) {
-            return false;
-        }
+        preparedStatement.close();
 
-        return true;
+        return password.equals(databasePW);
     }
 
-    private int getNotUsedID(Connection connection) throws SQLException{
+    private int getNotUsedID(Connection connection) throws SQLException {
         int i = (int) (Math.random() * 1000000);
+        return getNotUsedID(connection, i);
+    }
+
+    //Just for tests
+    public int getNotUsedID(Connection connection, int i) throws SQLException {
         PreparedStatement ps = connection.prepareStatement("SELECT ID FROM ENDUSER WHERE ID = ?");
         ps.setInt(1, i);
         ResultSet resultSet = ps.executeQuery();
 
-        if (resultSet.next() || i == 0) {
+        if (i == 0 || resultSet.next()) {
             return getNotUsedID(connection);
         }
 

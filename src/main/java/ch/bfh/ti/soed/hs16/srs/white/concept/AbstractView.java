@@ -26,7 +26,6 @@ public abstract class AbstractView implements View {
     }
 
     public AbstractView(AbstractView lastView) {
-        this();
         this.lastView = lastView;
     }
 

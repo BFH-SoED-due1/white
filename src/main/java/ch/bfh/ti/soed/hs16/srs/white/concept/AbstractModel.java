@@ -9,6 +9,7 @@ package ch.bfh.ti.soed.hs16.srs.white.concept;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Model;
 
+import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public abstract class AbstractModel implements Model {
     protected List data;
 
     // Abstract methods
-    public abstract boolean loadModel();
+    public abstract boolean loadModel() throws SQLException;
 
     // Public methods
     @Override

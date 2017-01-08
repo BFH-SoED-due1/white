@@ -14,6 +14,8 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 
+import java.sql.SQLException;
+
 /**
  * Created by arauzca on 25.10.16.
  */
@@ -41,13 +43,17 @@ public class LogInController extends AbstractController {
         } else if (pw.isEmpty()) {
             messageLabel.setValue("Please enter your password");
         } else {
-            if (endUserModel.checkLogin(mail, pw)) {
-                messageLabel.setValue("Login Successful");
+            try {
+                if (endUserModel.checkLogin(mail, pw)) {
+                    messageLabel.setValue("Login Successful");
 
-                if (mail.equals("admin")) return Right.ADMIN;
-                else return Right.USER;
-            } else {
-                messageLabel.setValue("Login Failed");
+                    if (mail.equals("admin")) return Right.ADMIN;
+                    else return Right.USER;
+                } else {
+                    messageLabel.setValue("Login Failed");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
 

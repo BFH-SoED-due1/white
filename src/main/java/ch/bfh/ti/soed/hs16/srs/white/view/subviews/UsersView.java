@@ -20,6 +20,8 @@ import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.PopupView;
+
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -41,7 +43,12 @@ public class UsersView extends AbstractTableView {
             @Override
             public void init() {
                 endUserModel = EndUserModel.getInstance();
-                endUserModel.loadModel();
+
+                try {
+                    endUserModel.loadModel();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -52,12 +59,19 @@ public class UsersView extends AbstractTableView {
             @Override
             public boolean deleteData(int ID) {
                 EndUser e = endUserModel.getEndUserById(ID);
+                boolean isDeleted = false;
 
                 if (e == null) {
                     throw new NullPointerException("This ID returned no User");
                 }
 
-                return endUserModel.deleteUser(e);
+                try {
+                    isDeleted = endUserModel.deleteUser(e);
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+                return isDeleted;
             }
         };
 
