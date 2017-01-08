@@ -114,7 +114,7 @@ public class ModelsTest {
     public void testRight() {
         Right[] rights = Right.values();
         assertEquals(Right.ADMIN, Right.valueOf("ADMIN"));
-        
+
 
     }
 }
