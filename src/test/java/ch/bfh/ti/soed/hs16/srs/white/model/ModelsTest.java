@@ -8,10 +8,12 @@
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
 import org.junit.Test;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -130,5 +132,17 @@ public class ModelsTest {
             assertTrue(endUserModel.deleteUser(jarjarBinks));
 
     }
+
+    @Test
+    public void testRoomModel(){
+        RoomModel roomModel = RoomModel.getInstance();
+        roomModel.loadModel();
+        List<Room> rooms = roomModel.getData();
+        Room room1 = null;
+        roomModel.addData(room1);
+        assertTrue(rooms.contains(room1));
+
+    }
+
 
 }
