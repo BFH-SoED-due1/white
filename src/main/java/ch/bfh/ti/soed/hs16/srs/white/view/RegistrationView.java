@@ -7,9 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
-
-import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.View;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractView;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.RegistrationController;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
