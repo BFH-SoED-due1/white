@@ -11,16 +11,14 @@ import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by hyamsj on 20.10.2016.
  */
 public class EndUserTest {
     @Test
-    public void testGettersAndSetters(){
+    public void testGettersAndSetters() {
         int id = 42;
         String firstName = "FirstName";
         String lastName = "LastName";
@@ -41,7 +39,7 @@ public class EndUserTest {
     }
 
     @Test
-    public void testAddReservations(){
+    public void testAddReservations() {
         EndUser user = new EndUserImpl();
         Reservation res = new ReservationImpl();
         user.addReservations(res);
@@ -50,7 +48,7 @@ public class EndUserTest {
     }
 
     @Test
-    public void testRemoveReservations(){
+    public void testRemoveReservations() {
         EndUser user = new EndUserImpl();
         ReservationImpl res = new ReservationImpl();
         user.addReservations(res);
@@ -60,7 +58,7 @@ public class EndUserTest {
     }
 
     @Test
-    public void testRemoveCertainReservations(){
+    public void testRemoveCertainReservations() {
         EndUser user = new EndUserImpl();
         Reservation res1 = new ReservationImpl();
         Reservation res2 = new ReservationImpl();
@@ -72,7 +70,7 @@ public class EndUserTest {
     }
 
     @Test
-    public void testRemoveEndUserRemovesReservations(){
+    public void testRemoveEndUserRemovesReservations() {
         Organization organization = new Organization();
         EndUser user = new EndUserImpl();
         Reservation res = new ReservationImpl();
@@ -83,37 +81,41 @@ public class EndUserTest {
     }
 
     @Test
-    public void testEqualsMethod(){
+    public void testEqualsMethod() {
 
-        EndUser user1 = new EndUserImpl(0,"x", "y", "z");
-        EndUser user2 = new EndUserImpl(0,"a", "b", "c");
+        EndUser user1 = new EndUserImpl(0, "x", "y", "z");
+        EndUser user2 = new EndUserImpl(0, "a", "b", "c");
         assertFalse(user1.equals(user2));
 
-        user1 = new EndUserImpl(0,null, "y", "z");
-        user2 = new EndUserImpl(0,"x", "y", "z");
+        EndUser userY = null;
+        assertFalse(user1.equals(userY));
+        assertFalse(user1.equals(""));
+
+        user1 = new EndUserImpl(0, null, "y", "z");
+        user2 = new EndUserImpl(0, "x", "y", "z");
         assertFalse(user1.equals(user2));
 
-        user1 = new EndUserImpl(0,"x", null, "z");
-        user2 = new EndUserImpl(0,"x", "y", "z");
+        user1 = new EndUserImpl(0, "x", null, "z");
+        user2 = new EndUserImpl(0, "x", "y", "z");
         assertFalse(user1.equals(user2));
 
-        user1 = new EndUserImpl(0,"x", "y", null);
-        user2 = new EndUserImpl(0,"x", "y", "z");
-        assertFalse(user1.equals(user2));
-        assertFalse(user2.equals(user1));
-
-        user1 = new EndUserImpl(0,null, "y", "z");
-        user2 = new EndUserImpl(0,null, "b", "c");
-        assertFalse(user1.equals(user2));
-        assertFalse(user2.equals(user1));
-
-        user1 = new EndUserImpl(0,"x", null, "z");
-        user2 = new EndUserImpl(0,"a", null, "c");
+        user1 = new EndUserImpl(0, "x", "y", null);
+        user2 = new EndUserImpl(0, "x", "y", "z");
         assertFalse(user1.equals(user2));
         assertFalse(user2.equals(user1));
 
-        user1 = new EndUserImpl(0,"x", "y", null);
-        user2 = new EndUserImpl(0,"a", "b", null);
+        user1 = new EndUserImpl(0, null, "y", "z");
+        user2 = new EndUserImpl(0, null, "b", "c");
+        assertFalse(user1.equals(user2));
+        assertFalse(user2.equals(user1));
+
+        user1 = new EndUserImpl(0, "x", null, "z");
+        user2 = new EndUserImpl(0, "a", null, "c");
+        assertFalse(user1.equals(user2));
+        assertFalse(user2.equals(user1));
+
+        user1 = new EndUserImpl(0, "x", "y", null);
+        user2 = new EndUserImpl(0, "a", "b", null);
         assertFalse(user1.equals(user2));
 
         int hash = 23671443;
@@ -126,6 +128,25 @@ public class EndUserTest {
 
         hash = 24014936;
         assertEquals(hash, user1.hashCode());
+
+
+    }
+
+    @Test
+    public void toStringTest() {
+        int id = 0;
+        String fName = "Herr";
+        String lName = "Testitest";
+        String mail = "testitest@test.ch";
+
+        EndUser user1 = new EndUserImpl(id, fName, lName, mail);
+
+        assertEquals("ID: 0\n" +
+                "First Name: Herr\n" +
+                "Last Name: Testitest\n" +
+                "Main: testitest@test.ch\n", user1.toString());
+
+
     }
 
 }

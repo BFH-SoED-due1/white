@@ -121,13 +121,14 @@ public class ModelsTest {
 
         assertTrue(endUserModel.saveUser("JarJar", "Binks", jarjarEmail, "1234567890"));  // Test: create user to the database and add it to the model
 
-        for (EndUser e: endUsers) {
+        for (EndUser e : endUsers) {
             String email = e.getMail();
-            if ( email.equals(jarjarEmail) ) jarjarBinks = e;
+            if (email.equals(jarjarEmail)) jarjarBinks = e;
         }
 
         if (jarjarBinks != null)
-            assertTrue( endUserModel.deleteUser(jarjarBinks) );
+            assertTrue(endUserModel.deleteUser(jarjarBinks));
+
     }
 
 }

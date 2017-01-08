@@ -10,7 +10,13 @@ package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
 import ch.bfh.ti.soed.hs16.srs.white.controller.RegistrationController;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.HorizontalLayout;
 
 
 /**
