@@ -95,7 +95,6 @@ public class LogInView extends AbstractView {
 
         btnRegister.addClickListener(e -> {
             RegistrationView rView = new RegistrationView(this);
-            rView.loadController();
             ApplicationController applicationController = ApplicationController.getInstance();
             applicationController.loadView(rView);
         });
