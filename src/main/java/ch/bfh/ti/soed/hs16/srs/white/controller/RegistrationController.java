@@ -7,10 +7,14 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractController;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractView;
 import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
+
+import javax.naming.OperationNotSupportedException;
 
 /**
  * Created by hyamsj on 08/12/16.
@@ -115,6 +119,16 @@ public class RegistrationController extends AbstractController {
 
     public void setLabelMessage(Label labelMessage) {
         this.labelMessage = labelMessage;
+    }
+
+    public void goBack(AbstractView lastView) {
+        try {
+            lastView.restart();
+            ApplicationController applicationController = ApplicationController.getInstance();
+            applicationController.loadView(lastView);
+        } catch (OperationNotSupportedException ex) {
+            System.out.println("Restart method not implemented.");
+        }
     }
 
 }

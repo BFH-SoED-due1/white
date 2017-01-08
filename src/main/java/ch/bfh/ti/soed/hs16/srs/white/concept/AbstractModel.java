@@ -5,9 +5,9 @@
  *
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package ch.bfh.ti.soed.hs16.srs.white.model;
+package ch.bfh.ti.soed.hs16.srs.white.concept;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Model;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Model;
 
 import java.util.Collections;
 import java.util.List;
@@ -25,8 +25,7 @@ public abstract class AbstractModel implements Model {
     // Public methods
     @Override
     public List getData() {
-        List unmodifiable = Collections.unmodifiableList(data);
-        return unmodifiable;
+        return Collections.unmodifiableList(data);
     }
 
     @Override

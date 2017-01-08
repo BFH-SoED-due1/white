@@ -5,7 +5,7 @@
  *
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package ch.bfh.ti.soed.hs16.srs.white.concept;
+package ch.bfh.ti.soed.hs16.srs.white.concept.interfaces;
 
 import java.util.List;
 
@@ -13,9 +13,8 @@ import java.util.List;
  * Created by arauzca on 07.12.16.
  */
 public interface Model {
-    boolean loadModel();
-
     List getData();
 
+    boolean loadModel();
     void addData(Object o);
 }

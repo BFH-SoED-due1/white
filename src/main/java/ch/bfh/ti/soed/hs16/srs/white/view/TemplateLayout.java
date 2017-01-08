@@ -7,21 +7,19 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.View;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractView;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.ApplicationController;
-import ch.bfh.ti.soed.hs16.srs.white.helpers.ResourcesHelper;
-import com.vaadin.server.FileResource;
-import com.vaadin.ui.*;
-
-import java.io.File;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.CustomLayout;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * Created by arauzca on 20.12.16.
  */
 public class TemplateLayout extends AbstractView {
-    private ApplicationController applicationController;
-    private VerticalLayout body = new VerticalLayout();
+    private VerticalLayout body;
 
     @Override
     public Component load() {
@@ -36,8 +34,11 @@ public class TemplateLayout extends AbstractView {
 
     @Override
     public Controller loadController() {
-        this.applicationController = ApplicationController.getInstance();
-        this.applicationController.setTemplateLayout(this);
+        ApplicationController applicationController = ApplicationController.getInstance();
+        this.body = new VerticalLayout();
+
+        applicationController.setBody(this.body);
+
         return applicationController;
     }
 
@@ -51,9 +52,6 @@ public class TemplateLayout extends AbstractView {
 
     }
 
-    public void updateBody(Component newBody) {
-        this.body.removeAllComponents();
-        this.body.addComponent(newBody);
-    }
+
 
 }

@@ -13176,3 +13176,13 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .clearfix {
 	display: inline-block;
 }
+
+.mytheme a, .mytheme a:visited {
+	color: #222831;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.mytheme a:hover {
+	color: #00ADB5;
+}

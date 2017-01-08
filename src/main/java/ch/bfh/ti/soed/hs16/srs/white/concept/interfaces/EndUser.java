@@ -5,20 +5,23 @@
  *
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package ch.bfh.ti.soed.hs16.srs.white.concept;
+package ch.bfh.ti.soed.hs16.srs.white.concept.interfaces;
 
 import java.util.Set;
 
 /**
  * Created by hyamsj on 01/12/16.
  */
-public interface Room {
+public interface EndUser {
     int getId();
-
-    String getName();
-    int getQuantityOfSeats();
+    String getFirstName();
+    String getLastName();
+    String getMail();
     Set<Reservation> getReservations();
+
     void removeReservation(Reservation reservation);
-    void addReservation(Reservation reservation);
-    void removeAllReservations();
+    void addReservations(Reservation reservation);
+    void destroy();
+
+    String toString();
 }

@@ -7,8 +7,8 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.implementations;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Reservation;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Room;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -47,8 +47,7 @@ public class RoomImpl implements Room {
 
     @Override
     public Set<Reservation> getReservations() {
-        Set<Reservation> readOnlyReservations = Collections.unmodifiableSet(this.reservations);
-        return readOnlyReservations;
+        return Collections.unmodifiableSet(this.reservations);
     }
 
     @Override

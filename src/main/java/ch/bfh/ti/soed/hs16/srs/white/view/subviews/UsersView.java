@@ -7,17 +7,19 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.view.subviews;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
-import ch.bfh.ti.soed.hs16.srs.white.concept.View;
-import ch.bfh.ti.soed.hs16.srs.white.controller.AbstractTableController;
-import ch.bfh.ti.soed.hs16.srs.white.controller.AdminController;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractTableView;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.View;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractTableController;
 import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
-import ch.bfh.ti.soed.hs16.srs.white.view.AbstractView;
-import ch.bfh.ti.soed.hs16.srs.white.view.AdminView;
-import com.vaadin.ui.*;
-
-import javax.transaction.NotSupportedException;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractView;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.PopupView;
 import java.util.List;
 
 /**
@@ -34,7 +36,7 @@ public class UsersView extends AbstractTableView {
     @Override
     public Controller loadController() {
         this.abstractTableController = new AbstractTableController() {
-            EndUserModel endUserModel;
+            private EndUserModel endUserModel;
 
             @Override
             public void init() {

@@ -7,9 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.implementations;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Reservation;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Room;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

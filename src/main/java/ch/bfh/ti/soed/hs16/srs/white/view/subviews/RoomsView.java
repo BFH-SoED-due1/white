@@ -7,14 +7,19 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.view.subviews;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
-import ch.bfh.ti.soed.hs16.srs.white.concept.View;
-import ch.bfh.ti.soed.hs16.srs.white.controller.AbstractTableController;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractTableView;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Room;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.View;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractTableController;
 import ch.bfh.ti.soed.hs16.srs.white.model.RoomModel;
-import ch.bfh.ti.soed.hs16.srs.white.view.AbstractView;
-import com.vaadin.ui.*;
-
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractView;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.PopupView;
 import java.util.List;
 
 /**
@@ -31,7 +36,7 @@ public class RoomsView extends AbstractTableView {
     @Override
     public Controller loadController() {
         this.abstractTableController = new AbstractTableController() {
-            RoomModel roomModel;
+            private RoomModel roomModel;
 
             @Override
             public void init() {

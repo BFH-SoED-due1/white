@@ -7,7 +7,8 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractModel;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
 import ch.bfh.ti.soed.hs16.srs.white.implementations.EndUserImpl;
 

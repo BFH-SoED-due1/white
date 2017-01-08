@@ -17,7 +17,7 @@ public class ResourcesHelper {
     private String path;
 
     private ResourcesHelper() {
-        final String PROJECTNAME = "white";
+        final String PROJECT_NAME = "white";
 
         if (VaadinService.getCurrent() != null)
             path = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
@@ -27,7 +27,7 @@ public class ResourcesHelper {
             StringBuilder pathBuilder = new StringBuilder("/");
 
             for (String s:pathSplit) {
-                if (s.equals(PROJECTNAME)) {
+                if (s.equals(PROJECT_NAME)) {
                     pathBuilder.append(s).append("/src/main/webapp");
                     break;
                 }

@@ -7,9 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.View;
-import ch.bfh.ti.soed.hs16.srs.white.controller.AdminController;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractView;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.View;
 import ch.bfh.ti.soed.hs16.srs.white.view.subviews.CustomMenuItem;
 import ch.bfh.ti.soed.hs16.srs.white.view.subviews.RoomsView;
 import ch.bfh.ti.soed.hs16.srs.white.view.subviews.UsersView;
@@ -18,11 +18,12 @@ import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.VerticalLayout;
 
+import javax.naming.OperationNotSupportedException;
+
 /**
  * Created by arauzca on 24.12.16.
  */
 public class AdminView extends AbstractView {
-    private AdminController adminController;
     private VerticalLayout changeableContent;
 
     @Override
@@ -58,14 +59,12 @@ public class AdminView extends AbstractView {
 
     @Override
     public Controller loadController() {
-        adminController = new AdminController();
-        adminController.setUpdatableComponent(changeableContent);
-        return adminController;
+        return null;
     }
 
     @Override
-    public void restart() {
-
+    public void restart() throws OperationNotSupportedException {
+        throw new OperationNotSupportedException();
     }
 
     @Override

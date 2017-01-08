@@ -7,38 +7,48 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.View;
-import ch.bfh.ti.soed.hs16.srs.white.view.TemplateLayout;
-import com.vaadin.ui.UI;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.View;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * Created by arauzca on 20.12.16.
  */
 public class ApplicationController implements Controller {
     private static ApplicationController uniqueApplicationController = new ApplicationController();
-    private TemplateLayout templateLayout;
+    private VerticalLayout body; // Body from the TemplateLayout
 
+    // Constructors
     private ApplicationController() {
     }
 
     @Override
-    public void init() {
-    }
+    public void init() {}
 
+    // Public class methods
     public void loadView(View v) {
-        uniqueApplicationController.getTemplateLayout().updateBody(v.load());
+        uniqueApplicationController.updateBody(v.load());
     }
 
     public static ApplicationController getInstance() {
         return uniqueApplicationController;
     }
 
-    public void setTemplateLayout(TemplateLayout templateLayout) {
-        this.templateLayout = templateLayout;
+
+    public void setBody(VerticalLayout body) {
+        this.body = body;
     }
 
-    protected TemplateLayout getTemplateLayout() {
-        return templateLayout;
+    // Private class methods
+    private void updateBody(Component newBody) {
+        VerticalLayout body = uniqueApplicationController.getBody();
+
+        body.removeAllComponents();
+        body.addComponent(newBody);
+    }
+
+    private VerticalLayout getBody() {
+        return this.body;
     }
 }

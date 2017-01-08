@@ -7,9 +7,8 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.implementations;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Rights;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Reservation;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -24,7 +23,6 @@ public class EndUserImpl implements EndUser {
     private String lastName;
     private String mail;
     private Set<Reservation> reservations = new HashSet<>();
-    private Set<Rights> rights = new HashSet<>(); //TODO
 
     public EndUserImpl() {
         this((int) (Math.random() * 10000), null, null, null);
@@ -59,19 +57,7 @@ public class EndUserImpl implements EndUser {
 
     @Override
     public Set<Reservation> getReservations() {
-        Set<Reservation> readOnlyReservations = Collections.unmodifiableSet(this.reservations);
-        return readOnlyReservations;
-    }
-
-    @Override
-    public void setRights(Rights r) {
-        rights.add(r);
-    }
-
-    @Override
-    public Set<Rights> getRights() {
-        Set<Rights> userRight = Collections.unmodifiableSet(this.rights);
-        return userRight;
+        return Collections.unmodifiableSet(this.reservations);
     }
 
     @Override

@@ -5,9 +5,11 @@
  *
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package ch.bfh.ti.soed.hs16.srs.white.concept;
+package ch.bfh.ti.soed.hs16.srs.white.concept.interfaces;
 
 import com.vaadin.ui.Component;
+
+import javax.naming.OperationNotSupportedException;
 
 /**
  * Created by arauzca on 09.12.16.
@@ -15,5 +17,5 @@ import com.vaadin.ui.Component;
 public interface View {
     Component load();
     Controller loadController();
-    void restart();
+    void restart() throws OperationNotSupportedException;
 }

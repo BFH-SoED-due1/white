@@ -7,8 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.controller;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractController;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Right;
 import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
-import ch.bfh.ti.soed.hs16.srs.white.view.AdminView;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
@@ -29,7 +30,7 @@ public class LogInController extends AbstractController {
         this.endUserModel = EndUserModel.getInstance();
     }
 
-    public void login() {
+    public Right login() {
         String mail = mailField.getValue();
         String pw = passwordField.getValue();
 
@@ -42,16 +43,15 @@ public class LogInController extends AbstractController {
         } else {
             if (endUserModel.checkLogin(mail, pw)) {
                 messageLabel.setValue("Login Successful");
-                if (mail.equals("admin")) {
-                    AdminView adminView = new AdminView();
-                    adminView.loadController();
-                    ApplicationController appController = ApplicationController.getInstance();
-                    appController.loadView(adminView);
-                }
+
+                if (mail.equals("admin")) return Right.ADMIN;
+                else return Right.USER;
             } else {
                 messageLabel.setValue("Login Failed");
             }
         }
+
+        return Right.NOTUSER;
     }
 
     public void setMailField(TextField mailField) {

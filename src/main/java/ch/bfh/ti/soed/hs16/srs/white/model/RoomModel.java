@@ -7,8 +7,8 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Model;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractModel;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Room;
 import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
 import ch.bfh.ti.soed.hs16.srs.white.implementations.RoomImpl;
 
@@ -17,7 +17,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by hyamsj on 22/12/16.

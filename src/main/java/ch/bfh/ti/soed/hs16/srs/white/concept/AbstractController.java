@@ -5,10 +5,9 @@
  *
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package ch.bfh.ti.soed.hs16.srs.white.controller;
+package ch.bfh.ti.soed.hs16.srs.white.concept;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.view.AbstractView;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Controller;
 
 /**
  * Created by arauzca on 21.12.16.
@@ -26,12 +25,6 @@ public abstract class AbstractController implements Controller {
     public abstract void init();
 
     // Public methods
-    public void goBack(AbstractView lastView) {
-        lastView.restart();
-        ApplicationController applicationController = ApplicationController.getInstance();
-        applicationController.loadView(lastView);
-    }
-
     public void setMyView(AbstractView myView) {
         this.myView = myView;
     }

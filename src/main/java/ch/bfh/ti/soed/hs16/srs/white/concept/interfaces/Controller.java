@@ -5,14 +5,11 @@
  *
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package ch.bfh.ti.soed.hs16.srs.white.concept;
+package ch.bfh.ti.soed.hs16.srs.white.concept.interfaces;
 
 /**
- * Created by angelo on 10/20/16.
+ * Created by arauzca on 09.12.16.
  */
-public enum Rights {
-    CREATE,
-    READ,
-    UPDATE,
-    DELETE
+public interface Controller {
+    void init();
 }

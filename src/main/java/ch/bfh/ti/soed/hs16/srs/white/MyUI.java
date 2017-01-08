@@ -7,7 +7,6 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white;
 
-import ch.bfh.ti.soed.hs16.srs.white.controller.ApplicationController;
 import ch.bfh.ti.soed.hs16.srs.white.view.TemplateLayout;
 import com.vaadin.annotations.StyleSheet;
 import com.vaadin.annotations.Theme;
@@ -38,7 +37,7 @@ public class MyUI extends UI {
 		this.setContent(template.load());
 	}
 
-
+	// T
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
 	@VaadinServletConfiguration(ui = MyUI.class, productionMode = false)

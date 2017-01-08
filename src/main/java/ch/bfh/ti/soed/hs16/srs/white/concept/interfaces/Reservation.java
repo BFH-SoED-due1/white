@@ -5,7 +5,7 @@
  *
  * Distributable under GPL license. See terms of license at gnu.org.
  */
-package ch.bfh.ti.soed.hs16.srs.white.concept;
+package ch.bfh.ti.soed.hs16.srs.white.concept.interfaces;
 
 /**
  * Created by hyamsj on 01/12/16.
@@ -13,5 +13,6 @@ package ch.bfh.ti.soed.hs16.srs.white.concept;
 public interface Reservation {
     EndUser getOwner();
     Room getReservedRoom();
+
     void setReservedRoom(Room reservedRoom);
 }

@@ -7,8 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
-import ch.bfh.ti.soed.hs16.srs.white.concept.View;
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractView;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.ApplicationController;
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
 import com.vaadin.event.ShortcutAction;
@@ -74,7 +75,19 @@ public class LogInView extends AbstractView {
 
         btnLogin.setClickShortcut(ShortcutAction.KeyCode.ENTER);
         btnLogin.setTabIndex(3);
-        btnLogin.addClickListener(e -> logInController.login());
+        btnLogin.addClickListener(e -> {
+            switch (logInController.login()) {
+                case ADMIN:
+                    AbstractView adminView = new AdminView();
+                    ApplicationController appController = ApplicationController.getInstance();
+                    appController.loadView(adminView);
+                    break;
+                case USER:
+                    // Load the user view here
+                default:
+                    break;
+            }
+        });
 
         btnLogin.setStyleName("button-center");
         btnLogin.setTabIndex(4);
