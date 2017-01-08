@@ -8,6 +8,7 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.ApplicationController;
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
 import com.vaadin.event.ShortcutAction;
@@ -59,7 +60,8 @@ public class LogInView extends AbstractView {
     @Override
     public Component load() {
         final VerticalLayout formContainer = new VerticalLayout();
-        formContainer.setStyleName("absolute-center");
+        formContainer.setStyleName("login-form");
+        formContainer.setWidthUndefined();
 
         fieldMail.setCaption("Type your mail here:");
         fieldMail.setStyleName("textfield-form");
@@ -105,5 +107,10 @@ public class LogInView extends AbstractView {
         Responsive.makeResponsive(formContainer);
 
         return formContainer;
+    }
+
+    @Override
+    public void changeContent(View newContent) {
+
     }
 }

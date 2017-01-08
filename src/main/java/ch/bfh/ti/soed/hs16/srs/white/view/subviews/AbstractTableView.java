@@ -26,19 +26,25 @@ public abstract class AbstractTableView extends AbstractView {
         VerticalLayout usersLayout = new VerticalLayout();
         List data = abstractTableController.getData();
 
+        usersLayout.addComponent(createHeader());
+
         for (Object e : data) {
             Component itemView = createItemView(e);
             usersLayout.addComponent(itemView);
         }
+
+        usersLayout.setMargin(true);
+        usersLayout.setSpacing(true);
 
         return usersLayout;
     }
 
     @Override
     public void restart() {
-
+        throw new UnsupportedOperationException();
     }
 
     // New abstract methods
     public abstract Component createItemView(Object o);
+    public abstract Component createHeader();
 }

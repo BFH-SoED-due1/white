@@ -18,42 +18,23 @@ import com.vaadin.ui.UI;
 public class ApplicationController implements Controller {
     private static ApplicationController uniqueApplicationController = new ApplicationController();
     private TemplateLayout templateLayout;
-    private UI applicationUI;
 
     private ApplicationController() {
     }
 
-    public void init() throws NullPointerException {
-        if (uniqueApplicationController.getApplicationUI() == null) {
-            throw new NullPointerException("UI not yet loaded.");
-        }
-
-        templateLayout = new TemplateLayout(applicationUI);
-        uniqueApplicationController.setTemplateLayout(templateLayout);
-        templateLayout.load();
+    @Override
+    public void init() {
     }
 
     public void loadView(View v) {
         uniqueApplicationController.getTemplateLayout().updateBody(v.load());
     }
 
-    public void setUI(UI ui) {
-        uniqueApplicationController.setApplicationUI(ui);
-    }
-
     public static ApplicationController getInstance() {
         return uniqueApplicationController;
     }
 
-    protected UI getApplicationUI() {
-        return applicationUI;
-    }
-
-    protected void setApplicationUI(UI ui) {
-        applicationUI = ui;
-    }
-
-    protected void setTemplateLayout(TemplateLayout templateLayout) {
+    public void setTemplateLayout(TemplateLayout templateLayout) {
         this.templateLayout = templateLayout;
     }
 

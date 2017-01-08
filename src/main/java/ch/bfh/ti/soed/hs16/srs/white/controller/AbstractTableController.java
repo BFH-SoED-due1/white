@@ -22,4 +22,5 @@ public abstract class AbstractTableController extends AbstractController {
 
     // Abstact methods
     public abstract List getData();
+    public abstract boolean deleteData(int ID);
 }

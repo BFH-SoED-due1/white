@@ -9,6 +9,7 @@ package ch.bfh.ti.soed.hs16.srs.white.view;
 
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.View;
 import ch.bfh.ti.soed.hs16.srs.white.controller.RegistrationController;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
@@ -23,7 +24,7 @@ import com.vaadin.ui.HorizontalLayout;
  * Created by hyamsj on 04/12/16.
  */
 public class RegistrationView extends AbstractView {
-    private RegistrationController registrationController = new RegistrationController();
+    private RegistrationController registrationController;
     private TextField fieldFirstName = new TextField("First Name");
     private TextField fieldLastName = new TextField("Last Name");
     private TextField fieldEmail = new TextField("E-Mail Address");
@@ -41,7 +42,7 @@ public class RegistrationView extends AbstractView {
     @Override
     public Component load() {
         final VerticalLayout layout = new VerticalLayout();
-        layout.setStyleName("absolute-center");
+        layout.setStyleName("registration-form");
 
         fieldFirstName.setStyleName("textfield-form");
         fieldLastName.setStyleName("textfield-form");
@@ -74,6 +75,7 @@ public class RegistrationView extends AbstractView {
 
     @Override
     public Controller loadController() {
+        registrationController = new RegistrationController();
         registrationController.setMyView(this);
         registrationController.setFieldFirstName(fieldFirstName);
         registrationController.setFieldLastName(fieldLastName);
@@ -93,6 +95,11 @@ public class RegistrationView extends AbstractView {
         fieldEmail.clear();
         fieldPassword.clear();
         fieldConfirmPassword.clear();
+    }
+
+    @Override
+    public void changeContent(View newContent) {
+
     }
 
 }

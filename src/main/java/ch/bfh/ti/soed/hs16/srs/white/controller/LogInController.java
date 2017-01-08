@@ -9,7 +9,6 @@ package ch.bfh.ti.soed.hs16.srs.white.controller;
 
 import ch.bfh.ti.soed.hs16.srs.white.model.EndUserModel;
 import ch.bfh.ti.soed.hs16.srs.white.view.AdminView;
-import ch.bfh.ti.soed.hs16.srs.white.view.UserTableView;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;

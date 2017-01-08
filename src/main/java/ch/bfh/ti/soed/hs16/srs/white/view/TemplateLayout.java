@@ -8,15 +8,11 @@
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
 import ch.bfh.ti.soed.hs16.srs.white.concept.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.View;
+import ch.bfh.ti.soed.hs16.srs.white.controller.ApplicationController;
 import ch.bfh.ti.soed.hs16.srs.white.helpers.ResourcesHelper;
-import ch.bfh.ti.soed.hs16.srs.white.view.subviews.FooterView;
 import com.vaadin.server.FileResource;
-import com.vaadin.server.VaadinService;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.Image;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
 
 import java.io.File;
 
@@ -24,36 +20,25 @@ import java.io.File;
  * Created by arauzca on 20.12.16.
  */
 public class TemplateLayout extends AbstractView {
-    private UI applicationUI;
+    private ApplicationController applicationController;
     private VerticalLayout body = new VerticalLayout();
-
-    public TemplateLayout(UI applicationUI) {
-        this.applicationUI = applicationUI;
-    }
 
     @Override
     public Component load() {
-        VerticalLayout layout = new VerticalLayout();
-        String basePath = ResourcesHelper.getInstance().getPath();
-        FileResource resource = new FileResource(new File(basePath + "/images/uite_logo.png"));
-
-        Image imageLogo = new Image(null, resource);
-        imageLogo.setStyleName("logo-corner-300");
+        CustomLayout customLayout = new CustomLayout("template");
 
         LogInView logInView = new LogInView();
         body.addComponent(logInView.load());
 
-        Label footer = FooterView.getInstance();
-
-        layout.addComponents(imageLogo, body, footer);
-        applicationUI.setContent(layout);
-
-        return layout;
+        customLayout.addComponent(body, "body");
+        return customLayout;
     }
 
     @Override
     public Controller loadController() {
-        return null;
+        this.applicationController = ApplicationController.getInstance();
+        this.applicationController.setTemplateLayout(this);
+        return applicationController;
     }
 
     @Override
@@ -61,6 +46,10 @@ public class TemplateLayout extends AbstractView {
 
     }
 
+    @Override
+    public void changeContent(View newContent) {
+
+    }
 
     public void updateBody(Component newBody) {
         this.body.removeAllComponents();

@@ -192,17 +192,17 @@ Sprint 4: Tasks
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
 | <<No.>>      | <<Description>>                                                          |  << Plan>>   | << Actual>> |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
-|06.01\        |I can connect to the Database                                             |3             |6            |
-|06.02\        |I get an notification if the input is wrong                               |1             |2            |
-|06.03\        |Login Inputs can not alter the Database                                   |1             |4            |
+|06.01\        |I can connect to the Database\                                            |3\            |6\           |
+|06.02\        |I get an notification if the input is wrong\                              |1\            |2\           |
+|06.03\        |Login Inputs can not alter the Database                                   |1\            |4\           |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
 |11.           | As a non registered user I can request an account by filling out         |7             |4            |
 |              | a registrations form.                                                    |              |             |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
 |18.           | As a non-registered User I want to be able to register.                  |5             |4            |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
-|13.01\        | As an Administrator I want to see a table for users                      |1             |5            |
-|13.02\        | As an Administrator I want to see a table for rooms                      |1             |2            |
+|13.01\        | As an Administrator I want to see a table for users\                     |1\            |5\           |
+|13.02\        | As an Administrator I want to see a table for rooms\                     |1\            |2\           |
 *--------------+--------------------------------------------------------------------------+--------------+-------------:
 
 
