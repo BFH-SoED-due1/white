@@ -21,6 +21,7 @@ public class RoomTest {
 	@Test
 	public void testGettersAndSetters(){
 		Room room = new RoomImpl(1,"abc", 42);
+		assertEquals(1,room.getId());
 		assertEquals("abc", room.getName());
 		assertEquals(42, room.getQuantityOfSeats());
 
