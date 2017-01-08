@@ -7,7 +7,9 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.Right;
 import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Room;
 import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
 import org.junit.Test;
 
@@ -17,6 +19,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -33,7 +36,13 @@ public class ModelsTest {
         EndUser jarjarBinks = null;
         String jarjarEmail = "jarjar.binks@death.star";
         String jarjarPassword = "1234567890";
-        Connection myconn = DbConnection.getInstance().getConnection();
+        Connection myconn = null;
+
+        try {
+            myconn = DbConnection.getInstance().getConnection();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         assertTrue(endUserModel.saveUser("JarJar", "Binks", jarjarEmail, jarjarPassword));  // Test: create user to the database and add it to the model
         assertFalse(endUserModel.saveUser("JarJar", "Binks", jarjarEmail, jarjarPassword)); // Should be false cause the user already exists
@@ -80,15 +89,32 @@ public class ModelsTest {
     }
 
     @Test
-    public void testRoomModel(){
-        /*RoomModel roomModel = RoomModel.getInstance();
+    public void testRoomModel() throws SQLException {
+        RoomModel roomModel = RoomModel.getInstance();
         roomModel.loadModel();
         List<Room> rooms = roomModel.getData();
         Room room1 = null;
         roomModel.addData(room1);
-        assertTrue(rooms.contains(room1));*/
+        assertTrue(rooms.contains(room1));
 
+        assertNotNull(RoomModel.getInstance());
+
+        DbConnection connection = null;
+
+        try {
+            connection = DbConnection.getInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        assertNotNull(connection.getConnection());
     }
 
+    @Test
+    public void testRight() {
+        Right[] rights = Right.values();
+        assertEquals(Right.ADMIN, Right.valueOf("ADMIN"));
+        
 
+    }
 }

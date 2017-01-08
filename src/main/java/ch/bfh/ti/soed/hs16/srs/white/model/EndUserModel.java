@@ -12,6 +12,7 @@ import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.EndUser;
 import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
 import ch.bfh.ti.soed.hs16.srs.white.implementations.EndUserImpl;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,8 +37,13 @@ public class EndUserModel extends AbstractModel {
     }
 
     private EndUserModel() {
-        myconn = DbConnection.getInstance();
         data = new ArrayList<EndUser>();
+
+        try {
+            myconn = DbConnection.getInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

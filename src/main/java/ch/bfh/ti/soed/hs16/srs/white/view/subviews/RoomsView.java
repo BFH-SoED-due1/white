@@ -20,6 +20,8 @@ import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.PopupView;
+
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -41,7 +43,12 @@ public class RoomsView extends AbstractTableView {
             @Override
             public void init() {
                 roomModel = RoomModel.getInstance();
-                roomModel.loadModel();
+
+                try {
+                    roomModel.loadModel();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override

@@ -8,6 +8,8 @@
 package ch.bfh.ti.soed.hs16.srs.white.helpers;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,12 +20,11 @@ import java.util.Properties;
  * Created by arauzca on 07.12.16.
  */
 public class DbConnection {
-    private static final DbConnection uniqueConnection = new DbConnection();
+    private static DbConnection uniqueConnection;
     private Properties properties = new Properties();
     private Connection connection = null;
 
-    private DbConnection() {
-        try {
+    private DbConnection() throws SQLException, IOException{
             StringBuilder protocolBuilder = new StringBuilder("jdbc:derby:");
             ResourcesHelper resourcesHelper = ResourcesHelper.getInstance();
             String path = resourcesHelper.getPath();
@@ -39,20 +40,16 @@ public class DbConnection {
             String password = properties.getProperty("jdbc.password");
 
             connection = DriverManager.getConnection(protocol, username, password);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
-    public Connection getConnection() throws SQLException {
-        if (connection == null) {
-            throw new SQLException("Failed to initialize connection");
-        }
+    public Connection getConnection() {
         return this.connection;
     }
 
-    public static DbConnection getInstance() {
+    public static DbConnection getInstance() throws SQLException, IOException {
+        if (uniqueConnection == null) {
+            uniqueConnection = new DbConnection();
+        }
         return uniqueConnection;
     }
 

@@ -12,6 +12,7 @@ import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Room;
 import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
 import ch.bfh.ti.soed.hs16.srs.white.implementations.RoomImpl;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,38 +33,39 @@ public class RoomModel extends AbstractModel {
         return uniqueModel;
     }
 
-    private RoomModel(){
-        myconn = DbConnection.getInstance();
+    private RoomModel() {
         data = new ArrayList<Room>();
+
+        try {
+            myconn = DbConnection.getInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public boolean loadModel() {
+    public boolean loadModel() throws SQLException {
         Connection connection;
         PreparedStatement ps;
 
         boolean b = false;
         data.clear();
 
-        try {
-            connection = myconn.getConnection();
-            ps = connection.prepareStatement("SELECT * FROM room");
-            b = ps.execute();
+        connection = myconn.getConnection();
+        ps = connection.prepareStatement("SELECT * FROM room");
+        b = ps.execute();
 
-            ResultSet rs = ps.executeQuery();
+        ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) {
-                int id = rs.getInt(rs.findColumn("ID"));
-                String name = rs.getString(rs.findColumn("NAME"));
-                int seats = rs.getInt(rs.findColumn("SEAT_QUANTITY"));
-                Room room = new RoomImpl(id, name, seats);
-                data.add(room);
-            }
-
-            ps.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        while (rs.next()) {
+            int id = rs.getInt(rs.findColumn("ID"));
+            String name = rs.getString(rs.findColumn("NAME"));
+            int seats = rs.getInt(rs.findColumn("SEAT_QUANTITY"));
+            Room room = new RoomImpl(id, name, seats);
+            data.add(room);
         }
+
+        ps.close();
 
         return b;
     }
