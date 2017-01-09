@@ -1,0 +1,36 @@
+@startuml
+package concept{
+	Interface Controller
+	Interface EndUser
+	Interface Model
+	Interface Reservation
+	Interface Room
+	Interface View
+}
+
+package model{
+	models..|>Model
+}
+
+package controller{
+	class Controllers ..|>Controller
+}
+
+package view{
+	class Views..|> View
+}
+
+
+package implementations{
+	class ReservationImpl  ..|> Reservation
+	class EndUserImpl ..|> EndUser
+	class RoomImpl ..|> Room
+
+}
+
+
+
+EndUserImpl "1"   --o "*" ReservationImpl
+ReservationImpl "*" o-- "1"RoomImpl 
+
+@enduml

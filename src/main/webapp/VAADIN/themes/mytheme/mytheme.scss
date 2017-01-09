@@ -1,38 +1,283 @@
 // If you edit this file you need to compile the theme. See README.md for details.
-
 // Global variable overrides. Must be declared before importing Valo.
-
 // Defines the plaintext font size, weight and family. Font size affects general component sizing.
 //$v-font-size: 16px;
 //$v-font-weight: 300;
 //$v-font-family: "Open Sans", sans-serif;
-
 // Defines the border used by all components.
 //$v-border: 1px solid (v-shade 0.7);
 //$v-border-radius: 4px;
-
 // Affects the color of some component elements, e.g Button, Panel title, etc
 //$v-background-color: hsl(210, 0%, 98%);
 // Affects the color of content areas, e.g  Panel and Window content, TextField input etc
 //$v-app-background-color: $v-background-color;
-
 // Affects the visual appearance of all components
 //$v-gradient: v-linear 8%;
 //$v-bevel-depth: 30%;
 //$v-shadow-opacity: 5%;
-
 // Defines colors for indicating status (focus, success, failure)
 //$v-focus-color: valo-focus-color(); // Calculates a suitable color automatically
 //$v-friendly-color: #2c9720;
 //$v-error-indicator-color: #ed473b;
-
 // For more information, see: https://vaadin.com/book/-/page/themes.valo.html
 // Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
-
 @import "../valo/valo.scss";
 
 @mixin mytheme {
   @include valo;
+  //$primary-color: #283739;
+  //$secondary-color: #228896;
+  //$contrast-color: #A9C52F;
+  //$background-color: #F5F5F5;
+  $primary-color: #222831;
+  $secondary-color: #393E46;
+  $contrast-color: #00ADB5;
+  $background-color: #EEE;
+  $header_size: 100px;
+  $footer_size: 100px;
+  $size-16: 16px;
+  $size-32: 32px;
+  $size-48: 48px;
+  $size-50: 50px;
 
   // Insert your own theme rules here
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body, #wrap {
+    width: 100%;
+    height: 100%;
+    background-color: $background-color;
+    color: $primary-color;
+  }
+
+  body > #wrap {
+    height: auto;
+    min-height: 100%;
+  }
+
+  #header-region {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: $header_size;
+    max-height: $header_size;
+    background-color: $background-color;
+    z-index: 1;
+
+    .logo-corner-300 {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: url("./images/uite_logo.png") no-repeat 10px 10px;
+      background-size: 300px;
+    }
+  }
+
+  #body-region {
+    position: relative;
+    width: 100%;
+    padding-top: $header_size;
+    padding-bottom: $footer_size - 20px;
+    background-color: $background-color;
+
+    .menu-container {
+      max-width: 250px;
+      width: 250px;
+      height: auto;
+      position: relative;
+
+      .menu-item {
+        position: relative;
+        max-width: inherit;
+        width: 250px;
+        max-height: $size-50;
+        background-color: $secondary-color;
+        cursor: pointer;
+        border-bottom: 1px $background-color solid;
+
+        .menu-item-icon {
+          max-width: $size-50;
+          max-height: $size-50;
+          width: $size-50;
+          height: $size-50;
+          margin-right: 5px;
+          background-color: $background-color;
+        }
+
+        .menu-item-icon-users {
+          @extend .menu-item-icon;
+          @extend .icon-users;
+        }
+
+        .menu-item-icon-no-icon {
+          @extend .menu-item-icon;
+          @extend .icon-no-icon;
+        }
+
+        .menu-item-caption {
+          height: $size-50;
+          display: table-cell;
+          vertical-align: middle;
+          color: $background-color;
+          font-size: large;
+          font-weight: 700;
+        }
+      }
+
+      .menu-item:hover {
+        background-color: $contrast-color;
+
+        .menu-item-caption {
+          color: $primary-color;
+        }
+
+        .menu-item-icon {
+          background-color: $primary-color;
+        }
+      }
+    }
+
+    .changeable-container {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+
+      .delete-button {
+        @extend .icon-delete;
+        max-width: $size-16;
+        max-height: $size-16;
+        width: $size-16;
+        height: $size-16;
+        cursor: pointer;
+        background: $primary-color;
+      }
+
+      .delete-button:hover {
+        background: red;
+      }
+    }
+
+  }
+
+  #footer-region {
+    position: relative;
+    margin-top: -$footer_size;
+    width: 100%;
+    height: $footer_size;
+    clear: both;
+    display: table;
+    font-family: "Helvetica Neue", sans-serif;
+    background-color: $background-color;
+
+    .footer {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      padding-left: 10px;
+      padding-bottom: 10px;
+      display: table-cell;
+      vertical-align: bottom;
+    }
+  }
+
+  .v-customlayout {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: $background-color;
+    color: $primary-color;
+    overflow-y: scroll;
+  }
+
+  .login-form, .registration-form {
+    padding-top: 150px;
+    min-width: 100%;
+    min-height: 100%;
+    font-family: "Francois One", "Helvetica Neue", sans-serif;
+    color: $primary-color;
+  }
+
+  .horizontal-center {
+    margin: auto;
+    display: table;
+  }
+
+  .button-center {
+    @extend .horizontal-center;
+  }
+
+  .v-slot-textfield-form {
+    @extend .horizontal-center;
+  }
+
+  .icon-users {
+    mask-image: url("./images/users.png");
+    -webkit-mask-box-image: url("./images/users.png");
+    mask-type: alpha;
+  }
+
+  .icon-no-icon {
+    mask-image: url("./images/no_icon.png");
+    -webkit-mask-box-image: url("./images/no_icon.png");
+    mask-type: alpha;
+  }
+
+  .icon-delete {
+    mask-image: url("./images/delete.png");
+    -webkit-mask-box-image: url("./images/delete.png");
+    mask-type: alpha;
+  }
+
+  .table-parent {
+    display: table;
+
+    .display-table-cell {
+      min-width: 300px;
+      min-height: 30px;
+      margin: 0 1px;
+      display: table-cell;
+      vertical-align: middle;
+      padding-left: 10px;
+    }
+
+    .display-table-header {
+      @extend .display-table-cell;
+      padding: 0;
+      background-color: $secondary-color;
+      color: $background-color;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+
+  .clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+
+  .clearfix {
+    display: inline-block;
+  }
+
+  a, a:visited {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  a:hover {
+    color: $contrast-color;
+  }
 }

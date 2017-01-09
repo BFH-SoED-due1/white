@@ -3,7 +3,7 @@
 		-------------
 		Eric Dubuis
 		-------------
-		October 25, 2016
+		October 25, 2016; updated December 11, 2016
 
 Deliverable 2
 
@@ -97,6 +97,50 @@ example, in the Sprint Plan document, however.)
 	50 points at most per team member are attributed to this deliverable. Points may
 	not be equally distributed among team members. (However, this is the goal.)
 
+*-------------------------------------------+---------------*-----------------*
+| Item										| Max. points	| Points received |
+*-------------------------------------------+---------------*-----------------*
+| Product backlog items at the beginning\	| 		 6		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - 										| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Sprint backlog items / tasks\				| 		 6		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - PL and sprint backlog all in one okay	| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| List of finished print backlog items\		| 		 6		| 		 6		  |
+| COMMENTS:\								| 				| 				  |
+| - Okay									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Production classes and interfaces\		| 		 6		| 		 4		  |
+| COMMENTS:\								| 				| 				  |
+| - Unused fields\ 							| 				| 				  |
+| - @SuppressWarnings("unused")\ 			| 				| 				  |
+| - Rest: okay 								| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Working infrastructure\					| 		 8		| 		 8		  |
+| COMMENTS:\								| 				| 			  	  |
+| - UI: progress okay 						| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| JUnit tests, code coverage\				| 		 8		| 		 8		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Good 									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Checkstyle report\						| 		 6		| 		 4		  |
+| COMMENTS:\								| 				| 			  	  |
+| - Missing company header in Java files (-2) | 			| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Update of existing documents, if any\		| 		 4		| 		 4		  |
+| COMMENTS:\								| 				| 			  	  |
+| - None needed								| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Miscellaneous\							| 				| 		 		  |
+| COMMENTS:\								| 				| 			  	  |
+| - None									| 				| 				  |
+*-------------------------------------------+---------------*-----------------*
+| Total										| 		50		| 		48		  |
+*-------------------------------------------+---------------*-----------------*
+Distribution of points for this deliverable.
 
 
 * Deadline

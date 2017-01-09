@@ -1,21 +1,26 @@
+/*
+ * Copyright (c) 2017 Berner Fachhochschule, Switzerland.
+ *
+ * Project Smart Reservation System.
+ *
+ * Distributable under GPL license. See terms of license at gnu.org.
+ */
 package ch.bfh.ti.soed.hs16.srs.white.model;
 
-import ch.bfh.ti.soed.hs16.srs.white.concept.EndUser;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Reservation;
-import ch.bfh.ti.soed.hs16.srs.white.concept.Room;
-import ch.bfh.ti.soed.hs16.srs.white.entities.EndUserImpl;
-import ch.bfh.ti.soed.hs16.srs.white.entities.ReservationImpl;
-import ch.bfh.ti.soed.hs16.srs.white.entities.RoomImpl;
-import ch.bfh.ti.soed.hs16.srs.white.helpers.JAXBHelper;
+import ch.bfh.ti.soed.hs16.srs.white.concept.Right;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.EndUser;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Room;
+import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
 import org.junit.Test;
 
-import java.net.URISyntaxException;
-import java.util.Date;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
-import java.util.Set;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -24,103 +29,92 @@ import static org.junit.Assert.assertTrue;
 public class ModelsTest {
 
     @Test
-    public void testReservation() {
-        ReservationModel rm = new ReservationModel();                               // Initializing ReservationModel
-        EndUserModel um = new EndUserModel();                                       // Initializing EndUserModel
+    public void testEndUserModel() throws SQLException {
+        EndUserModel endUserModel = EndUserModel.getInstance();
+        endUserModel.loadModel();
+        List<EndUser> endUsers = endUserModel.getData();
+        EndUser jarjarBinks = null;
+        String jarjarEmail = "jarjar.binks@death.star";
+        String jarjarPassword = "1234567890";
+        Connection myconn = null;
 
-        EndUser e1 = new EndUserImpl(0, "Carlos", "Arauz", "carlos.arauz@bfh.ch");
-        EndUser e2 = new EndUserImpl(1, "Pablo", "Donan", "pablo.donan@bfh.ch");
-        EndUser e3 = new EndUserImpl(3, "Carlos", "Arauz", "carlos.arauz@bfh.ch");
-
-        System.out.println(e1.toString());
-
-        um.createEndUser(e1);
-        um.createEndUser(e2);
-        um.saveUsers();
-        um.loadEndUsers("users.xml");
-        um.loadEndUsers("nofile.xml");
-
-
-
-        List<EndUser> endUserList = um.getEndUsers();
-
-        assertFalse(e1.equals(null));
-        assertFalse(e1.equals(new String("test")));
-        assertFalse(e1.equals(e3));
-
-        Room r1 = new RoomImpl("",0);                                                       // Creating a room, later will be loaded with model
-
-
-        Date d1 = new Date();
-        Date d2 = new Date();
-
-        rm.makeReservation(e1, r1, d1);                                             // User e1 make some reservations
-        rm.makeReservation(e1, r1, d2);
-
-        assertEquals(r1.getReservations().size(), e1.getReservations().size());     // checks if the room and the user has the same amount of reservations
-        assertTrue(e1.getReservations().containsAll(r1.getReservations()));         // checks if the user and the room has the same reservations, that is because the user has reserved 2 times the same room
-
-        Set<Reservation> reservationsFromUser = ReservationModel.getReservationsFromUser(e1);   // get all reservations made from user e1
-
-
-        assertEquals(2, reservationsFromUser.size());                                       // test if the user has made 2 reservations
-
-        /* Cancel all reservations */
-        Set<Reservation> reservationsFromRoom = ReservationModel.getReservationsFromRoom(r1);
-        assertEquals(2, reservationsFromRoom.size());
-
-        Object[] ro = reservationsFromUser.toArray();
-
-
-        EndUser endUser             = new EndUserImpl(1, "Carlos", "Arauz", "abc@xyz.com"); // from now on these are method tests to: clone, hash and equals for most of their branches
-        //EndUser clonedEndUser       = e1.clone();
-
-        for (int i = 0; i < ro.length; i++) {
-            Reservation res = (ReservationImpl) ro[i];
-            rm.cancelReservation(res);
+        try {
+            myconn = DbConnection.getInstance().getConnection();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        assertEquals(0, e1.getReservations().size());                               // check if the 2 reservations were deleted from both the user and the room
-        assertEquals(0, r1.getReservations().size());
+        assertTrue(endUserModel.saveUser("JarJar", "Binks", jarjarEmail, jarjarPassword));  // Test: create user to the database and add it to the model
+        assertFalse(endUserModel.saveUser("JarJar", "Binks", jarjarEmail, jarjarPassword)); // Should be false cause the user already exists
 
-        //assertTrue( endUser.equals(e1) );
-        //assertTrue( endUser.equals(clonedEndUser) );
-        //assertEquals(endUser.hashCode(), clonedEndUser.hashCode());
+        assertTrue(endUserModel.checkLogin(jarjarEmail, jarjarPassword)); // checking if the new registered user can log in
 
-        /*EndUser e2 = new EndUserImpl(2, null, null, null);
-        EndUser cloneE2 = e2.clone();
+        for (EndUser e : endUsers) {
+            String email = e.getMail();
+            if (email.equals(jarjarEmail)) jarjarBinks = e;
+        }
 
-        um.createEndUser(e2);
-        assertTrue( e2.equals(um.getEndUserById(2)) );
+        if (jarjarBinks != null) {
+            assertTrue(endUserModel.deleteUser(jarjarBinks)); // succeeds, cause the user was already created
+            assertFalse(endUserModel.deleteUser(jarjarBinks)); // it's false because the user was just deleted
+        }
 
-        um.deleteEndUserById(1);
-        assertNull( um.getEndUserById(1) );
+        EndUser adminModel = null;
+        EndUser admin = endUserModel.getEndUserById(0);
 
-        assertFalse(endUser.equals(null));
-        assertFalse(endUser.equals(um));
-        assertFalse(endUser.equals(e2));
+        for (EndUser e : endUsers) {
+            if (e.getMail().equals("admin")) {
+                adminModel = e;
+                break;
+            }
+        }
 
-        assertTrue(e2.equals(cloneE2));
-
-        //e2.setFirstName("Jan");
-
-        //e2.setFirstName(null);
-        //e2.setLastName("Mustername");
-
-        //e2.setLastName(null);
-        //e2.setMail("cde@xyz.com");
-
-        assertFalse(cloneE2.equals(e2));*/
+        assertEquals(adminModel, admin);
+        assertNull(endUserModel.getEndUserById(-1));
+        assertTrue(endUserModel.getNotUsedID(myconn, 1) != 1);
+        assertTrue(endUserModel.getNotUsedID(myconn, 0) != 0);
 
     }
 
     @Test
-    public void testEndUserModel() throws URISyntaxException {
-        EndUserModel userModel = new EndUserModel();
-        JAXBHelper jaxb = new JAXBHelper();
+    public void testCheckLoginFunction() throws SQLException {
+        EndUserModel  endUserModel = EndUserModel.getInstance();
 
-        jaxb.getClass();
-
+        // Testing with false log in data
+        assertFalse(endUserModel.checkLogin("admin", "admin"));
+        assertFalse(endUserModel.checkLogin("", "1234567890"));
+        assertFalse(endUserModel.checkLogin("admin", ""));
+        assertFalse(endUserModel.checkLogin("no_user", "no_password"));
+        assertFalse(endUserModel.checkLogin("'admin'; DELETE FROM ENDUSER WHERE ID=1", "no_password")); // Trying to inject SQL
     }
 
+    @Test
+    public void testRoomModel() throws SQLException {
+        RoomModel roomModel = RoomModel.getInstance();
+        roomModel.loadModel();
+        List<Room> rooms = roomModel.getData();
+        Room room1 = null;
+        roomModel.addData(room1);
+        assertTrue(rooms.contains(room1));
+
+        assertNotNull(RoomModel.getInstance());
+
+        DbConnection connection = null;
+
+        try {
+            connection = DbConnection.getInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        assertNotNull(connection.getConnection());
+    }
+
+    @Test
+    public void testRight() {
+        Right[] rights = Right.values();
+        assertEquals(Right.ADMIN, Right.valueOf("ADMIN"));
+
+
+    }
 }

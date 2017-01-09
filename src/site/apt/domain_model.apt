@@ -22,10 +22,18 @@ Domain Model
 
     The model that was developed so far:
 
-[images/domain_model.svg]
+[images/DomainModel.png]
 
 * 2. Class diagram
 
-[images/ClassDiagram.png]
+[images/ClassDiagram-new.png]
+
+* 3. Design diagram
+
+[images/DesignDiagram.png]
+
+* 4. Package diagram
+
+[images/PackageDiagram.png]
 
 

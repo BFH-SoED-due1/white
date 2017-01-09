@@ -7,52 +7,122 @@
  */
 package ch.bfh.ti.soed.hs16.srs.white.view;
 
+import ch.bfh.ti.soed.hs16.srs.white.concept.AbstractView;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Controller;
+import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.View;
+import ch.bfh.ti.soed.hs16.srs.white.controller.ApplicationController;
 import ch.bfh.ti.soed.hs16.srs.white.controller.LogInController;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.PasswordField;
+import com.vaadin.event.ShortcutAction;
+import com.vaadin.server.Responsive;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.HorizontalLayout;
+
 
 /**
  * Created by arauzca on 25.10.16.
  */
-public class LogInView {
-    private LogInController controller;
+public class LogInView extends AbstractView {
+    // Controller of this View
+    private LogInController logInController;
 
-    public LogInView(LogInController controller) {
-        this.controller = controller;
+    // UI Components
+    private TextField fieldMail = new TextField();
+    private PasswordField fieldPassword = new PasswordField();
+    private Button btnLogin = new Button("Log in");
+    private Button btnRegister = new Button("Register");
+    private Label labelMessage = new Label("");
+
+    public LogInView() {
+        loadController();
     }
 
-    public void load(UI myUI) {
-        final VerticalLayout layout = new VerticalLayout();
+    @Override
+    public Controller loadController() {
+        logInController = new LogInController();
 
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
+        logInController.setMailField(fieldMail);
+        logInController.setPasswordField(fieldPassword);
+        logInController.setMessageLabel(labelMessage);
 
-        final TextField mail = new TextField();
-        mail.setCaption("Type your mail here:");
+        return logInController;
+    }
 
-        final PasswordField password = new PasswordField();
-        password.setCaption("Type your password here:");
+    @Override
+    public void restart() {
+        fieldMail.clear();
+        fieldPassword.clear();
+    }
 
-        Button button1 = new Button("Click Me");
-        button1.addClickListener( e -> {
-            controller.clickMe(layout, name);
-            controller.getLogin(mail, password);
-            myUI.setContent(new TableView().createTable());
+    @Override
+    public Component load() {
+        final VerticalLayout formContainer = new VerticalLayout();
+        formContainer.setStyleName("login-form");
+        formContainer.setWidthUndefined();
+
+        fieldMail.setCaption("Type your mail here:");
+        fieldMail.setStyleName("textfield-form");
+        fieldMail.setTabIndex(1);
+        fieldMail.focus();
+
+        fieldPassword.setCaption("Type your password here:");
+        fieldPassword.setTabIndex(2);
+        fieldPassword.setStyleName("textfield-form");
+
+        btnLogin.setClickShortcut(ShortcutAction.KeyCode.ENTER);
+        btnLogin.setTabIndex(3);
+        btnLogin.addClickListener(e -> {
+            switch (logInController.login()) {
+                case ADMIN:
+                    AbstractView adminView = new AdminView();
+                    ApplicationController appController = ApplicationController.getInstance();
+                    appController.loadView(adminView);
+                    break;
+                case USER:
+                    // Load the user view here
+                default:
+                    break;
+            }
         });
 
-        Button register = new Button("Register");
-        register.addClickListener(e -> {
-            myUI.setContent(new RegistrationView().register());
+        btnLogin.setStyleName("button-center");
+        btnLogin.setTabIndex(4);
+        btnLogin.setWidth("91px");
+
+        btnRegister.addClickListener(e -> {
+            RegistrationView rView = new RegistrationView(this);
+            ApplicationController applicationController = ApplicationController.getInstance();
+            applicationController.loadView(rView);
         });
+        btnRegister.setStyleName("button-center");
+        btnRegister.setWidth("91px");
+
+        labelMessage.setStyleName("horizontal-center");
+        labelMessage.setSizeUndefined();
 
 
-        layout.addComponents(name, mail, password, button1, register);
-        layout.setMargin(true);
-        layout.setSpacing(true);
+        final HorizontalLayout layoutButtons = new HorizontalLayout();
 
-        myUI.setContent(layout);
+        layoutButtons.addComponents(btnLogin, btnRegister);
+        layoutButtons.setStyleName("horizontal-center");
+        layoutButtons.setMargin(true);
+        layoutButtons.setSpacing(true);
+
+        formContainer.addComponents(fieldMail, fieldPassword, layoutButtons, labelMessage);
+        formContainer.setMargin(true);
+        formContainer.setSpacing(true);
+
+        Responsive.makeResponsive(formContainer);
+
+        return formContainer;
+    }
+
+    @Override
+    public void changeContent(View newContent) {
+
     }
 }

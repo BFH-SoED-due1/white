@@ -20,3 +20,11 @@ mvn clean package jetty:run-war
 +-----+
 
 	Then open your browser at open <<<http://localhost:8080/>>>.
+	After that you can login as Admin with the following email and password:
+
++-----+
+
+email: admin
+password: 123
+
++-----+

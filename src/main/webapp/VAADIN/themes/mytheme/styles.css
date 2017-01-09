@@ -12967,3 +12967,222 @@ div.v-layout.v-horizontal.v-widget {
 	width: 19px;
 	overflow: hidden;
 }
+
+.mytheme * {
+	margin: 0;
+	padding: 0;
+}
+
+.mytheme html, .mytheme body, .mytheme #wrap {
+	width: 100%;
+	height: 100%;
+	background-color: #EEE;
+	color: #222831;
+}
+
+.mytheme body > #wrap {
+	height: auto;
+	min-height: 100%;
+}
+
+.mytheme #header-region {
+	position: fixed;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100px;
+	max-height: 100px;
+	background-color: #EEE;
+	z-index: 1;
+}
+
+.mytheme #header-region .logo-corner-300 {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: url("./images/uite_logo.png") no-repeat 10px 10px;
+	background-size: 300px;
+}
+
+.mytheme #body-region {
+	position: relative;
+	width: 100%;
+	padding-top: 100px;
+	padding-bottom: 80px;
+	background-color: #EEE;
+}
+
+.mytheme #body-region .menu-container {
+	max-width: 250px;
+	width: 250px;
+	height: auto;
+	position: relative;
+}
+
+.mytheme #body-region .menu-container .menu-item {
+	position: relative;
+	max-width: inherit;
+	width: 250px;
+	max-height: 50px;
+	background-color: #393E46;
+	cursor: pointer;
+	border-bottom: 1px #EEE solid;
+}
+
+.mytheme #body-region .menu-container .menu-item .menu-item-icon, .mytheme #body-region .menu-container .menu-item .menu-item-icon-users, .mytheme #body-region .menu-container .menu-item .menu-item-icon-no-icon {
+	max-width: 50px;
+	max-height: 50px;
+	width: 50px;
+	height: 50px;
+	margin-right: 5px;
+	background-color: #EEE;
+}
+
+.mytheme #body-region .menu-container .menu-item .menu-item-caption {
+	height: 50px;
+	display: table-cell;
+	vertical-align: middle;
+	color: #EEE;
+	font-size: large;
+	font-weight: 700;
+}
+
+.mytheme #body-region .menu-container .menu-item:hover {
+	background-color: #00ADB5;
+}
+
+.mytheme #body-region .menu-container .menu-item:hover .menu-item-caption {
+	color: #222831;
+}
+
+.mytheme #body-region .menu-container .menu-item:hover .menu-item-icon, .mytheme #body-region .menu-container .menu-item:hover  .menu-item-icon-users, .mytheme #body-region .menu-container .menu-item:hover  .menu-item-icon-no-icon {
+	background-color: #222831;
+}
+
+.mytheme #body-region .changeable-container {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.mytheme #body-region .changeable-container .delete-button {
+	max-width: 16px;
+	max-height: 16px;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	background: #222831;
+}
+
+.mytheme #body-region .changeable-container .delete-button:hover {
+	background: red;
+}
+
+.mytheme #footer-region {
+	position: relative;
+	margin-top: -100px;
+	width: 100%;
+	height: 100px;
+	clear: both;
+	display: table;
+	font-family: "Helvetica Neue", sans-serif;
+	background-color: #EEE;
+}
+
+.mytheme #footer-region .footer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	display: table-cell;
+	vertical-align: bottom;
+}
+
+.mytheme .v-customlayout {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-color: #EEE;
+	color: #222831;
+	overflow-y: scroll;
+}
+
+.mytheme .login-form, .mytheme .registration-form {
+	padding-top: 150px;
+	min-width: 100%;
+	min-height: 100%;
+	font-family: "Francois One", "Helvetica Neue", sans-serif;
+	color: #222831;
+}
+
+.mytheme .horizontal-center, .mytheme .button-center, .mytheme .v-slot-textfield-form {
+	margin: auto;
+	display: table;
+}
+
+.mytheme .icon-users, .mytheme #body-region .menu-container .menu-item .menu-item-icon-users {
+	mask-image: url("./images/users.png");
+	-webkit-mask-box-image: url("./images/users.png");
+	mask-type: alpha;
+}
+
+.mytheme .icon-no-icon, .mytheme #body-region .menu-container .menu-item .menu-item-icon-no-icon {
+	mask-image: url("./images/no_icon.png");
+	-webkit-mask-box-image: url("./images/no_icon.png");
+	mask-type: alpha;
+}
+
+.mytheme .icon-delete, .mytheme #body-region .changeable-container .delete-button {
+	mask-image: url("./images/delete.png");
+	-webkit-mask-box-image: url("./images/delete.png");
+	mask-type: alpha;
+}
+
+.mytheme .table-parent {
+	display: table;
+}
+
+.mytheme .table-parent .display-table-cell, .mytheme .table-parent .display-table-header {
+	min-width: 300px;
+	min-height: 30px;
+	margin: 0 1px;
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 10px;
+}
+
+.mytheme .table-parent .display-table-header {
+	padding: 0;
+	background-color: #393E46;
+	color: #EEE;
+	text-align: center;
+	font-weight: 600;
+}
+
+.mytheme .clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.mytheme .clearfix {
+	display: inline-block;
+}
+
+.mytheme a, .mytheme a:visited {
+	color: #222831;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.mytheme a:hover {
+	color: #00ADB5;
+}
