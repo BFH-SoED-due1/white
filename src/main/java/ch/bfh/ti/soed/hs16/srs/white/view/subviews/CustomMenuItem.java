@@ -33,10 +33,6 @@ public class CustomMenuItem extends HorizontalLayout {
         this.addComponents(imageIcon, itemCaption);
     }
 
-    public CustomMenuItem(String caption) {
-        this(caption, "");
-    }
-
     public void addClickListener(LayoutClickListener event) {
         this.addLayoutClickListener(event);
     }

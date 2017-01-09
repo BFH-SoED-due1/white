@@ -52,10 +52,5 @@ public class Organization {
     }
 
 
-//    public void destroy() {
-//        rooms.forEach((room)->room.removeAllReservations());
-//        rooms.clear();
-//    }
-
 
 }

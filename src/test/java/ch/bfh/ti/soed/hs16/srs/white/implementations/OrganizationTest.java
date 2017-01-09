@@ -34,20 +34,6 @@ public class OrganizationTest {
         assertFalse(organization.getEndUsers().contains(userRemove));
     }
 
-
-
-   /* @Test
-    public void removeEndUserDeletesReservations(){
-        Organization organization = new Organization();
-        EndUserImpl endUser = new EndUserImpl();
-        ReservationImpl reservation = new ReservationImpl();
-        organization.addEndUser(endUser);
-        endUser.addReservations(reservation);
-        organization.removeEndUser(endUser);
-        assertEquals(0, endUser.getReservations().size());
-        assertFalse(endUser.getReservations().contains(reservation));
-    }*/
-
     @Test
     public void testRemoveOneRoomDoesntRemoveAnotherOne(){
         Organization org = new Organization();

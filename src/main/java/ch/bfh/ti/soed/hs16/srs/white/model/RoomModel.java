@@ -12,7 +12,6 @@ import ch.bfh.ti.soed.hs16.srs.white.concept.interfaces.Room;
 import ch.bfh.ti.soed.hs16.srs.white.helpers.DbConnection;
 import ch.bfh.ti.soed.hs16.srs.white.implementations.RoomImpl;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

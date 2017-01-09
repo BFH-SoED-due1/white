@@ -28,7 +28,6 @@ public class RoomTest {
 		Reservation reservation = new ReservationImpl();
 		room.addReservation(reservation);
 		// TODO: Following test fails since wrong:
-		// assertEquals(reservation, room.getReservations());
 		assertTrue(room.getReservations().contains(reservation));
 
 	}

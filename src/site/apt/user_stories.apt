@@ -30,24 +30,24 @@ roles users have when using the Smart Reservation System (SRS).
 *----------+----------------------------------------------------------------------------+--------------+-------------:
 | <<No.>>  | <<Description>>                                                            | <<Success>>  | <<Failed>>  |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 00       | As an administrator I want to manage Buildings (CRUD) so that\             | ...          | ...         |
+| 00       | As an administrator I want to manage Buildings (CRUD) so that\             |              | X           |
 |          | reservation objects have a structure.                                      |              |             |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 01       | As an administrator I want to manage reservation objects (CRUD).           | ...          | ...         |
+| 01       | As an administrator I want to manage reservation objects (CRUD).           | X            |             |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 02       | As an administrator I want to have a list of the reservation objects,\     | ...          | ...         |
+| 02       | As an administrator I want to have a list of the reservation objects,\     | X            |             |
 |          | so that I can manage them easily.                                          |              |             |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 03       | As an administrator I want to see reservations of the Users.               | ...          | ...         |
+| 03       | As an administrator I want to see reservations of the Users.               |              | X           |
 *---------+-----------------------------------------------------------------------------+--------------+-------------:
-| 04       | As an administrator I want to manage users (CRUD).                         | ...          | ...         |
+| 04       | As an administrator I want to manage users (CRUD).                         | X            |             |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 05       | As an administrator I want to manage the rights of the User.               | ...          | ...         |
+| 05       | As an administrator I want to manage the rights of the User.               |              | X           |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 06       | As an administrator I want to manage the registrations of new Users and\   | ...          | ...         |
+| 06       | As an administrator I want to manage the registrations of new Users and\   |              | X           |
 |          | assign the rights accordingly.                                             |              |             |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 07       | As an administrator I want to manage seasons to that we can adapt rent\    | ...          | ...         |
+| 07       | As an administrator I want to manage seasons to that we can adapt rent\    |              | X           |
 |          | prices accordingly.                                                        |              |             |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
 ~~*--+---------------------------------------------------------+-----------+-----------+
@@ -60,18 +60,18 @@ roles users have when using the Smart Reservation System (SRS).
 *----------+----------------------------------------------------------------------------+--------------+-------------:
 | <<No.>>  | <<Description>>                                                            | <<Success>>  | <<Failed>>  |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 08      | As a user I want to reserve rooms in a specific time frame.                 | ...          | ...         |
+| 08      | As a user I want to reserve rooms in a specific time frame.                 |              | X           |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 09      | As a user I want to cancel reservations.                                    | ...          | ...         |
+| 09      | As a user I want to cancel reservations.                                    |              | X           |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 10      | As a user I want to see what is where and to what availability.             | ...          | ...         |
+| 10      | As a user I want to see what is where and to what availability.             |              | X           |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 11      | As a user I want to see information of the different reservation objects.   | ...          | ...         |
+| 11      | As a user I want to see information of the different reservation objects.   | X            |             |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 12      | As a user I want to see by whom a room was reserved, so that I can ask\     | ...          | ...         |
+| 12      | As a user I want to see by whom a room was reserved, so that I can ask\     |              | X           |
 |         | for possible changes.                                                       |              |             |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 13      | As a user I want to see reservation prices (to rent rooms).                 | ...          | ...         |
+| 13      | As a user I want to see reservation prices (to rent rooms).                 |              | X           |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
 ~~*--+---------------------------------------------------------+-----------+-----------+
 ~~|14|As a user I want to reserve additional equipment.|...|...|
@@ -81,9 +81,9 @@ roles users have when using the Smart Reservation System (SRS).
 *----------+----------------------------------------------------------------------------+--------------+-------------:
 | <<No.>>  | <<Description>>                                                            | <<Success>>  | <<Failed>>  |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 14      | As a non registered user i want to be able to register a new account.       | ...          | ...         |
+| 14      | As a non registered user i want to be able to register a new account.       | X            |             |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
-| 15      | As a non registered user I want to see reservation prices (to rent rooms).  | ...          | ...         |
+| 15      | As a non registered user I want to see reservation prices (to rent rooms).  |              | X           |
 *----------+----------------------------------------------------------------------------+--------------+-------------:
 
 * 3. Open Issues
