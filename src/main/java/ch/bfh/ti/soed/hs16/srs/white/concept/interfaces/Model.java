@@ -13,9 +13,13 @@ import java.util.List;
 /**
  * Created by arauzca on 07.12.16.
  */
+// TODO Bad name
 public interface Model {
-    List getData();
+	// TODO Do not use raw type
+	List getData();
 
-    boolean loadModel() throws SQLException;
-    void addData(Object o);
+	// TODO Bad method for concept, throws SQLException
+	boolean loadModel() throws SQLException;
+
+	void addData(Object o);
 }

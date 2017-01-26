@@ -19,37 +19,40 @@ import java.util.Properties;
  * Created by arauzca on 07.12.16.
  */
 public class DbConnection {
-    private static DbConnection uniqueConnection;
-    private Properties properties = new Properties();
-    private Connection connection = null;
+	private static DbConnection uniqueConnection;
+	private Properties properties = new Properties();
+	private Connection connection = null;
 
-    private DbConnection() throws SQLException, IOException{
-            StringBuilder protocolBuilder = new StringBuilder("jdbc:derby:");
-            ResourcesHelper resourcesHelper = ResourcesHelper.getInstance();
-            String path = resourcesHelper.getPath();
+	private DbConnection() throws SQLException, IOException {
+		// TODO Your computation of the JDBC connection string does not work
+		// universally.
+		StringBuilder protocolBuilder = new StringBuilder("jdbc:derby:");
+		ResourcesHelper resourcesHelper = ResourcesHelper.getInstance();
+		// String path = resourcesHelper.getPath();
+		String path = "src/main/webapp/";
 
-            protocolBuilder.append(path).append("/ReservationSystem");
+		protocolBuilder.append(path).append("ReservationSystem");
 
-            InputStream propertiesFile = new FileInputStream(path + "/db.properties");
-            properties.load(propertiesFile);
-            propertiesFile.close();
+		InputStream propertiesFile = new FileInputStream(path + "db.properties");
+		properties.load(propertiesFile);
+		propertiesFile.close();
 
-            String protocol = protocolBuilder.toString();
-            String username = properties.getProperty("jdbc.username");
-            String password = properties.getProperty("jdbc.password");
+		String protocol = protocolBuilder.toString();
+		String username = properties.getProperty("jdbc.username");
+		String password = properties.getProperty("jdbc.password");
 
-            connection = DriverManager.getConnection(protocol, username, password);
-    }
+		connection = DriverManager.getConnection(protocol, username, password);
+	}
 
-    public Connection getConnection() {
-        return this.connection;
-    }
+	public Connection getConnection() {
+		return this.connection;
+	}
 
-    public static DbConnection getInstance() throws SQLException, IOException {
-        if (uniqueConnection == null) {
-            uniqueConnection = new DbConnection();
-        }
-        return uniqueConnection;
-    }
+	public static DbConnection getInstance() throws SQLException, IOException {
+		if (uniqueConnection == null) {
+			uniqueConnection = new DbConnection();
+		}
+		return uniqueConnection;
+	}
 
 }
