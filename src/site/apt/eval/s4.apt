@@ -3,7 +3,7 @@
 		-------------
 		Eric Dubuis
 		-------------
-		December 4, 2016
+		December 4, 2016; updated January 25, 2017.
 
 
 Deliverable 4
@@ -130,29 +130,80 @@ hours) as soon as you'll have finished the first task.
 	<<100>> points at most per team member are attributed to this deliverable. Points may
 not be equally distributed among team members. (However, this is the goal.)
 
-*-------------------------------------------+---------------*-----------------*
-| Item										| Max. points	| Points received |
-*-------------------------------------------+---------------*-----------------*
-| Product backlog items at the beginning\	| 		 6		| 		 		  |
-| COMMENTS:\								| 				| 				  |
-| - All in one: okay						| 				| 				  |
-*-------------------------------------------+---------------*-----------------*
-| Sprint backlog items / tasks and their states\ | 	6		| 		 		  |
-| COMMENTS:\								| 				| 				  |
-| - Okay									| 				| 				  |
-*-------------------------------------------+---------------*-----------------*
-| Package structure meets SOLID principles, JDepend\ | 8	| 		 		  |
-| COMMENTS:\								| 				| 				  |
-| - No cycles: good 						| 				| 				  |
-*-------------------------------------------+---------------*-----------------*
-| Miscellaneous\							| 				| 		 2		  |
-| COMMENTS:\								| 				| 			  	  |
-| - ...\									| 				| 				  |
-| - Compensation of "Code quality must be improved (-2)"\ | | 				  |
-| - WetWareCode: Compensation (+10)			| 				| 				  |
-*-------------------------------------------+---------------*-----------------*
-| Total										| 		50		| 				  |
-*-------------------------------------------+---------------*-----------------*
+*---------------------------------------------------------------+---------------*-----------------*
+| Item															| Max. points	| Points received |
+*---------------------------------------------------------------+---------------*-----------------*
+| Product backlog items at the beginning						| 		5 		| 		 4		  |
+| COMMENTS:\													| 				| 				  |
+| -	Cannot see which of PB items are completed (-1)				| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| The sprint backlog items / task list with task estimates	 	| 	 	10		| 		10 		  |
+| COMMENTS:\													| 				| 				  |
+| - 															| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| The list of finished sprint backlog items / tasks and			| 		5		|   	5		  |
+| measurements of your efforts (in hours)\ 						| 				|   			  |
+| COMMENTS:\													| 				| 				  |
+| - Good														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Stable structure in terms of Java packages respecting the		| 		10 		| 		 6		  |
+| SOLID design principles\ 										| 		 		| 		 		  |
+| COMMENTS:\													| 				| 				  |
+| - Bad implementation/concept: Model (should not throw SQLException) (-2) \ | 	| 				  |
+| - Bad method toString() in interface (-1) \ 					| 				| 				  |
+| - Do not use raw type (-1) \ 									| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Production Java interfaces and classes for logical			| 		10		| 		10 		  |
+| and persistence layer\										| 		 		| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Okay								 						| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Production Java interfaces and classes for the user			| 		5 		| 		 5		  |
+| interface layer\												| 		 		| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Okay														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| JUnit test classes for the core layers of the software,		| 		10 		| 		10 		  |
+| coverage: 90% (UI components excluded)\						| 		 		| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Okay (however, not many test methods...)					| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| The JDepend report\											| 		5		| 		5 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Okay														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| The Checkstyle report \										| 		5		| 		5 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Okay														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| JavaDoc quality \												| 		5		| 		 0		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Virtually non-existent (-5)									| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Running application, UI, functionality\						| 		20		| 		 12		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Connection URL computation failed (-2)\						| 				| 				  |
+| - Bad DB location (in source tree) (-2)\						| 				| 				  |
+| - Registering + Login screen only								| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Software (architecture) documentation\						| 		10		| 		10 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - Document missing (-10)										| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Miscellaneous 1\												| 				| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - None														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Miscellaneous 2\												| 				| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - None														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Miscellaneous 3\												| 				| 		 		  |
+| COMMENTS:\													| 				| 			  	  |
+| - None														| 				| 				  |
+*---------------------------------------------------------------+---------------*-----------------*
+| Total															| 		100		| 		82		  |
+*---------------------------------------------------------------+---------------*-----------------*
 Distribution of points for this deliverable.
 
 
